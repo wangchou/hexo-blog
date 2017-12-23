@@ -1,0 +1,24 @@
+---
+title: 程式設計法與人生 (Programming Paradigm and Life)
+tags:
+  - functional programming
+  - oop
+date: 2015-11-21 04:06:00
+---
+
+<div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">解決問題流行的方式有兩種。</span></div>
+
+1.  <span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">想出第一步要做什麼，然後開始做、做完再想下一個。</span>
+2.  <span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">是把大問題切成數個小問題一直切到夠小，然後再一個一個做。</span><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">第一個<span style="line-height: normal;"> </span>叫做命令式程式設計、第二個<span style="line-height: normal;"> </span>叫做宣告式程式設計。</span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">第一個<span style="line-height: normal;"> </span>想要回答「怎麼做」、第二個<span style="line-height: normal;"> </span>想要回答「做什麼」。</span>
+<span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">第一個 是工程師做的事、第二個是設計師做的事。</span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">第一個<span style="line-height: normal;"> </span>叫做敏捷式開發流程、第二個<span style="line-height: normal;"> </span>叫做瀑布式開發流程。</span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><span style="line-height: normal;">第一個</span> <span style="line-height: normal;">叫做</span> connecting the dots<span style="line-height: normal;">、第二個叫做</span> <span style="line-height: normal;">設計研究。</span></span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">第一個<span style="line-height: normal;"> </span>叫貪婪演算法、第二個叫分治演算法。</span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">第一個<span style="line-height: normal;"> </span>叫活在當下、第二個叫有遠見。</span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">第一個 把問題序列化、第二個把問題 心智圖化。</span></div><div style="color: #454545; font-size: 15px; line-height: normal; min-height: 18px;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">
+</span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><span style="line-height: normal;">用第一種的人想出了外掛</span> - <span style="line-height: normal;">設計模式</span> (design pattern)<span style="line-height: normal;">。</span></span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><span style="line-height: normal;">用第二種的人想出了外掛</span> - <span style="line-height: normal;">狀態機和不變資料</span> (state machine + immutable data)<span style="line-height: normal;">。</span></span></div><div style="color: #454545; font-size: 15px; line-height: normal; min-height: 18px;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">
+</span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">還記得大二演算法排序的作業，標準解法是先做第二個<span style="line-height: normal;"> (qsort)</span>、然後問題變小了就接第一個<span style="line-height: normal;"> (shell sort)</span>。</span></div><div style="color: #454545; font-size: 15px; line-height: normal; min-height: 21px;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">
+</span></div><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">各有各的使用時機，冷靜分析後我從函數式編程的信仰者回到無神論者了。</span></div><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">第一個適合許多未知、經常變動的問題。</span>
+<span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">第二個適合有固定答案、行為可預測的問題。</span>
+<span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">
+</span><div style="color: #454545; font-size: 15px; line-height: normal;"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">嗯嗯 不過當然用 react 還是比其他好 XD</span>
+<span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">---</span>
+<span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">目標努力 iterative 的 functional programming~&nbsp;</span>
+<span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">=&gt; 每次用第一個方法切一小塊問題，用第二個方法解。</span>
+
+</div>

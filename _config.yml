@@ -7,7 +7,7 @@ title: 閃閃發光的地下城筆記
 subtitle:
 description:
 author: kindalu
-language: zh
+language: en
 timezone: Asia/Taipei
 
 # URL
@@ -40,8 +40,9 @@ future: true
 highlight:
   enable: true
   line_number: true
+  backtick_code_block: true
   auto_detect: false
-  tab_replace:
+  tab_replace: '  '
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -77,4 +78,5 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:wangchou/wangchou.github.io.git

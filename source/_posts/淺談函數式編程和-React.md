@@ -6,12 +6,11 @@ tags:
 date: 2016-01-29 16:08:00
 ---
 
-<pre>
-函數是有定義介面的運算單元。
+函數是有定義介面的運算單元。<space><space><space><space>
 
-介面有用的地方是抽象化，你只需要知道輸入什麼(Input)、會得到什麼輸出(Output)，你不用知道它細節是怎麼做到的。其實有個超能力在背後，也沒關係。當然這是在沒有碰到 bug 和有良好文件、不需要修改它的前提之下。
+介面有用的地方是抽象化，你只需要知道輸入什麼(Input)、會得到什麼輸出(Output)，你不用知道它細節是怎麼做到的。其實有個超能力在背後，也沒關係。當然這是在沒有碰到 bug 和有良好文件、不需要修改它的前提之下。<space><space><space><space>
 
-再強調一次，你只需要理解輸入(input)會對應到什麼輸出(output)就夠了。
+再強調一次，你只需要理解輸入(input)會對應到什麼輸出(output)就夠了。<space><space>
 
 ### <u>問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？</u>
 
@@ -83,4 +82,3 @@ date: 2016-01-29 16:08:00
 延伸閱讀：
 [deku: functional alternative to react ](https://segment.com/blog/deku-our-functional-alternative-to-react/)
 [how to use classes and sleep at night (in a functional way)](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4#.jkarowg5n)
-</pre>

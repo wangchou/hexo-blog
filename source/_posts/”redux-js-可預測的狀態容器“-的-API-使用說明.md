@@ -27,13 +27,14 @@ action := 一個像 Event 一樣有 type 屬性的 javascript object
 reducer := 一個輸入 state 和 action、回傳新 state 的函數, (state, action) -> new_state
 
 但 store 是 redux 中唯一一個狀態容器的名字。其實 API 等同於下方這樣子
-1\. _by Redux.createStore(**reducer**)_ 等於 _by Redux(**reducer**)_
-2\. _by store.getState()_ 等於 _by Redux.getState()_
-3\. _by store.subscribe(**listener**)_ 等於 _by Redux.addListener(**listener**)_
-3\. _by store.dispatch(**action**)_ 等於 _by Redux.dispatch(**action**)_
-4\. _by store.replaceReducer(**reducer**)_ 等於 _by Redux.replaceReducer(**reducer**)_
-5\. _by 無直接 API，只能透過 combineReducers 來組成root reducer，然後用 root reducer 來建全域 store_
-
+```js
+1. _by Redux.createStore(**reducer**)_ 等於 _by Redux(**reducer**)_
+2. _by store.getState()_ 等於 _by Redux.getState()_
+3. _by store.subscribe(**listener**)_ 等於 _by Redux.addListener(**listener**)_
+3. _by store.dispatch(**action**)_ 等於 _by Redux.dispatch(**action**)_
+4. _by store.replaceReducer(**reducer**)_ 等於 _by Redux.replaceReducer(**reducer**)_
+5. _by 無直接 API，只能透過 combineReducers 來組成root reducer，然後用 root reducer 來建全域 store_
+```
 一個狀態容器 = 狀態 + reducer，但 reducer 中可以指定初始狀態、所以一個 reducer 其實可以定義一個狀態容器、等同於一個狀態容器，所以 API 等同於下方這樣子
 ```js
 1. _by Redux.initContainer(**reducer**)_ 等於 _by Redux(**container**)_

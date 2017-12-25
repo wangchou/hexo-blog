@@ -8,10 +8,11 @@ tags:
 date: 2016-01-28 22:05:00
 ---
 
-<div class="separator" style="clear: both; text-align: center;">  <iframe allowfullscreen="" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/m3svKOdZijA/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/m3svKOdZijA?feature=player_embedded" width="320"></iframe></div> <pre>
+<iframe allowfullscreen="" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/m3svKOdZijA/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/m3svKOdZijA?feature=player_embedded" width="320"></iframe>
+
 ----------------------------------------------------------
 Curried Function：到拿到所有需要的參數前... 一直回傳新函數的函數。
-<pre style="background-color: rgba(0,0,0,0.1); padding: 10px;">
+```js
 var add = function(x) {
   return function(y) {
     return x + y;
@@ -53,7 +54,15 @@ var firstTwoLetters = _.map(_.first(2));
 
 //更函數化的寫法
 _.map(_.first(2), ['jim', 'kate']) //['ji', 'ka'] 
-</pre> => Underscore.js的參數排列法讓currying變得不可能  總結currying的優點有下面四個： 1\. 一般化函數、要傳的變數名消失了 2\. 透過給不同參數就可以生成不同的函數 3\. 更簡潔的定義 4\. 讓函式的組合/合成 (composition) 變的可能  ---------------------------------------------------------- 組合/合成 (composition):用多個函數來組成新函數  簡單的例子，用 first() 和 reverse() 來合成 last 函數 <pre style="background-color: rgba(100,100,0,0.1); padding: 10px;">
+``` 
+=> Underscore.js的參數排列法讓currying變得不可能  總結currying的優點有下面四個： 
+* 一般化函數、要傳的變數名消失了 
+* 透過給不同參數就可以生成不同的函數 
+* 更簡潔的定義 
+* 讓函式的組合/合成 (composition) 變的可能  
+---------------------------------------------------------- 
+組合/合成 (composition):用多個函數來組成新函數  簡單的例子，用 first() 和 reverse() 來合成 last 函數 
+```js
 var last = function(xs) {
   var sx = reverse(xs);
   return first(sx);
@@ -62,7 +71,9 @@ var last = function(xs) {
 var last = compose(first, reverse);
 
 last([1,2,3]) //3
-</pre> 另一個例子，chain backwardly <pre style="background-color: rgba(100,100,0,0.1); padding: 10px;">
+``` 
+另一個例子，chain backwardly 
+```js
 var wordCount = function(str){
   var words = split(' ', str);
   return length(words);
@@ -70,13 +81,23 @@ var wordCount = function(str){
 
 var wordCount = compose(length, split(' '));
 wordCount("There is a way to save the world") //8
-</pre> Category Theory: 多個函數組合(compose)，作用域互相對應的理論。Connecting the dot.  總結組合： 1\. 能從其他函數組成新函數 2\. 組合過程中把參數藏起來 3\. 極為高階的寫程式 4\. 有數學理論在後面支持  ------------------------------------------------------------------ Functors  map 打開了後面的 object 然後做一些事、再放回 object <pre style="background-color: rgba(0,100,100,0.1); padding: 10px;">
+``` 
+**Category Theory:** 多個函數組合(compose)，作用域互相對應的理論。Connecting the dot.  總結組合：
+* 能從其他函數組成新函數 
+* 組合過程中把參數藏起來 
+* 極為高階的寫程式 
+* 有數學理論在後面支持  
+------------------------------------------------------------------ 
+Functors  map 打開了後面的 object 然後做一些事、再放回 object 
+```js
 var plus1 = function(x){ return x + 1 }
 
 plus1([3]) //wrong!!
 
 map(plus1, [3]) //4
-</pre> 剛剛舉的例子，map 只能操作 array object、但下面試圖用 map 操作所有 object <pre style="background-color: rgba(0,100,100,0.1); padding: 10px;">
+```
+剛剛舉的例子，map 只能操作 array object、但下面試圖用 map 操作所有 object 
+```js
 map(plus1, MyObject(3)) //MyObject(4)
 
 MyObject = function(val) {
@@ -86,7 +107,9 @@ MyObject = function(val) {
 MyObject.prototype.map = function(f) {
   return MyObject(f(this.val));
 }
-</pre> 如果對 object 定義了 map function，它就變成 functor null check的例子、Dynamic Safety： <pre style="background-color: rgba(0,100,100,0.1); padding: 10px;">
+``` 
+如果對 object 定義了 map function，它就變成 functor null check的例子、Dynamic Safety： 
+```js
 map(plus1, Maybe(3)) //=> Maybe(4)
 
 map(plus1, Maybe(null)) //=> Maybe(null)
@@ -98,7 +121,9 @@ Maybe = function(val) {
 Maybe.prototype.map = function(f){
   return this.val ? Maybe(f(this.val)) : Maybe(null);
 }
-</pre> 把 ES6 promise 變 functor 的例子 <pre style="background-color: rgba(0,100,100,0.1); padding: 10px;">
+``` 
+把 ES6 promise 變 functor 的例子 <pre style="background-color: rgba(0,100,100,0.1); padding: 10px;">
+```js
 map(populateTable, $.ajax.get('/posts');
 
 Promise.prototype.map = function(f) {
@@ -108,7 +133,9 @@ Promise.prototype.map = function(f) {
   });
   return promise;
 }
-</pre> 再來一個和 html 合作的例子：對有和沒有 user_login 的情況下，更新歡迎頁面。 <pre style="background-color: rgba(0,100,100,0.1); padding: 10px;">
+``` 
+再來一個和 html 合作的例子：對有和沒有 user_login 的情況下，更新歡迎頁面。 <pre style="background-color: rgba(0,100,100,0.1); padding: 10px;">
+```js
 $div = $("#myDiv");
 
 //dot 會把 user.name 拿出來
@@ -117,4 +144,12 @@ var getGreeting = compose(concat('Welcome '), dot('name'));
 var updateGreetingHtml = compose($div.html, getGreeting);
 
 map(updateGreetingHtml, Maybe(App.current_user));
-</pre> underscore 不讓人 extend map  總結 functor 能: 1\. 改變函數的行為卻不用變動 open/closed principle 2\. 不光只有 map, 還有 reduce & compose 3\. 直覺且非私人的 api 4\. free formulas 5\. 動態型別安全/檢查  ------------------------------------------------------------- 總結：underscore 能變得更加 functional。希望有更 functional 的 library </pre>
+``` 
+underscore 不讓人 extend map  總結 functor 能: 
+* 改變函數的行為卻不用變動 open/closed principle 
+* 不光只有 map, 還有 reduce & compose *
+直覺且非私人的 api 
+* free formulas 
+* 動態型別安全/檢查 
+------------------------------------------------------------- <space><space>
+總結：underscore 能變得更加 functional。希望有更 functional 的 library

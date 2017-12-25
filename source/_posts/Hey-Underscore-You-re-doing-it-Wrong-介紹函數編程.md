@@ -140,7 +140,7 @@ Promise.prototype.map = function(f) {
   return promise;
 }
 ``` 
-再來一個和 html 合作的例子：對有和沒有 user_login 的情況下，更新歡迎頁面。 <pre style="background-color: rgba(0,100,100,0.1); padding: 10px;">
+再來一個和 html 合作的例子：對有和沒有 user_login 的情況下，更新歡迎頁面。 
 ```js
 $div = $("#myDiv");
 

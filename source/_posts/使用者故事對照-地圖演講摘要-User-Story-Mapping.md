@@ -10,7 +10,12 @@ tags:
 date: 2016-05-28 22:07:00
 ---
 
-<div class="separator" style="clear: both; text-align: center;"><iframe allowfullscreen="" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/AorAgSrHjKM/0.jpg" frameborder="0" height="320" src="https://www.youtube.com/embed/AorAgSrHjKM?feature=player_embedded" width="480"></iframe></div><pre>摘要：
+<div class="separator" style="clear: both; text-align: center;">
+  <iframe allowfullscreen="" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/AorAgSrHjKM/0.jpg" frameborder="0" height="320" src="https://www.youtube.com/embed/AorAgSrHjKM?feature=player_embedded" width="480">
+  </iframe>
+</div>
+
+### 摘要：
 「使用者故事地圖」是一種資訊架構。其目的是讓人們在設計的過程中更容易「透過溝通來建立共識、對系統有全盤理解」。結構的設計讓人可以持續修改、組織、引用、溝通設計的想法，重視呈現每個想法間的相互關係。是「便利貼技巧」+「使用者中心設計」+「敏捷開發」的整合運用。
 —
 講者：Jeff Patton, 來自敏捷的社群、當過軟體工程師、專案經理。
@@ -48,7 +53,7 @@ date: 2016-05-28 22:07:00
 但我們會碰到一個問題，很多很棒的想法，怎麼轉變成 scrum 中開發的故事裡 (1~3天可完成、可被估計、可測試、可被展示...)。這邊講一個故事，Rachel 是90年代的一個專案經理，當他去跟工程師問說每個的工作項目是為了誰、為什麼要這樣做的同時？發現工程師瞬間就開始說這個東西好像不是一定要做、也許在別的地方做會更好。很多人根本就沒把事情想通。於是，Rachel 就寫了一個聰明的溝通小卡：
 
 標題：寫一個好的故事
-As (who)<who> to (do what) <what>so that (why)<why> 的例子，當作一個容易開始討論的起點 (conversation starter)
+As (who) to (do what) so that (why) 的例子，當作一個容易開始討論的起點 (conversation starter)
 
 就這樣定義出了常見使用者故事的格式(story template)，但如果用這個格式當作 scrum 中的 backlog 項目，應該會覺得有些卡卡的，因為這個格式本來不是拿來這樣子用的。它本來是在探索階段，拿來引導討論那些大的好想法的，那些要被分成更多 backlog 的項目。
 
@@ -70,5 +75,3 @@ As (who)<who> to (do what) <what>so that (why)<why> 的例子，當作一個容�
 Q &amp; A 從一小時二十分開始
 —
 就結構來說是把敏捷開發流程中的待辦事項列表用一個某種可變網狀系統資訊結構取代。
-
-</why></what></who></pre>

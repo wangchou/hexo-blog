@@ -157,5 +157,7 @@ underscore 不讓人 extend map  總結 functor 能:
 直覺且非私人的 api 
 * free formulas 
 * 動態型別安全/檢查 
-------------------------------------------------------------- <space><space>
+
+------------------------------------------------------------- 
+
 總結：underscore 能變得更加 functional。希望有更 functional 的 library

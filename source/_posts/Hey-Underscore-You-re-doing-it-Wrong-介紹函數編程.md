@@ -128,7 +128,7 @@ Maybe.prototype.map = function(f){
   return this.val ? Maybe(f(this.val)) : Maybe(null);
 }
 ``` 
-把 ES6 promise 變 functor 的例子 <pre style="background-color: rgba(0,100,100,0.1); padding: 10px;">
+把 ES6 promise 變 functor 的例子 
 ```js
 map(populateTable, $.ajax.get('/posts');
 

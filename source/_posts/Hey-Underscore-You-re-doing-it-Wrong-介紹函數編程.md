@@ -23,7 +23,9 @@ var add3 = add(3);
 add3(4); //return 7
 
 add(3)(4); //weird thing 
-</pre> autoCurry in Wu.js will save us <pre style="background-color: rgba(0,0,0,0.1); padding: 10px;">
+``` 
+autoCurry in Wu.js will save us 
+```js
 var add = function(x, y) {
   return x + y;
 }.autoCurry();
@@ -32,7 +34,9 @@ var add3 = add(3);
 add3(4) //7
 
 add(3,5) //8 => not weird any more!!!
-</pre> 但我們為什麼需要 curry？參考下面這個組成新 function getTheOdds 的例子。 有了currying，我們可以透過給予不同參數來建立新的函數。 <pre style="background-color: rgba(0,0,0,0.1); padding: 10px;">
+``` 
+但我們為什麼需要 curry？參考下面這個組成新 function getTheOdds 的例子。 有了currying，我們可以透過給予不同參數來建立新的函數。 
+```js
 var filter = function(f, xs) {
   return xs.filter(f);
 }
@@ -41,7 +45,9 @@ filter(isOdd, [1,2,3,4,5]) // [1,3,5]
 
 var getTheOdds = filter(isOdd);
 getTheOdds([1,2,3,4,5]) //[1,3,5]
-</pre> 再來一個用loadash的酷例子 <pre style="background-color: rgba(0,0,0,0.1); padding: 10px;">
+``` 
+再來一個用loadash的酷例子 
+```js
 //沒用currying、不函數化的寫法
 var firstTwoLetters = function(words){
   return _.map(words, function(word){

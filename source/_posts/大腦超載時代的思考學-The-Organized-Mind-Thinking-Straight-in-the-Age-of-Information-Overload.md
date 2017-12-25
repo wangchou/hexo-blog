@@ -10,9 +10,12 @@ tags:
 date: 2016-06-01 18:32:00
 ---
 
-<div class="separator" style="clear: both; text-align: center;"><iframe width="480" height="320" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/aR1TNEHRY-U/0.jpg" src="https://www.youtube.com/embed/aR1TNEHRY-U?feature=player_embedded" frameborder="0" allowfullscreen></iframe></div>
- <pre>
-演講摘要：
+<div class="separator" style="clear: both; text-align: center;">
+  <iframe width="480" height="320" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/aR1TNEHRY-U/0.jpg" src="https://www.youtube.com/embed/aR1TNEHRY-U?feature=player_embedded" frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+### 演講摘要：
 
 我今天要講三個大主題：多工(Multitasking)、延伸大腦(Brain Extender)、決策(Decision Making)。
 
@@ -45,5 +48,3 @@ date: 2016-06-01 18:32:00
 Motor learning怎樣會有效率？光只是重複性的運動並不是很有效，你必須有意識地、有目的的做那件事。音樂家叫這個故意練習(deliberately practice)。鋼琴家想像練習時不光只有想像手指怎麼動，還要思考音符的意義.... blah blah practice mindfully. 
 
 夜晚六到十小時的睡眠，會經過一個記憶鞏固(memory consolidation)的過程，神經元會重新重現、處理白天有過的神經活動，然後想辦法讓它進入長期記憶、連結、 儲存他們。如果你白天很努力的工作四到五個小時，取得很多的資訊。這時候小睡一下，大腦會進入睡眠階段，開啟了神經元重啟的按鈕，讓某些迴路變的放鬆，你會預先處理一些資訊讓晚上再做後續處理。
-
-</pre>

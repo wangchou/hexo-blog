@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>閃閃發光的地下城筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="閃閃發光的地下城筆記">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="閃閃發光的地下城筆記">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="閃閃發光的地下城筆記">
+<meta name="twitter:creator" content="@kindalu">
+  
+    <link rel="alternate" href="/atom.xml" title="閃閃發光的地下城筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">閃閃發光的地下城筆記</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/wangchou">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Redux-簡介：我終於看穿它了" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/06/Redux-簡介：我終於看穿它了/" class="article-date">
+  <time datetime="2016-11-06T08:41:00.000Z" itemprop="datePublished">2016-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/06/Redux-簡介：我終於看穿它了/">Redux 簡介：我終於看穿它了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Redux 把資料放在 store 中，它是個資料庫，但 Redux 不用常見的 SQL 介面，要開發者自訂指令介面。這介面有簡單的標準，他只接受 Action = {type, payload} 物件的輸入。在傳統的資料庫中，下了 SQL 資料庫就會照指令，來更新資料庫，但在 Redux 中，開發者需要自行寫一個 Reducer 來處理輸入的 Action 指令。和傳統資料庫不同的是，這個 Redux 資料庫變了之後，Redux 會 push 變動了的資料到訂閱者 (一個 Javascript 物件)，行為就像是 Baas 服務 (parse, firebase) 常見的 push message。Redux 和傳統關聯式資料庫最大的不同點是，Redux 用 JS 物件或變數來儲存資料；傳統資料庫因為有大量相關的資料，所以用資料表 (data array, data table) 來儲存。這讓 Redux 的狀態樹一直呈現很難視覺化的情況，目前樹狀結構最好的視覺化就是，Browser 的 dev tool 了。如果能把 Redux state 架構轉成 html，也許會有很好的效果也不一定。 另一個選項是 D3.js 的 Simple Tree。</p>
+<h1 id="簡單的資料庫列表比較"><a href="#簡單的資料庫列表比較" class="headerlink" title="簡單的資料庫列表比較"></a>簡單的資料庫列表比較</h1><p><img src="https://4.bp.blogspot.com/-sSMTas7I6yk/WB7sjh1ylYI/AAAAAAAA45k/E5kCkDcf1F0ZYe-Xf4Yv4KGeIfnnowtUwCLcB/s1600/Screen%2BShot%2B2016-11-06%2Bat%2B4.37.19%2BPM.jpg" alt=""></p>
+<p>Redux 和 Firebase 的資料儲存方式很相近，可以很好的一起運用整合。也許進一步把 client 的資料再切為，Server Data 和 View Data 的設定會更好。Server Data will always synced with Firebase.</p>
+<p>另外一提，Redux 實際上就只是個資料庫 (Model)，只有 input &amp; outpt，哪有什麼 middleware… in the middle of what？Redux-middleware 實際上是一部分的 controller，跟 Redux 無關啊。React 也包含 Controller。畫成圖來表示<br><img src="https://3.bp.blogspot.com/-iuJOF3G-YCg/WB7sNkMUYfI/AAAAAAAA45g/-T3GLN0twVwBwHN2hm9_ncod0-qlG4krQCLcB/s1600/Screen%2BShot%2B2016-11-06%2Bat%2B4.38.55%2BPM.jpg" alt=""></p>
+<p>Flux 把傳統的 MVC 切成了上行和下行，形成了一個循環資料流，它最大的優點是有 paper 支持的 Single Source of Truth。想像一下 bug 在房間亂跑好抓還是… bug 繞著固定的圈圈跑，bug 繞圈圈跑的話，在原地等 bug 跑過來就抓到了。</p>
+<p>總結一下，說穿了 Redux 就是一個啥功能都沒有的資料庫設計規範。也因此，他的文件很長、相關模組很多。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/06/Redux-簡介：我終於看穿它了/" data-id="cjblkzckn000cxq9ki689mvp8" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MobX/">MobX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Model/">Model</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firebase/">firebase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redux/">redux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-見樹又見林-書摘-心得" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/23/見樹又見林-書摘-心得/" class="article-date">
+  <time datetime="2016-07-23T01:01:00.000Z" itemprop="datePublished">2016-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/23/見樹又見林-書摘-心得/">見樹又見林 - 書摘 &amp; 心得</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="書摘的摘要"><a href="#書摘的摘要" class="headerlink" title="書摘的摘要"></a>書摘的摘要</h3><p>社會學是一種讓你看到社會現象背後，整體樣貌的工具，看清楚後就可以尋求一點一滴的改變方法。</p>
+<p>用個人主義的方式理解世界，將無法理解社會現象。</p>
+<p>社會學中有很多概念工具。社會體系中有文化與結構。社會文化中有符號、信念、價值觀、規範、物質環境。社會結構中有角色、與角色的關係與資源分配。</p>
+<p>「社會文化」是社會學中的一個概念工具。文化中的「符號/概念」限制了你對現實世界的理解，我們處於文化中只能透過符號/概念在心中建構出來的真實理解，如果文化中沒有這概念，就無法理解。文化中的「信念、價值觀與規範」，是人判斷哪個選擇比較好、做或不做的依歸，形塑了社會體系中每個角色最小阻力的路。文化中的「物質環境」，像是電視機、手機、農業、工業社會，都會被文化影響、也會影響文化。人常忘了自己的文化只是眾多文化的一種，透過意識到文化盒子的存在，人可以看到自己社會體系的侷限、也可以想像在不同社會體系的世界會怎樣。</p>
+<p>「社會結構」是社會學中的另一個概念工具。角色有天生的像是性別、後天的像是職業和情境式的像是行人。人同時會參與多個社會體系，在每個社會體系中扮演一個以上的角色。透過角色關係，每個角色有他的權力與限制，有他阻力最小的路。角色位置和佔據角色位置的人是兩個不同的概念，扮演這個角色的人可以決定要不要，這個角色在社會中被期待的方式走。所以理解一個人的行為時要，理解是結構性的原因，還是個人的選擇。每個社會體系會賦予每個「角色位置」，想要的內容(ex: 資本社會：財富)，和獲得這些內容的合法機會。如果想要的和機會相差太大，這個角色就會容易陷入困境，而對社會體系有四種偏差行為，創新、反叛、退縮與脫離。</p>
+<p>人透過行動參與社會體系，社會體系改變現實中的物質環境，物質環境影響人，形成一個循環、這就是人類的生態學。</p>
+<p>自我和其他文化中的概念一樣，只是一個被文化符號建構出來的真實。我們是誰，不在於自己本身，而是由我們對社會體系的參與以及學習如何參與的社會化過程來決定的。</p>
+<p>社會體系就像一齣電視劇，劇本為文化、場景為物質世界、角色為社會體系中的身份。我們就是其中的演員，大多數人從個人主義的視角看世界，忘了我們可以透過挑劇本、挑角色。如果沒有意識到社會體系的盒子，就只能一直演同個劇本、同個角色，嗯 你的演員人生入戲太深就這樣子了。自己現在的劇本、現在的角色是什麼呢？現在扮演的角色、社會體系真的存在嗎？有其他人也參與這個你想像中的社會體系嗎？還是只是你自己以為而已。透過理解社會學去理解你生活中的劇本，好好演出你的人生、改變其他人的人生。</p>
+<p>第一次說「我愛你」不僅是取悅他人而已，而是一種邀請，一種意圖的表示，想要改變一種社會關係。</p>
+<h3 id="本書介紹-p1-p7"><a href="#本書介紹-p1-p7" class="headerlink" title="本書介紹 p1~p7"></a>本書介紹 p1~p7</h3><p>社會學存在的理由是我們身處的社會中總有一些無所謂的苦難的現象。碰到這個時候，我們會問：「為什麼會這樣？」這時社會學成為找到這問題答案的一個工具，幫助我們理解事情如何相互牽連，看清楚後，也就能尋求一點一滴的改變方法。社會學無法讓你全盤理解整個世界，但可以思辨如何參與在生活中的環境，像是社區、家庭和公司。</p>
+<p>社會學提供的是一種有系統的思考方式。實踐社會學，使得我們觀察、思索、理解這個世界，改變這個我們身處其中的世界。社會學中有很多理論，都由社會學的本質核心觀念而來。這本書不介紹一大堆理論和專有名詞，但會介紹這個核心觀念，讓人能從社會學的角度來看這個世界。</p>
+<h3 id="第一章-森林、樹群，還有那件事-p8-p42"><a href="#第一章-森林、樹群，還有那件事-p8-p42" class="headerlink" title="第一章 - 森林、樹群，還有那件事 p8~p42"></a>第一章 - 森林、樹群，還有那件事 p8~p42</h3><p>多元的社會中的差異會形成特權的基礎，不平等持續的現象，是因為大家都不願意討論特權。因為討論時，享有特權的人會覺得自己被攻擊、沒有特權的人害怕可能會被報復所以不討論。「享有特權的人討論時覺得自己被攻擊」的原因是他們用個人主義的方式看世界，這看法在美國尤其普遍。個人主義的問題是他們忽略了社會中的現象，除了每個個人之外也受社會中的各種關係影響。社會學要研究森林、樹、樹與樹之間的關係。我們叫我們參與的那廣大一點的世界「社會體系」。家庭、公司都是社會體系的一種。社會體系中的角色不等於佔據那個角色的人，個人主義的角度無法理解這點，所以當我們在討論特權「角色」時，他們會以為我們在攻擊「佔據這個角色的個人」。我們必須理解社會體系不同於我，我也不是社會體系本身。</p>
+<p>社會體系中會有社會規則，形成每個人面對到最小阻力的路。如果只把社會體系的這些規則當作權威，當成人外在的系統，忘了人是社會體系的一部份、社會規則運作需要人配合，就會忘記自己是可以改變社會體系的。</p>
+<p>人參與社會體系會發生什麼事取決於系統本身和運作規則、人在其中的作為。體系影響參與者的想法、感受和行為，靠著就是鋪陳出這些阻力最小的路，雖然任何時刻參與其中的人都有無限多種事可做，但我們通常都不這麼想，只看到體系中很有限的幾個可能性。人也許會同時參與多個體系，然後不同體系中最小阻力的路互相衝突，讓人覺得進退兩難，社會學叫這種情況「角色衝突」</p>
+<p>個人主義對理解社會現象沒有用，因為他只看到人、沒看到社會體系。個人主義沒法解釋，不同社會間同個現象個人的差異(ex: 自殺率)。社會學會問「在 xxx 社會體系中，yyy 會覺得做 zzz 是最小阻力的路的原因是什麼？」靠這個問題來探究比自己範圍更大一點的外在情境。但要注意，我們無法只看人，就理解體系的運作；我們也無法只看體系的運作，就理解人的一舉一動。個人主義的人常會問：「是怎樣的人會做出如此殘暴的事？」。把社會現象簡化為「什麼樣的人」的緣由，忽略這些人所身處的社會體系。</p>
+<p>在社會體系中總是會和最小阻力的路有所牽連，因為即使你不照社會規則走，其他人會照社會規則來對待你。</p>
+<p>社會現象，和參與人有關、又跟他們無關。無關是因為並不是他們創造出這個種族歧視的社會。有關是因為，對於如何參與這種族歧視的社會，人總是還有一些選擇。</p>
+<p>那社會中的人該如何呢？透過社會學我們可以知道，不用為社會問題感到自責，因為這不是我的錯。社會學也讓人了解到如何透過參與這個社會，讓我做的選擇如何影響這個社會體系。</p>
+<p>個人式的解決之道，無法處理社會問題。社會學對改變社會，比起個人式採用更為複雜的模型，同時著眼社會生活的不同層次。透過體系的層次、個人的層次一起看社會問題。</p>
+<p>社會體系影響人，人的行為影響社會體系的運作，就這樣不停循環著。每個人對同個社會體系的理解的、對同個社會體系的心理模型也不同，理解每個人的想法、理解每個體系。這就是社會學要研究的事。</p>
+<p>簡單說：實踐社會學會問兩個問題，「人們參與之中的是什麼？」「人們又如何參與？」兩個問題相互碰撞。本書比較著重第一個問題，對於社會體系的分析。</p>
+<h3 id="第二章-文化-—-符號、觀念和生活的種種-p43-p95"><a href="#第二章-文化-—-符號、觀念和生活的種種-p43-p95" class="headerlink" title="第二章 - 文化 — 符號、觀念和生活的種種 p43~p95"></a>第二章 - 文化 — 符號、觀念和生活的種種 p43~p95</h3><p>人透過詞彙/符號，把感官經驗在心中重新建構一個真實。然後在這個詞彙建構真實的基礎上思考、判斷、做出行為。然而人沒有意識到在心中建構真實時，人也正在選擇。這選擇是一個創造性描述的過程(像是翻譯)，選擇詞彙的同時也就建構出了新的真實。</p>
+<p>詞彙從哪裡來？答案是，我所參與的社會是有文化的，那文化主要包含符號，特別是語言中的詞彙和各種想法。文化同時是物質的，像是社會生活中的「東西」、也是非物質性的，透過符號和想法來思考並且賦予任何事物意義。</p>
+<p>當我們命名一個感官上的東西，例如「雷聲」，在最簡單的意義下，我們藉著對它的感受，創造了與它的關係。如果沒有命名，我們不會注意到它、會被人有限的注意力忽略。我們的注意力只能集中在一小部分上，唯有透過符號命名，我們才能把注意力集中在這些事物上，我們才能建構一個真實。蘇珊.朗格：『用符號去建構真實，是人類之所以能成為人類最重要的關鍵』</p>
+<p>(os: 世界的大小由想像的範圍決定。符號像是 support vector/basis 界定了世界的邊界，用符號把真實投影在心中世界。)</p>
+<p>語言可以建構各式各樣的真實，包括我們沒有感官經驗的真實。像是我們不能聽到、聞到或觸摸到所謂的愛。我們看到他人的行為，但行為本身不是愛，而是我們把它想成：「這行為意味著這個人愛我們。」像是大多數人沒能直接觀察到的「原子」，光是透過語言文字就足夠建構出我們視為的現實。在這個意義下，符號的力量遠遠超過它標示的東西。</p>
+<p>對於同一件事人有不同的理解版本。每個人心中對於每個符號的意義有不同理解。</p>
+<p>每個文化的第一個目的，是提供一種人們可以辨識什麼是真的，什麼是假的方法，這是所謂的信念。在某一意義下，符號是最簡單的信仰陳述，字典的每一個定義就是宣稱某些東西是真實存在的。當文化定義某些是真的，不管實際上是真的還是假的，都會有真實的後果。稱為「顯而易見」的，卻未必是真的，只是在某一特定文化中，被預設為無需懷疑的。(文化中大家都當真的事物…)</p>
+<p>文化中有價值觀。價值滲透到我們生活的每個層面，因為種種價值為我們提供一個方法，以便在很多看起來都相似的事物間做選擇。價值除了影響我們怎麼選擇行動的路線之外，還影響我們怎麼看待、對待我們自己和別人。人常忘了，我們把價值當成真實本身自然而然的一部份，而不把它當成是「關於」社會如何建構真實的想法。除了人的基因中的基本偏好，大多數的偏好是來自於在某一特定文化中經由「社會化」所學來的價值。社會體系的組織方式，決定了價值的選擇。經驗過越多文化，我越意識到自己的文化只是一個文化而已，也看到自己總是從文化所提供的有限可能中選擇。</p>
+<p>作為個人，我可以意識到文化實質存在，並且形塑我們的觀點和經驗，包括我認為我要的是什麼。我唯有藉著把我自己從我身處的文化所提供的狹隘選擇範圍解放出來，才能擴大我的「自由」。要達到這目的，我需要「跨越出」我習慣的文化框架，這樣才能看到我處的文化「框架」，其實只是很多可能的一種。</p>
+<p>價值就像是語法原則，我們用它來解釋從未見過的句子。至於我們怎麼應用那些原則，完全看我們自己。文化中的價值有時會被轉換成規範(norm)，以獎勵和懲罰的「社會後果」來要求人們遵守。若能改變他所參與的「社會體系」，在不同文化規範下就能改變他行動的社會後果。</p>
+<p>為什麼要有規範？功能學派認為每個社會體系都有一些要求，在達到這些要求之後社會體系才能運作。如果沒有規範，社會之中的關係就會被瓦解。這關係主要包含我們對彼此的期望。規範對於界定體系的疆界也很重要，規範告訴我們區別自己人與其他人。最能獲得社群的接受並能形成影響的方法是，從一開始就接受這社群的文化。拒絕接受的話，這文化就不會接受你。</p>
+<p>文化觀念對人們來說是在體系中應該有怎樣的角色。小孩子玩在一起一定要成立「一國」，第一件事是訂定規則，服從的人才能加入。規則本身是什麼不重要，重要的是建立一種比較大的東西，使成員感覺自己是其中一員，同時也讓成員藉此知道自己是誰。法國社會大師涂爾幹把這種集體感覺的「我們」，當成社會生活的基礎，這是唯一可以控制人們行為的方式。這就是道德，體系中一種共同分享的感覺。沒有這集體感覺，人們會失落，社會體系會瓦解。</p>
+<p>所有規範都帶有歸屬和認定的色彩。如果道德是屬於歸屬的問題，那些被視為外人的人，會被當成違反道德準則的偏差者對待，不是因為他們做了什麼，而是因為他們就是他們。在不同形式的社會不平等和壓迫中，這扮演關鍵的角色。</p>
+<p>功能學派的學派的觀點是有了規範社會才能運作。但這個觀點沒法看到的是：規範可以排除和壓迫社會上某些人。我們很難理解為什麼一個需要有這樣的安排，讓其中有些團體取得優勢，而讓其他成員承受痛苦。(價值的方向性？)</p>
+<p>從社會學的衝突觀點來看，比較能理解社會中存在的有系統的排擠、剝削、宰制和濫權。優勢團體會藉著自己的權利和影響去形塑文化以利於自己的利益；包括保護自己的特權。資本主義中有資本的人有權力，他們會形塑一個文化來保護有資本的人，所以在文化中特別強調不是每個文化中有的「私有財產」的概念。價值為影響別種價值，所以看起來只是保護財產的規範，也可能維護者以特權和不平等為基礎的社會秩序。社會生活的每個面向就是：我們在容易直接了解當地看到的連結關係，其實只是冰山一角。整體理解是社會學實踐很重要的面向，能帶我們深入表層，發覺背後關係的連結。</p>
+<p>文化的態度：文化作為感覺。信念、價值觀和規範，對我們如何認識真實，如何思考真實，言行舉止該如何，有很大的影響。他們使我們對人們(ex: 同性戀)有某些感覺。對在這文化中，這類被辨識出來的角色，社會對他們的期待是什麼，有沒有合乎社會要求。這態度主要是感情的(情緒來自大腦邊緣系統的辨識)，也就是說你所感受到的情緒，沒經過大腦思考(前額葉)，就直接受到你所認同的文化態度直接影響。感情、信念和價值的混合體正式文化態度的核心。</p>
+<p>我們建構的真實是非物質的，也是物質的。物質文化之所以存在，是因為人有改變世界的能力。同時也改變了文化、改變了自己。是人改變物質世界、物質世界改變文化、文化改變人的循環。例如，紙張和印刷術的出現，讓社會團體想透過控制它，來控制訊息的傳遞。以前一段時間，要有良民證才能擁有一部打字機。資本主義下越來越有一個趨勢，那就是出版社隸屬於，一個與出版毫無關係的大財團下，以便對觀點的流通進行社會控制。</p>
+<p>一個穩定的社會文化，一定有其存在的原因，相較於其他文化的優勢、特權，能從文化競爭中搶到更多資源。</p>
+<p>社會控制的問題和印刷機器或電視攝影機之類的物質文化的存在與否關係較少，而是和這類物質文化在某一體系中的運用有關。如果我們忽略了物質本身和使用物質的方式，這兩者之間的不同，那我們進一步就會賦予物質文化自己的生命，以為物質文化可以完全支配我們。就像社會體系中角色和佔據角色的人的差別，物質文化中的東西和使用東西的人，是兩個不同的概念。</p>
+<p>物質文化是社會文化的一個重要的部分，對於社會一樣。人也常忘了意識到自己所處的物質文化，也只是眾多物質文化其中之一。人是可以改變物質文化的。</p>
+<p>我們太容易忘記，文化的總體其實是人類豐富潛能想像的產品。哲學家蘇姍朗格寫道：「我們活在觀念的網絡中，編織網絡的纖維是我們自己創造出來的。」我們就好像住在一個由文化建構的小盒子中，不論是在家庭中、在工作場所中，或是社會中都是如此。我們的視野很少能夠超越小盒子，主要的原因是… 我們連這小盒子的存在都不知道。住在盒子裡，我們看不到外面，就以為自己的文化是最好的、是唯一的文化，這就稱為「種族中心主義」。只有意識到盒子的本身，其他可能性才會開啟。</p>
+<p>在複雜社會中，主宰的團體往往用他們建構真實的文化觀念去應用到其他人身上。</p>
+<p>文化可以同時引導我們往兩個方向看。文化可以讓我們往內看，看到我們特殊的文化盒子的有限空間。也可以指向盒子本身，引導我們去想像：我們同時在盒子的裡面和外面。這是個充滿能量的經驗。</p>
+<h3 id="第三章-社會生活的結構-p99-p147"><a href="#第三章-社會生活的結構-p99-p147" class="headerlink" title="第三章 - 社會生活的結構 p99~p147"></a>第三章 - 社會生活的結構 p99~p147</h3><p>和文化一樣，社會結構的概念是一個社會學實踐的重要關鍵，因為它相當程度地決定了社會生活最令人熟悉而且可預期的樣貌。文化概念形塑的我們如何思考、如何感受。結構則將這些文化概念統整到各種連結人與人、人與體系、體系與體系之間的社會關係。</p>
+<p>當我們在生活中經歷了某些戲劇化的變化時，我們會覺得迷失，這是因對我們在一個或多個社會體系中的結構位置改變了。自己的社會位置是什麼，這個問題意味著「我是誰、能做什麼、該做什麼、意義及目標是什麼」。找不到位置的話，也失去了定位體系，這時候我們就會感受到迷失。</p>
+<p>社會結構有兩層意義：第一層意義是關於社會生活各層面中的社會關係是如何安排。第二層意義，社會結構指的是社會體系中各種資源的分配。分配包含每個角色的資源和權力，以及人們在角色位置的分配。</p>
+<p>一個人的「身份地位」就是一個人在體系中所佔據的結構位置；而我們「參與」一個體系的意思就是我們在這個體系中佔據了一個以上的身份地位。在這裡「身份地位」既是位置，也是佔據這個位置的人。請注意這兩者之間的差異，任何人都可以佔據這個身份位置，不管有沒有人佔據，這個身份位置都會存在。</p>
+<p>這種「身份位置」與「佔據此身份位置之個人」之間的區分，對於理解社會生活如何運作有關鍵的意義。如果我們混淆了這兩者的話，我們很可能會犯了企圖用個人因素來解釋社會結構現象的錯誤。</p>
+<p>總統他們只是坐在這個位置上的人。沒有任何一個位置只賦予在位者權利而不同時加諸各種限制的；他們所居的職位和一個巨大的職位結構連在一起，這個結構不僅只有政府內部、也有政府之外的一些位置。這些關係正是限制了總統能做什麼、不能做什麼的因素。</p>
+<p>更複雜的事，我們同時身處於各種體系之中，這表示我們同時具有許多不同的身份。有些身份是我們與生俱來的，像種族、性別、家庭中的身份。有些身份則是我們在人生過程中獲得的：學生、工人、職員、導師、伴侶、博士。不管是先天或後天獲得的身份，也不論我們是不是真的在執行、實踐這些身份，我們都「具有」這些身份。這些「身份」如影隨形，不管是我們自己或是別人，都用這些身份來認識我們。</p>
+<p>還有一些身份是不會隨時跟著我們的，因為他們只存在特定情境之中，像是行人、巴士乘客。情境式的身份必須不斷實踐才能維持，只和我在哪裡、當時在做些什麼事有關。</p>
+<p>佔有某個位置的身份意義是：它讓我們和各個社會體系產生關連，提供了我們經歷、參與這些體系時，一條阻力最小的路。身份提供了一整套的文化概念，這就是我們所稱的「角色」，它會在角色所有人和角色關係人身上加諸全套的信念、價值、態度與規範。</p>
+<p>當一個人的數個角色的價值有所牴觸時，我們稱為角色衝突。像是教授和異性學生的關係，教授會有「老師」和「情人」這兩種角色。從一個結構的觀點來看，老師和學生的性關係是不可能平等的，因為那些決定了他們在體系中的角色，本質上就是不平等的，也沒有辦法被拉平。只要是老師就必然擁有些權力。由於師生戀這種結構角色所會引起的龐大衝突，一個健康的師生戀關係的機率是微乎其微的。這也是為什麼學校和企業都不鼓勵，或明令禁止類似師生戀這種涉及結構權力關係的親密關係。</p>
+<p>人生中很多問題都來自於結構性原因。每個家庭總以為自己是特別的，但卻忘了每個家庭的生活是如此驚人的相似。許多心理治療師不會在沒有見到青少年患者的家人之前治療，因為他們知道個人的問題並不是在真空中發生的。我們的內在情緒生活絕不只侷限於我們的生活世界，他們總是發生在社會脈絡之中。</p>
+<p>在許多相似結構的社會中，同個角色都有一樣的行為。這時看一個人行為時，重點就從「這一個人個別來說，究竟是好人還是壞人」轉移到「他們所參與的體系本身究竟乘載了多少鼓勵這個行為產生的因子」。例如：家庭暴力犯罪者都具有「男性」、「丈夫」或「父親」身份的事實，有多少是受大眾文化不斷地將控制與暴力當作「真正的男子漢」的根本標記，將控制與暴力光榮化影響呢？</p>
+<p>這不是說所有的錯都是社會的問題，而那些家庭暴力施暴者個人都不需要負任何責任。但是要根本改變目前這種家庭暴力行為模式的話，我們必須了解這些家庭暴力模式和阻力最小的路之間的關聯，以及人們如何決定走上這條阻力最小的路。</p>
+<p>資本主義賦予財富高度價值，給你一個價值觀：「擁有某個你現在尚未擁有的東西，幾乎是解決任何問題的答案。」</p>
+<p>社會結構與文化價值，會給角色想要的內容和取得的能力、如果想要的內容大於其被賦予的取得能力，這個角色就會容易陷入困境。當他陷入困境，人會產生一種緊張、衝突感，想解決這個困境。方法一，壓力下合法認真的工作。方法二，放棄文化價值、跟自己說那些沒什麼了不起的。方法三，用非法的手段取得內容。方法四，反叛，挑戰現有制度及其不公平的機會分配。</p>
+<p>價值的分佈，與滿足這些價值的合法機會分佈，兩個落差越大，偏差行為就越可能產生。但這不意味著高犯罪率是因為人們真的是缺乏他們所需要的東西；這意味著高犯罪率是因為人們缺乏那些旁人都有、而且文化價值告訴他們應該有，而他卻沒有的東西。研究顯示，不論城市的所得平均是多少，在民眾收入最不平等的城市裡，竊盜、搶劫案的發生率最高。</p>
+<p>在結構中加入新的角色，社會體系就會劇烈變化。像是生小孩之後的家庭，會發生一些結構現象。</p>
+<p>如果體系中的人知道結構就是設計成這樣子的話，他們可能會覺得好受一點。不會只怪罪於其他人的改變、對他的行為。</p>
+<p>我們可以問，是體系中的哪些互動模式引起了這個社會現象。</p>
+<p>全力是一種不管對方是否同意，權力擁有者都能控制事件、資源與人們能力；權力是一種掌控、強迫、宰制的工具。</p>
+<p>對自己身處的社會體系問下面的問題。例如：家庭究竟是什麼？家庭為什麼重要？一個經濟體系應該為參與其中的人做些什麼？</p>
+<p>類似文化與社會結構的概念，是我們思考社會生活的工具。讓我們聚焦在生活的不同層面上，最後再把這些東西重新拼裝成一個整體。但這個想法會讓我們把他們視為兩個獨立的事物。但兩者從來未曾獨立存在過。</p>
+<p>結構的每一個面向都和文化象徵、文化概念有關。文化影響結構、結構中的人解釋文化，形成因果循環。</p>
+<h3 id="第四章-人口與人類生態學"><a href="#第四章-人口與人類生態學" class="headerlink" title="第四章 - 人口與人類生態學"></a>第四章 - 人口與人類生態學</h3><p>人 - 社會體系 - 物質環境 - 人，循環。</p>
+<h3 id="第五章-我們、它和社會互動-p177-p206"><a href="#第五章-我們、它和社會互動-p177-p206" class="headerlink" title="第五章 - 我們、它和社會互動 p177~p206"></a>第五章 - 我們、它和社會互動 p177~p206</h3><p>嬰兒不能區辨世界與自己兩者的差別；對他們來說，所有事物都是以他們為中心的一個大「整體」。因此嬰兒無法認知他人是獨立存在的、有思有感的個體。嬰兒只是以事物存在的方式去聽去感覺，並不能理解我和事物的關聯，也不知道如何解釋他們。</p>
+<p>米德提出我們是透過發現他人的內心世界，而學會思索自我的。這些認知最初發生於當人們使用語言談論自己、談論我們、談論任何他們經驗到的事實。語言是連結自我經驗和他人經驗的橋樑。藉由發現他人如何經驗自我，我們發現人類自我的可能性。我們開始意識到自己的觀點，我們以為的事實，其實只是一種觀點。之後就可以用思考其他人一樣，使用概念來思考自我。</p>
+<p>自我如同其他建構出來的事實，也是一個建構出來的事實。從文化概念中建構出一個我們是誰的真實。透過角色關係來認識我們的不只是一般人，我們自己主要也是以這種方式來認識自己。</p>
+<p>我們是依賴外在資訊與自我的資訊，去建構自我的概念和感覺的。外在資訊的來源主要以兩種「他人」的形式存在。一種是對我而言的重要他人(Significant others)；他們像是鏡子一般反映出我們的形象，而我們透過鏡中的形象認識自己是誰。生命初期，自我的資訊都來自於家庭成員、玩伴這些重要他人。社會化之後開始能理解「一般他人」。一般他人不是特定的個人或團體，而是我們的觀念，用觀念想像一般人類會怎麼看待某個社會情境和該情境裡所屬的不同身份的人。</p>
+<p>構成一般他人的概念是文化性的，是對身份擁有者的一組概念。</p>
+<p>人們只看我們的外表，就認為他們知道我們所屬的身份；聯想我們是怎樣的人。就這層意義而言，我們不只以文化的意義建構真實，因為真實不論就身份、角色和一般他人而言，也全都受到結構的影響。(作者認為文化和結構是獨立的兩件事、我認為結構是文化一部份…)</p>
+<p>我們是誰，不在於自己本身，而是由我們對社會體系的參與以及學習如何參與的社會化過程來決定的。我是誰？對誰來說？</p>
+<p>沒有了身份和角色，從社會意義上來說，我們就不存在了。這概念並不減低我們作為人的價值；它僅僅意味著我們的存在超越了個體的範圍，個體既不是一切事物的開端，也不是其終點。有些人拒絕任何既定模式而活，反而使他們的行為符合了某種文化模式。</p>
+<p>我們如何參與體系的關鍵在於社會互動這個概念，而社會互動的關鍵在於行動(Action)和舉止(Behavior)的區別。有意義基礎的舉止就是行動；而行動則是我們與他人互動、參與社會體系和社會生活的基石。</p>
+<p>高夫曼：我們就都像舞台上的演員。不停地自我表演、同時也是觀眾。但我們始終都在做我們自己，即使我們不見得能自在坦然地承認自己在扮演的事實，也不喜歡承認自己用表演來影響他人對我們的觀感。這個我和拒絕承認這是「真實的我」的我，兩者都一樣是真實的「我」。</p>
+<p>如果我們沒有辦法不斷意識到我們的自我和我們所參與的社會生活之間的高度複雜性，進而整合我們的各種角色，會是我們因為無知而參與那些會結惡果的社會體系；也會畫地自限，不企圖改變這些惡行。</p>
+<p>我們是電視劇中的角色，有編劇寫得最小阻力的劇情，但不同的是每個演員也有自我意志去選擇人生中的行動。如果我們在劇本是壞人的角色，並不代表我們是壞人。但也不代表我們只能演出壞人。我們和體系文化之間的關係是動態的、鮮活的。我們創造了世界；世界也造就了我們。我們同時是文化的客體與主體。</p>
+<p>我們就像即興性演出的爵士樂手，沒有學過基礎樂理就不會演奏：必須學會分辨升降記號、大小調，會彈奏不同的和弦，還要能容和節拍、旋律和音調… blah blah。樂手必須知道定義和構成爵士樂這種音樂形式的文化符號和概念；知道這些東西如何影響樂手的思考、聆聽與想像途徑。然而，爵士樂手面對音樂時所依循的社些樂理、文化形式，是他們創作的基礎；樂手可以掰紐玩弄這些「規則」，以一種既熟悉(爵士樂、音樂)又創新的方式，挑戰既有限制。</p>
+<p>社會生活和我們的關係，就像爵士樂和爵士樂手們的關係一樣。</p>
+<p>社會互動是由人們創造和維持一個特定的現實感所用的各種方式所構成的。社會互動透過行動和外表來進行。行動和外表互為表裡。</p>
+<p>社會情境是透過社會真實而界定，而這社會真實也只有在人們主動形塑和維持之下才存在。</p>
+<p>我們不斷的用我們對真實如何建構的知識，來理解外界發生了什麼；以及我們該如何扮演我們的角色，讓世界運轉下去。社會中的真實是透過某些模式的社會行動才存在的。這些維持真實的技巧總是一再重複使用，所以往往這些技巧常有儀式性質。像是兩人相愛的親密關係透過，睡前道晚安、吻、掛上電話前說我愛你，等儀式來維持。就像互動儀式中的許多層面，一直要到某方面偏離了這些固定的儀式，我們才會發現這張網上破了一個洞，少掉的那塊就是他們本來應該做、卻沒有照著做的部分。</p>
+<h3 id="第六章-實踐社會學，思索未來p207-p238"><a href="#第六章-實踐社會學，思索未來p207-p238" class="headerlink" title="第六章 - 實踐社會學，思索未來p207-p238"></a>第六章 - 實踐社會學，思索未來p207-p238</h3><p>「我愛你」是一種有意圖的表演式語言(performative language)，第一次說「我愛你」不僅是取悅他人而已，而是一種邀請，一種意圖的表示，想要改變一種社會關係。</p>
+<p>若要解決社會問題，我們一開始就得把問題的社會面看清楚。如果這點沒做到，那麼我們對於社會問題的解釋，就會不正確，對於解決問題的方向也會有偏差。如果分配方式不改變，就算人再努力讓排列順序改變，最有錢的一部份人、和最窮的一部份人分配到的比例還是一樣的，貧窮的問題一樣不會解決。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/23/見樹又見林-書摘-心得/" data-id="cjblkzcmb001dxq9ktdhe2iaa" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sociology/">sociology</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/社會學/">社會學</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-大腦超載時代的思考學-The-Organized-Mind-Thinking-Straight-in-the-Age-of-Information-Overload" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/01/大腦超載時代的思考學-The-Organized-Mind-Thinking-Straight-in-the-Age-of-Information-Overload/" class="article-date">
+  <time datetime="2016-06-01T10:32:00.000Z" itemprop="datePublished">2016-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/01/大腦超載時代的思考學-The-Organized-Mind-Thinking-Straight-in-the-Age-of-Information-Overload/">大腦超載時代的思考學 The Organized Mind: Thinking Straight in the Age of Information Overload</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="separator" style="clear: both; text-align: center;"><br>  <iframe width="480" height="320" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/aR1TNEHRY-U/0.jpg" src="https://www.youtube.com/embed/aR1TNEHRY-U?feature=player_embedded" frameborder="0" allowfullscreen><br>  </iframe><br></div>
+
+<h3 id="演講摘要："><a href="#演講摘要：" class="headerlink" title="演講摘要："></a>演講摘要：</h3><p>我今天要講三個大主題：多工(Multitasking)、延伸大腦(Brain Extender)、決策(Decision Making)。</p>
+<p>不過在開始之前我想先說一下為什麼我寫了這本書，過去十年的神經科學發現了許多「為什麼大腦對某些事情注意、而對其他事情忽略的」的原因。我相信大多數人都可以用這些資訊來更好的組織時間、家裡的事物、工作環境。</p>
+<p>講了現代資訊過載的問題，一堆數字…。</p>
+<p>我們可以怎麼做？大部分人想嘗試多工，不過現在的研究顯示，多工在人大腦是不存在的，大腦只能快速的在循序中切換。多工會造成釋放和壓力相關的…，幾個小時多工後會很累。大量多工的工作(航管員、同步口譯員) 都會安排中間休息的時間。根據研究，多工會降低產出。但大腦會欺騙自己多工也許是有用的，就像喝醉酒之後覺得自己很好一樣。</p>
+<p>那我們要怎麼辦，我們可以像航管員、同步口譯員一樣中間休息一下。研究顯示這樣會讓員工有更好的生產力和更好的產出。像是每幾個小時就有15分鐘的休息。小睡一下很有用，白天小睡15分鐘有時候等於夜裡睡一個半小時的效力，能提高你的IQ 10點。小睡一下會讓大腦補充用完的 glucose；而中間休息可以讓你進入另一個不同的注意力模式。</p>
+<p>人類大腦有兩種主要的注意力模式：中央主導模式(task positive network)、白日夢模式(default mode of brain / task negative network / mind wandering mode)。在白日夢模式你會開始覺得事物開始連結、以非線性思考的方式。所以在兩個模式交互切換是很重要的。</p>
+<p>注意力切換(attention switching)和決策(decision making)會消耗大腦中的燃料。明確的說，會消耗讓葡萄糖(glucose)，讓葡萄糖是神經元運作代謝需要的物質。而且讓葡萄糖並不能無限量供應，不管是大決定還是小決定都會消耗這個燃料。即使在挑選筆的顏色，你也在消耗人生重要決定的燃料。而切換到白日夢模式會讓你的大腦回到預設模式，讓葡萄糖(glucose)重新恢復。小睡一下、小中斷、去渡個假都很有幫助。當我說小中斷(take a break)指的並不是回電子郵件、去看個電視，這樣並不是中斷(break)。而是真正的中斷，讓你的大腦可以真正的做白日夢(really wander)。而我們每個人都有自己的方式可以開始白日夢模式。這個方式也許是，運動、在自然中散步… 像是快思慢想的作者，每天的下午都會找一段時間在史丹佛校園中散步，據他所說大部分的好想法都是那段時間產生的，這不是巧合，這是一個恢復的行為。</p>
+<p>根據研究，那些一週工作六十小時的人的產出只有比一週工作四十小時的人的產出多七個小時。想一想是不是值得多花二十小時得到多七個小時的產出。</p>
+<p>所以我們該怎麼辦，怎麼專注的做事情？一件專家會做的事是「強迫有生產力的時間」(enforce productivity hours)。他們會在一天中找一段時間，讓那段時間完全不會被中斷、打擾，關掉電子郵件軟體、甚至關掉手機。讓他們能進入全神貫注的狀態。如果你無法關掉電子郵件軟體，因為可能會有突發狀況進來，那試著開一個私下的帳號，告訴其他人有緊急的事才用這個郵件位置。不緊急的事請，送到那個公開不常開的帳號。 很多成功的執行長、藝術家都這樣的切分人生的時間，一次只做好一件事。</p>
+<p>接下來我將切換到談，大腦延伸器(Brain extender)。這是一個簡單的想法。如果你想要有生產力，不要把不需要的東西放進大腦裡。像是聽到明天會下雨，與其在腦袋記著說要帶傘、要帶傘，還不如把這個資訊放到環境裡面去，像是把傘從櫃子拿出來放到門邊，然後它就會在你出門時提醒你。另一個例子是設計心理學中門的例子，為什麼人要記得門要推開還是拉開，直接用設計隱藏預設用途就好(拉的話放門把)，像是廁所的門。另一個方式外部化是我們把事情寫下來。而把事情寫下來，其實比打字下來更適合，因爲寫字時的引發的神經活動是不同的，大腦會更深入的去處理這個資訊。最後一個例子是 Google，我們不用記得細節，只要記得關鍵字，就可以找到我們要的資訊。</p>
+<p>最後我想說的是決策(Decision Making)，我們現在擁有的資訊，能讓我們做出以前不能做出的決策。特別是在醫學上資訊的過載，而醫生並沒有受過大量資訊決策的訓練，像是取得和分析。我覺得我們的教育應該要開始改變，要教導資訊處理(information literacy)，而不是之前教育的大量事實。教導他們要如何有創意的使用這些事實來幫助他們去解決真實世界中的問題。判斷資訊到底是否可信。舉例了醫生決策有多複雜，因為每種藥都有有效率、多種副作用的成功率。我覺得像這種判斷應該從八歲開始教。<br>——<br>29:30 開始 Q&amp;A。</p>
+<p>做決策的時候先把事項排優先順序，在狀態好的時候把大事情處理完。</p>
+<p>注意力缺失症？他們的白日夢模式很強，也就是說他們創意很強，但沒法做不完事情，也許他們可以和其他過度專注的人合作，會很成功。</p>
+<p>Motor learning怎樣會有效率？光只是重複性的運動並不是很有效，你必須有意識地、有目的的做那件事。音樂家叫這個故意練習(deliberately practice)。鋼琴家想像練習時不光只有想像手指怎麼動，還要思考音符的意義…. blah blah practice mindfully. </p>
+<p>夜晚六到十小時的睡眠，會經過一個記憶鞏固(memory consolidation)的過程，神經元會重新重現、處理白天有過的神經活動，然後想辦法讓它進入長期記憶、連結、 儲存他們。如果你白天很努力的工作四到五個小時，取得很多的資訊。這時候小睡一下，大腦會進入睡眠階段，開啟了神經元重啟的按鈕，讓某些迴路變的放鬆，你會預先處理一些資訊讓晚上再做後續處理。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/01/大腦超載時代的思考學-The-Organized-Mind-Thinking-Straight-in-the-Age-of-Information-Overload/" data-id="cjblkzclk000uxq9k4rzk4esc" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/attention/">attention</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cognitive-psychology/">cognitive psychology</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/information/">information</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/psychology/">psychology</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-使用者故事對照-地圖演講摘要-User-Story-Mapping" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/28/使用者故事對照-地圖演講摘要-User-Story-Mapping/" class="article-date">
+  <time datetime="2016-05-28T14:07:00.000Z" itemprop="datePublished">2016-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/28/使用者故事對照-地圖演講摘要-User-Story-Mapping/">使用者故事對照/地圖演講摘要 (User Story Mapping)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="separator" style="clear: both; text-align: center;"><br>  <iframe allowfullscreen class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/AorAgSrHjKM/0.jpg" frameborder="0" height="320" src="https://www.youtube.com/embed/AorAgSrHjKM?feature=player_embedded" width="480"><br>  </iframe><br></div>
+
+<h3 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h3><p>「使用者故事地圖」是一種資訊架構。其目的是讓人們在設計的過程中更容易「透過溝通來建立共識、對系統有全盤理解」。結構的設計讓人可以持續修改、組織、引用、溝通設計的想法，重視呈現每個想法間的相互關係。是「便利貼技巧」+「使用者中心設計」+「敏捷開發」的整合運用。<br>—<br>講者：Jeff Patton, 來自敏捷的社群、當過軟體工程師、專案經理。</p>
+<p>在當專案經理的時候，接觸到使用者故事 (user story)，當時覺得這個名字很蠢，為什麼要用這個字。過了十年之後才了解故事(story)的意義。故事地圖(story map)是一個說大故事的簡單方法、它把大故事分解成更小的部分。然後對每個部分，實作的人會加上更多的細節把產品做出來。</p>
+<p>我從2000年就開始用故事 (story) 這個字。故事這個字從一開始就被誤解，我接下來會說明故事代表的意思。故事會解決軟體開發中兩個問題，但這兩個問題都不是寫更好的需求 (requirements)。</p>
+<p><strong>第一個問題：寫文件沒啥用 (Documents - just don’t work)</strong><br><strong>第二的問題：太多東西要做 (Too much to build)</strong></p>
+<p>想像一個簡單的電話對話。blah blah 講了光靠電話描述，麵包店做出了許多奇怪的蛋糕。類似事在軟體公司也經常發生。文件寫完之後，做出來的產品就是不對。這邊的問題是，當我們分享、同意和簽署的文件，<strong>我們只能相信每個人是理解的(意指每個人其實理解的都不同)</strong>。之後 Kent 就想出了解決文件問題的方法，那就是不要寫、不要交換文件。用「告訴我你的故事」取代：如果我們能直接討論這個，我們可以一起想辦法 (figure it out together)。</p>
+<p>如果你想說什麼，寫在一張卡上。然後你會找到負責實作的人，一起討論、知道到底做出來會怎樣。用故事這個名字的原因來自「我們怎麼使用它」(how we use them) 而不是「我們怎麼寫它」。有多少人用 Scrum？backlog? 問題在現在的 Scrum 會議中，許多人來參加、許多人都在做自己的事，「故事」本來想要帶入的有效溝通早就被忽略了。常常的情況是幾個人會說話，大部分人就只是在聽、在發呆，<strong>沒有相互溝通每個人理解到的是什麼。因為每個人心中的思考是無法被觀察的，只有當我們說出自己的思考、畫些圖片，我們才能察覺到每個人思考的差異，這時候我們才能真的達成共識 (really get it)。</strong>如此在這個會議之後，當我們說到同樣的東西，才會代表同樣的意思、代表同樣的事情。不然會議中的共識，其實完全沒有達到共識。</p>
+<p>光分享文件、並沒有分享理解 (Shared documents aren’t shared understanding)</p>
+<p>透過文字、圖片的討論會讓每個人建立共同的理解。在 Atlassian，他們在牆上貼的不是工作列表，他們把那些放到 JIRA 軟體。他們貼在牆上的是一堆便利貼 / 草圖 / 線圖稿，每個都代表一個故事。他們討論故事。每個團隊，都有各自的故事們，然後做站立會議中，他們指著牆上的便利貼說，我今天做這個 JIRA Ticket。指的同時也指出了這個 JIRA Ticket 在整個大故事的位置，回憶起細節、為什麼現在要做它。那張便利貼就像一張在夏威夷的照片，<strong>你可以說出照片外的細節，因為便利貼是你們一起討論出來的。</strong></p>
+<p><strong>第一個問題的解法：我們靠說故事 (story telling) 來建造共同理解 (shared understanding)</strong></p>
+<hr>
+<p>我們的工作不是建造軟體，我們的工作是改變這個世界。這聽起來也許有些誇張。但這邊我們講的不是世界和平、非洲的飢荒之類的事。這邊說的<strong>世界指的是我們身邊、我們有能力去改變的事。**</strong>這個世界的邊界是我們的產品<strong>，透過看著會使用產品的人，我們有了新的想法，產生新的需求。需求 (requirements) 的目的就是我們背後有了好想法能夠幫助用產品的人。把現在的世界畫一個圈，有產品後的新世界的畫一個圈，我們要觀察現在世界的產出(output)、新世界有這個產出後的結果 (outcome)，像是產品的使用心得、影響 (Impact)。</strong>先前說的想法 (idea) 的問題是「每個人都有想法」。**所以每個人的想法就會轉成越來越多的事情要做。我們的目標不是加快產生出垃圾(our job is not to build more crap faster)，我們的目標是做更少的產出 (our goal is to build less)。當你做更少的產出，你試圖最小化產出 (output) ，同時最大化結果 (outcome) 和影響 (Impact)。</p>
+<p>之前工作的時候，知道了下一次產品發行的需求列表後，去問他們「使用者是誰？解決了使用者什麼問題？」。得到的答案是：「這些是需求 (requirements)」，當時我就知道需求還有另外一個意思 — 那就是閉上嘴 (shut up)。他們真的以為需求列表，就真的如同字典上的意思代表了必須要做的事。實際上它們並不是… 因為不可能實作所有的需求，光只有需求沒法最小化產出、最大化結果。故事是需求 (requirements) 的解毒劑。</p>
+<p>引用 Kent：「軟體開發已經被需求 (requirement) 這個字導入的錯誤的方向，這個字在字典裡被定義為需要做的事 (something mandatory or obligatory)。這個字帶有絕對和永久的一役、抑制了擁抱變化。需求 (requirements)這個字完全是個錯誤」 </p>
+<p>我們要說誰做什麼、怎麼做、為什麼做 (talk about who doing what and why)。討論和協作要專注在誰會用這個產品和他們拿到這個產品之後會怎麼使用它。基本上，你必須要<strong>想通整件事</strong>。舉了一個漂亮的嬰兒形狀蛋糕的例子，蛋糕看起來很漂亮，但要吃的時候就必須把嬰兒切開，這應該是沒有把事情想通的做法。</p>
+<p><strong>第二個問題的答案是：透過理解產品是為了誰、做什麼、為什麼這樣做，來最小化產出。</strong></p>
+<p>如果正確的使用故事，就可以解決這兩個問題。</p>
+<p>但我們會碰到一個問題，很多很棒的想法，怎麼轉變成 scrum 中開發的故事裡 (1~3天可完成、可被估計、可測試、可被展示…)。這邊講一個故事，Rachel 是90年代的一個專案經理，當他去跟工程師問說每個的工作項目是為了誰、為什麼要這樣做的同時？發現工程師瞬間就開始說這個東西好像不是一定要做、也許在別的地方做會更好。很多人根本就沒把事情想通。於是，Rachel 就寫了一個聰明的溝通小卡：</p>
+<p>標題：寫一個好的故事<br>As (who) to (do what) so that (why) 的例子，當作一個容易開始討論的起點 (conversation starter)</p>
+<p>就這樣定義出了常見使用者故事的格式(story template)，但如果用這個格式當作 scrum 中的 backlog 項目，應該會覺得有些卡卡的，因為這個格式本來不是拿來這樣子用的。它本來是在探索階段，拿來引導討論那些大的好想法的，那些要被分成更多 backlog 的項目。</p>
+<p>這邊舉了一個 Gray 用敏捷開發流程開發音樂服務網站的例子，Gray 把所有要做的代辦事項排序之後，就從最優先的事情開始做，進度一直都有進展，但一段時間過去，開始覺得事情做不完，而且無法估計什麼時候整個系統可以上線完成。Gray 這時候就問了，有沒有其他不用敏捷開發流程的方法。這是我碰到他當時的情況。我們一見面談的不是開發方法，而是討論定義想法(Frame the idea)、為什麼要做這個產品、對使用者的了解、使用者的目標是什麼。開始討論想法，寫下想法在便利貼上、移動想法、組織想法。討論使用者一整天會怎麼使用這個產品。Gray 說、然後我用便利貼紀錄下來，這是 Gray 第一次看到整個產品看起來會是怎樣子。之後才開始探索細節，分成更多步驟、替代方法、UI的設計、技術細節。之後就可大概估時間，挑出核心的部分來做，發現這些核心都是之前用待辦事項開發幾個月沒做的部分！！！之後這個產品就順利上線了～</p>
+<p>以上是影片前55分鐘的摘要，後來開始用影片舉例子，還是直接看影片吧~<br>你會看到許多使用者故事地圖開發的過程和樣子。後來還有說 MVP 的概念，提早驗證、提早學會。把 MVP 分成數個階段，讓每個階段都能透過驗證來學習、改變產品方向。和一些其他秘訣… 像是油畫草稿和 protyotyping和迭代的重要性。</p>
+<p>作者的總結：<br>1. 改變你工作的方式：跟別人說故事，而不只是寫故事<br>2. 用簡單的視覺化去代表你說的故事<br>3. 要把整個故事都放到地圖上，來找出最重要的部分<br>4. 把事情想通：減少產出、增加結果和影響<br>5. 建立最小可行產品測試，來學到什麼是市場中最小的和可行的<br>6. 用疊代和漸進的(原型 / 草稿式)的方式來建造產品</p>
+<p>有效率的故事們能幫助每個人朝向產品成功而工作</p>
+<p>Q &amp; A 從一小時二十分開始<br>—<br>就結構來說是把敏捷開發流程中的待辦事項列表用一個某種可變網狀系統資訊結構取代。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/28/使用者故事對照-地圖演講摘要-User-Story-Mapping/" data-id="cjblkzckz000lxq9kr5xw1sih" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IA/">IA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/System-Thinking/">System Thinking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UCD/">UCD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/agile/">agile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/user-story-mapping/">user story mapping</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-資訊架構學是什麼？" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/29/資訊架構學是什麼？/" class="article-date">
+  <time datetime="2016-04-28T17:22:00.000Z" itemprop="datePublished">2016-04-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/29/資訊架構學是什麼？/">資訊架構學是什麼？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>這邊試著用解構的方式來說明資訊架構 (information architecture) 這門學問。</p>
+<p>設計活動就是在某些限制下，生出某個東西來達成某個目的的過程。</p>
+<p>所以可以理解「設計資訊架構」的過程中，設計出來的某個東西指是「架構/結構 (architecture / structure)」、而且這個架構的改變對象是「資訊」(information)，接著透過新產生的「資訊互動」達成我們的目的。</p>
+<p>簡單說，資訊架構透過設計「結構」、讓人和「資訊」有不同的互動，來達成我們背後期望的目的。</p>
+<p>舉例來說：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">1. 程式碼的資訊架構</span><br><span class="line">結構：檔案命名、目錄名稱、放的位置、如何引用、設計模式</span><br><span class="line">資訊：程式碼</span><br><span class="line">目的：讓程式碼容易被理解、容易修改、容易查找、容易維護</span><br><span class="line"></span><br><span class="line">2. 網站的資訊架構</span><br><span class="line">結構：搜尋列、標籤、sitemap、瀏覽列、超連結、分頁...</span><br><span class="line">資訊：文章、圖片、服務、功能</span><br><span class="line">目的：讓人能找到想要的資訊、讓購買率上升、讓使用者達成他想做的行為</span><br><span class="line"></span><br><span class="line">3. 書本的資訊架構</span><br><span class="line">結構：段落、內容的順序、章節、標題、註解</span><br><span class="line">資訊：文字、圖</span><br><span class="line">目的：讓人更能透過閱讀能理解內容</span><br><span class="line"></span><br><span class="line">4. 愛買的資訊架構</span><br><span class="line">結構：商品走道的規劃、服務台的位置、結帳的位置</span><br><span class="line">資訊：商品、愛買提供的試吃服務</span><br><span class="line">目的：賣出更多商品</span><br><span class="line"></span><br><span class="line">5. 臥室的資訊架構</span><br><span class="line">結構：物品的擺放位置 (櫥櫃裡、牆面)</span><br><span class="line">資訊：物品</span><br><span class="line">目的：主人想...</span><br></pre></td></tr></table></figure></p>
+<h5 id="資訊是相對的"><a href="#資訊是相對的" class="headerlink" title="資訊是相對的"></a>資訊是相對的</h5><p>對不同的人，同樣的資料會是不同的資訊；在不同的環境(context)下，同樣的資料會是不同的資訊。資訊不光只有資料、在電腦科學裡，功能/函數也是資訊的一種。</p>
+<h5 id="設計的目的是多方向的"><a href="#設計的目的是多方向的" class="headerlink" title="設計的目的是多方向的"></a>設計的目的是多方向的</h5><p>有設計者本身的目的、有對使用者的目的、有對其他關係人的目的。也就是說，只要是跟人相關的活動都要理解這些人想要的是什麼、目標是什麼。和使用者中心設計 (User-Centric Design) 一樣。</p>
+<h5 id="設計模式-Design-Pattern-Design-Principle"><a href="#設計模式-Design-Pattern-Design-Principle" class="headerlink" title="設計模式 (Design Pattern / Design Principle)"></a>設計模式 (Design Pattern / Design Principle)</h5><p>只要是設計就會有比較好的設計模式來增加設計的成功率。所以通常我們在資訊架構中所學的就是這些「架構的設計模式」，對不同的資訊、不同的目的、不同的人都會有不同的「架構的設計模式」。評估一個「架構的設計模式」的方式就是觀察資訊擺在這個架構下，資訊到底會有什麼不同，能達到什麼不同互動。</p>
+<h5 id="被架構後的資訊"><a href="#被架構後的資訊" class="headerlink" title="被架構後的資訊"></a>被架構後的資訊</h5><p>資訊經過架構後還是資訊，資訊的不同點不外乎就這些：資訊容易不容易「理解、瀏覽、找到、關聯、傳遞、同步、容錯、不失真、記住、更新、處理、新增、刪除…」 根據不同的設計目的，設計不同結構，讓原來的資訊的這些面向變得不同，以達成我們的目的，這就是資訊架構學的使用方法。</p>
+<h5 id="Domain-Knowledge"><a href="#Domain-Knowledge" class="headerlink" title="Domain Knowledge"></a>Domain Knowledge</h5><p>架構的設計模式太多了、資訊也太多種類、人也太多種，細節就看相關領域的書吧~ 只是時時記得，有「變動世界的架構」的選項，變動後一切就會變得不一樣。就像 google / facebook，完全改變了人們和資訊的互動方式、產生方式。</p>
+<h5 id="facebook的資訊架構"><a href="#facebook的資訊架構" class="headerlink" title="facebook的資訊架構"></a>facebook的資訊架構</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">結構：News feed &amp; notification 系統 &amp; 好友列表</span><br><span class="line">資訊：發文、按讚、分享、加入社群的行為、閱讀時間</span><br><span class="line">目的：讓世界變得充滿萬惡的讚能量、讓人都只看到自己想看的</span><br></pre></td></tr></table></figure>
+<p>最後說一下，其實設計流程是結構的一種、結構也是資訊的一種，從資訊流動來看世界是不是越來越有趣了呢？下圖是資訊架構和其他領域的關係。</p>
+<p><img src="https://2.bp.blogspot.com/-i0LfHhueZE0/VyLLxBozfrI/AAAAAAAA4d0/RNN2m0bbHxY1APCUV5Rn-O9d-Th5sV0XwCKgB/s640/IMG_3868.JPG" alt=""></p>
+<p>在使用者經驗分層中，每層都是息息相關的，如果哪一層壞了，整個就壞了。所以從上圖我們可以知道：要做好資訊架構，我們必須做好設計研究、對內容有了解、對功能有能力去實作；要展現好的資訊架構，我們必須做好互動、介面、資訊、視覺設計，不然光只有好的架構，使用者經驗不會好。所以… 工作的時間到了。</p>
+<p>參考：</p>
+<p>1. Eight Principles of Information Architecture, 2010 - Dan Brown</p>
+<p>2. Information Architecture 100, 2013 - 長谷川敦士</p>
+<p>3. The Elements of User Experience, 2010 - Jesse James Garrett</p>
+<p>4. Information Architecture: blueprints for the web, 2009 - Christina Wodtke and Austin Govella</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/29/資訊架構學是什麼？/" data-id="cjblkzcme001fxq9kry2nna5q" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IA/">IA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/information-architecture/">information architecture</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ux/">ux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-”redux-js-可預測的狀態容器“-的-API-使用說明" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/10/”redux-js-可預測的狀態容器“-的-API-使用說明/" class="article-date">
+  <time datetime="2016-04-10T07:58:00.000Z" itemprop="datePublished">2016-04-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/10/”redux-js-可預測的狀態容器“-的-API-使用說明/">”redux.js --- 可預測的狀態容器“ 的 API 使用說明</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>這邊只會透過理解 Redux 的 API來簡介如何使用 Redux。這邊假設讀者都知道 web 中 event / listener 的 pattern。</p>
+<p>如果想要知道 redux 背後的實作細節、原理、動機、Flux、Design Pattern、如何和 UI App 做連結，請看 Dan 的 Redux gitbook、Redux tutorial on EggHead。</p>
+<p><strong>redux 是一個狀態容器 (state container / state machine)</strong></p>
+<p>狀態容器要提供幾個功能<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 初始容器狀態 _by Redux.createStore(**reducer**)_</span><br><span class="line"><span class="number">2.</span> 取得現在的狀態 _by store.getState()_</span><br><span class="line"><span class="number">3.</span> 狀態改變時，通知相關的程式 _by store.subscribe(**listener**)_</span><br><span class="line"><span class="number">3.</span> 接收事件發生的通知、改變狀態 _by store.dispatch(**action**)_</span><br><span class="line"><span class="number">4.</span> 建立之後改變事件處理方式 _by store.replaceReducer(**reducer**)_</span><br><span class="line"><span class="number">5.</span> 由小的狀態容器組成全域狀態容器 _by 只能透過 combineReducers 來組成 root reducer，再用它來建全域狀態容器_</span><br></pre></td></tr></table></figure></p>
+<p>Flux 專有名詞：store、action、reducer。</p>
+<p>store := 一個狀態容器<br>action := 一個像 Event 一樣有 type 屬性的 javascript object<br>reducer := 一個輸入 state 和 action、回傳新 state 的函數, (state, action) -&gt; new_state</p>
+<p>但 store 是 redux 中唯一一個狀態容器的名字。其實 API 等同於下方這樣子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> _by Redux.createStore(**reducer**)_ 等於 _by Redux(**reducer**)_</span><br><span class="line"><span class="number">2.</span> _by store.getState()_ 等於 _by Redux.getState()_</span><br><span class="line"><span class="number">3.</span> _by store.subscribe(**listener**)_ 等於 _by Redux.addListener(**listener**)_</span><br><span class="line"><span class="number">3.</span> _by store.dispatch(**action**)_ 等於 _by Redux.dispatch(**action**)_</span><br><span class="line"><span class="number">4.</span> _by store.replaceReducer(**reducer**)_ 等於 _by Redux.replaceReducer(**reducer**)_</span><br><span class="line"><span class="number">5.</span> _by 無直接 API，只能透過 combineReducers 來組成root reducer，然後用 root reducer 來建全域 store_</span><br></pre></td></tr></table></figure></p>
+<p>一個狀態容器 = 狀態 + reducer，但 reducer 中可以指定初始狀態、所以一個 reducer 其實可以定義一個狀態容器、等同於一個狀態容器，所以 API 等同於下方這樣子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> _by Redux.initContainer(**reducer**)_ 等於 _by Redux(**container**)_</span><br><span class="line"><span class="number">2.</span> _by Redux.getState()_</span><br><span class="line"><span class="number">3.</span> _by Redux.addListener(**listener**)_</span><br><span class="line"><span class="number">3.</span> _by Redux.dispatch(**action**)_</span><br><span class="line"><span class="number">4.</span> _by Redux.replaceReducer(**reducer**)_ 等於 _by Redux.container.replaceReducer(**container.reducer**)_</span><br><span class="line"><span class="number">5.</span> _by 只能透過 combineReducers 來組成 root reducer，再用它來建全域狀態容器_ 等於 _Redux.combineContainer_</span><br></pre></td></tr></table></figure></p>
+<p>把 combineContainer 用 addContainer 取代，API 可以改寫成這樣子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 初始容器狀態 _by Redux()_</span><br><span class="line"><span class="number">2.</span> 取得現在的狀態 _by Redux.getState()_</span><br><span class="line"><span class="number">3.</span> 狀態改變時，通知相關的程式 _by Redux.addListener(**listener**)_</span><br><span class="line"><span class="number">3.</span> 接收事件發生的通知、改變狀態 _by Redux.dispatch(**action**)_</span><br><span class="line"><span class="number">4.</span> 建立之後改變事件處理方式 _by Redux.getContainer(**name**).replaceReducer(reducer)_</span><br><span class="line"><span class="number">5.</span> 由小的狀態容器組成全域狀態容器 _by Redux.addContainer(**container**)_</span><br><span class="line"><span class="number">6.</span> 建立小的狀態容器 _by Redux.container(name, initialState, reducers)_</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 所以翻譯過後 redux api 的使用流程就會變成</span></span><br><span class="line"><span class="keyword">let</span> addReducer = <span class="function">(<span class="params">state, ADD_ACTION</span>) =&gt;</span> state++</span><br><span class="line"><span class="keyword">let</span> subtractReducer = <span class="function">(<span class="params">state, SUBTRACT_ACTION</span>) =&gt;</span> state--</span><br><span class="line"></span><br><span class="line">counterContainer = Redux.container(</span><br><span class="line">  <span class="string">'counter'</span>, </span><br><span class="line">  <span class="number">0</span>, </span><br><span class="line">  [addReducer, substractReducer]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">Redux.addContainer(counterContainer)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CounterComponent</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">this</span>.stateChangeListener = <span class="function">(<span class="params">state</span>) =&gt;</span> <span class="keyword">this</span>.setState(state)</span><br><span class="line">    Redux.addListener(<span class="keyword">this</span>.stateChangeListener)</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillMount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(Redux.getState().counter)</span><br><span class="line">  &#125;</span><br><span class="line">  onAddButtonClick() &#123;</span><br><span class="line">    Redux.dispatch(ADD_ACTION)</span><br><span class="line">  &#125;</span><br><span class="line">  onSubtractButtonClick() &#123;</span><br><span class="line">    Redux.dispatch(SUBSTRACT_ACTION)</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>總結，可以看出來 redux 最大的特點就是用 reducer 來定義 container state 的處理範圍，不能用 event callback 的概念去理解它，一個 reducer 對應到“一組” state、多個 actions。</p>
+<p>所以在 Redux 中 reducer 差不多是 container state scope 等價。也因此在 Redux 中 sub-container / sub-store 的名字完全被省略了，你只能用 reducer 的名字來找到他們影子。只要知道這個規則大概就能夠理解 Redux 了。</p>
+<p>reducer := (state, action) -&gt; new_state (你找不到 container 的名字、它被省略了)</p>
+<h2 id="老實說，我覺得這樣子的開發者經驗很不舒服-bad-UX"><a href="#老實說，我覺得這樣子的開發者經驗很不舒服-bad-UX" class="headerlink" title="老實說，我覺得這樣子的開發者經驗很不舒服 (bad UX)"></a>老實說，我覺得這樣子的開發者經驗很不舒服 (bad UX)</h2><p>不知道 re-frame 的 UX 會不會比較好？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/10/”redux-js-可預測的狀態容器“-的-API-使用說明/" data-id="cjblkzckp000exq9karvggcxq" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-如何讓程式可維護-重構的方向-程式開發中的互動設計" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/04/如何讓程式可維護-重構的方向-程式開發中的互動設計/" class="article-date">
+  <time datetime="2016-03-04T09:55:00.000Z" itemprop="datePublished">2016-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/04/如何讓程式可維護-重構的方向-程式開發中的互動設計/">如何讓程式可維護 / 重構的方向 / 程式開發中的互動設計</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="要解決的問題："><a href="#要解決的問題：" class="headerlink" title="要解決的問題："></a>要解決的問題：</h1><ul>
+<li><p>當要程式中增加功能、解決 bug 時，能：</p>
+<ul>
+<li>有概念知道「要修改的地方們」在哪</li>
+<li>能快速切換到「要修改的地方們」</li>
+<li>能在「要修改的地方們」之間快速切換<br>*「修改的地方們」很容易修改</li>
+<li>「修改的地方們」不多</li>
+</ul>
+</li>
+<li><p>當程式要重構時，能：</p>
+<ul>
+<li>測試重構後，外部行為是否一樣</li>
+<li>輕易搬移搬動程式、不產生 bug</li>
+</ul>
+</li>
+</ul>
+<h1 id="解法："><a href="#解法：" class="headerlink" title="解法："></a>解法：</h1><p>把程式切成小區塊，每個區塊只負責單一功能，幫這些區塊建立資訊架構，架構中設計狀態的流程管理。對應工作內容規劃工作環境。用多次微重構，代替大改。先重構、再解 bug、最後才寫新功能。在多人開發、或經常重構的專案，對穩定的外部 API 建立自動化測試。</p>
+<h1 id="好習慣："><a href="#好習慣：" class="headerlink" title="好習慣："></a>好習慣：</h1><h2 id="把程式切成小區塊-ex-4-30-行的小-chunks"><a href="#把程式切成小區塊-ex-4-30-行的小-chunks" class="headerlink" title="把程式切成小區塊 ( ex: 4 - 30 行的小 chunks)"></a><u>把程式切成小區塊 ( ex: 4 - 30 行的小 chunks)</u></h2><h3 id="好處："><a href="#好處：" class="headerlink" title="好處："></a>好處：</h3><ul>
+<li>好理解、好修改、也容易增加新功能、能塞進人腦的工作記憶裡</li>
+</ul>
+<p>### </p>
+<ul>
+<li>每個程式區塊 = 一個檔案 or 一個 function or 一個 folding</li>
+<li>每個區塊行數 (after folding)，大於一個螢幕可以顯示時就要 Refactoring</li>
+</ul>
+<h2 id="每個區塊只負責單一功能"><a href="#每個區塊只負責單一功能" class="headerlink" title="每個區塊只負責單一功能"></a><u>每個區塊只負責單一功能</u></h2><h3 id="好處：-1"><a href="#好處：-1" class="headerlink" title="好處："></a>好處：</h3><ul>
+<li>容易重複利用、減少 dependency、容易理解、容易找到 debug</li>
+</ul>
+<h3 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h3><ul>
+<li>多寫純函數 / Stateless API、良好函數/模組命名、註解輸入/輸出參數<h2 id="建立程式碼的資訊架構"><a href="#建立程式碼的資訊架構" class="headerlink" title="建立程式碼的資訊架構"></a><u>建立程式碼的資訊架構</u></h2><h3 id="好處：-2"><a href="#好處：-2" class="headerlink" title="好處："></a>好處：</h3></li>
+<li>容易找到要修改的地方 (在人很有限的 short-term memory 消散之前)</li>
+</ul>
+<h3 id="方法：-1"><a href="#方法：-1" class="headerlink" title="方法："></a>方法：</h3><h4 id="把程式碼區塊分類"><a href="#把程式碼區塊分類" class="headerlink" title="把程式碼區塊分類"></a>把程式碼區塊分類</h4><ul>
+<li>依功能：模組 / MVC / 前後端 / 測試 / Layout or 細節 / Stable or Develop / Web or iOS or Android</li>
+<li>依架構：樹狀主從架構 / 分階層 / Data Layer / Rendering Layer</li>
+<li>依時間：version</li>
+</ul>
+<h2 id="在架構設計中使用流程管理"><a href="#在架構設計中使用流程管理" class="headerlink" title="在架構設計中使用流程管理"></a><u>在架構設計中使用流程管理</u></h2><h3 id="好處：-3"><a href="#好處：-3" class="headerlink" title="好處："></a>好處：</h3><ul>
+<li>增加可預測性、減少程式碼依賴<h3 id="方法：-2"><a href="#方法：-2" class="headerlink" title="方法："></a>方法：</h3></li>
+<li>單向資料流、State Machine、Single Source of Truth</li>
+</ul>
+<h2 id="對應的工作內容建立環境"><a href="#對應的工作內容建立環境" class="headerlink" title="對應的工作內容建立環境"></a><u>對應的工作內容建立環境</u></h2><h3 id="好處：-4"><a href="#好處：-4" class="headerlink" title="好處："></a>好處：</h3><ul>
+<li><p>在程式碼區塊 / 外在環境中移動時，大腦不會 context switch</p>
+</li>
+<li><p>Web 互動環境設計：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 要規劃在下列環境簡單移動的方法 (環境一樣要有架構、資訊權重)</span><br><span class="line">      a. editor &amp; browsers</span><br><span class="line">      b. shell / server / database / git</span><br><span class="line">      c. editor 中的不同檔案</span><br><span class="line">      d. 同個檔案中的 區塊、行、字母</span><br><span class="line">      e. MDN / stack overflow / Google Search / Github Search</span><br><span class="line">2. IDE / shortcut switch / 多螢幕環境 / 切割螢幕畫面</span><br><span class="line">3. Font / Syntax Highlight / AutoComplete / 文法檢查</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Micro-Refactoring"><a href="#Micro-Refactoring" class="headerlink" title="Micro-Refactoring"></a><u>Micro-Refactoring</u></h2><h3 id="好處：-5"><a href="#好處：-5" class="headerlink" title="好處："></a>好處：</h3><ul>
+<li>一次改一點比較好測試、失敗的損失也比較低<h2 id="改程式碼的優先順序：重構-gt-修-bug-gt-增加功能"><a href="#改程式碼的優先順序：重構-gt-修-bug-gt-增加功能" class="headerlink" title="改程式碼的優先順序：重構 &gt; 修 bug &gt; 增加功能"></a><u>改程式碼的優先順序：重構 &gt; 修 bug &gt; 增加功能</u></h2><h3 id="好處：-6"><a href="#好處：-6" class="headerlink" title="好處："></a>好處：</h3></li>
+<li>重構會讓修 bug 變簡單、修完 bug 會讓增加新功能變得簡單<h2 id="為不常改變行為的外部-API-建立自動化測試"><a href="#為不常改變行為的外部-API-建立自動化測試" class="headerlink" title="為不常改變行為的外部 API 建立自動化測試"></a><u>為不常改變行為的外部 API 建立自動化測試</u></h2><h3 id="好處：-7"><a href="#好處：-7" class="headerlink" title="好處："></a>好處：</h3></li>
+<li>每次重構時能夠確定沒有破壞這些 API</li>
+</ul>
+<hr>
+<p>Simplicity is the prerequisite for reliability — by Dijkstra.<space><space><br>因為我們是人類，只有相當有限的注意力、短期記憶和工作記憶空間。</space></space></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/04/如何讓程式可維護-重構的方向-程式開發中的互動設計/" data-id="cjblkzcln000wxq9ksjve1qxq" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interaction-design/">interaction design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/refactoring/">refactoring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/separation-of-concerns/">separation of concerns</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-從買蘋果看工程師和設計師的差別？" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/08/從買蘋果看工程師和設計師的差別？/" class="article-date">
+  <time datetime="2016-02-08T06:04:00.000Z" itemprop="datePublished">2016-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/08/從買蘋果看工程師和設計師的差別？/">從買蘋果看工程師和設計師的差別？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>高中的時候，有個留級的朋友問我，你會不會覺得唸這些東西一點用都沒有。書呆子的我，帶著疑惑問：「為什麼會這樣覺得？」但現在過了 15 年，我真的很想問那時候的我，為什麼不會這樣覺得。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">工程和管理的訓練是解決問題，而設計師受的訓練是發現真正的問題。 </span><br><span class="line">--- from 設計的心理學 by Donald A. Norman</span><br></pre></td></tr></table></figure>
+<h3 id="聽到「幫我買一顆蘋果」這個問題，工程師會這樣做。"><a href="#聽到「幫我買一顆蘋果」這個問題，工程師會這樣做。" class="headerlink" title="聽到「幫我買一顆蘋果」這個問題，工程師會這樣做。"></a>聽到「幫我買一顆蘋果」這個問題，工程師會這樣做。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">工程師：花一小時，找出一大堆的購物網站，列出各種蘋果的價格和評價，然後請你挑最好的一個。</span><br><span class="line"></span><br><span class="line">妹子：我只是想和你見個面聊個天，為什麼我必須要看那麼多資料... 而且還要我上網訂、見不到面，還是放棄治療好了。</span><br></pre></td></tr></table></figure>
+<h3 id="聽到「幫我買一顆蘋果」這個問題，設計師會這樣做。-這邊設計師不含-VD"><a href="#聽到「幫我買一顆蘋果」這個問題，設計師會這樣做。-這邊設計師不含-VD" class="headerlink" title="聽到「幫我買一顆蘋果」這個問題，設計師會這樣做。(這邊設計師不含 VD)"></a>聽到「幫我買一顆蘋果」這個問題，設計師會這樣做。(這邊設計師不含 VD)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">情況一：</span><br><span class="line">問：你為什麼要買蘋果？</span><br><span class="line">答: 因為想幫房間增加一點紅色。</span><br><span class="line">問: 為什麼想幫房間增加一點紅色?</span><br><span class="line">答: 因為想把房間變漂亮？</span><br><span class="line">解: 設計師把房間的燈從冷色系換成暖色系。</span><br><span class="line"></span><br><span class="line">情況二：</span><br><span class="line">問：你為什麼要買蘋果？</span><br><span class="line">答：因為我肚子餓。</span><br><span class="line">問：可是你不是剛剛才吃完飯？</span><br><span class="line">答：嗯，對喔。(OS: 我只是看你太閒，要給你一點事做。)</span><br><span class="line"></span><br><span class="line">情況三：</span><br><span class="line">問：你為什麼要買蘋果？</span><br><span class="line">答：因為要吃。</span><br><span class="line">問：你為什麼要吃？</span><br><span class="line">答：我每天都要吃一顆，今天沒帶。你廢話那麼多要幹麻？(OS: 這個下屬理由很多。)</span><br></pre></td></tr></table></figure>
+<p>工程師和管理把問題往下展開。<br>設計師把問題往上展，如果找到更簡單的問題再往下展。</p>
+<h3 id="工程師：直接把問題往下展開："><a href="#工程師：直接把問題往下展開：" class="headerlink" title="工程師：直接把問題往下展開："></a>工程師：直接把問題往下展開：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">優：能最快速找到這個問題的解法。</span><br><span class="line">缺：你解決的可能根本不是重要的問題。</span><br></pre></td></tr></table></figure>
+<h3 id="設計師：把問題往後回推，找新問題解"><a href="#設計師：把問題往後回推，找新問題解" class="headerlink" title="設計師：把問題往後回推，找新問題解"></a>設計師：把問題往後回推，找新問題解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">優：也許能找到真正需要解的問題、花更少的時間就能解決問題。</span><br><span class="line">缺：別人會以為你不想理他在找藉口。老闆會以為你在故意質疑他。如果原來的問題本來就是對的問題，你只是在浪費時間。</span><br></pre></td></tr></table></figure>
+<h3 id="理性與感性"><a href="#理性與感性" class="headerlink" title="理性與感性"></a>理性與感性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">「現階段的實際工作中，設計師們無論是在方案的設計還是方案的表達上，往往都顯得感性有餘、理性不足。」</span><br><span class="line">--- by 汪方進 ＠ 阿里巴巴 1688用戶體驗部</span><br></pre></td></tr></table></figure>
+<p>一個設計師，不光只有同理心、邏輯推理能力、各種知識也很重要。沒有知識不能推理啊… 所以工程師們快和我一樣跳進來吧~~~ 當設計界的理性之光。其實就演算法的角度來看，就是兩種不同的方法，各有各的使用時機、各有各的風險報酬，如果要能解決生活中的問題，這兩個都很重要。所以也別分什麼工程、設計、商業，如果有需要就學吧。大學四年可以學一個專業，但人生有多少個四年啊… 是不是該多學幾個專業 XD</p>
+<p>註： 把視覺設計師(VD)和程式設計師特別切出來的原因是：他們的工作都偏向在給定的問題中找解法、做的是實作中一定要做的事。但真正優秀的會去觀察使用者。(工程師的話推薦看：程序員的修煉、駭客與畫家，都有提到這點)</p>
+<p>註：上面的對話都是我的想像舉例，別太認真。想知道真正答案的話，或是測試這個人的工程設計傾向，可以請他幫你買顆蘋果看看。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/02/08/從買蘋果看工程師和設計師的差別？/" data-id="cjblkzcls0011xq9k4ndq72qs" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design-thinking/">design thinking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/designer/">designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/engineering/">engineering</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-淺談函數式編程和-React" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/29/淺談函數式編程和-React/" class="article-date">
+  <time datetime="2016-01-29T08:08:00.000Z" itemprop="datePublished">2016-01-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/29/淺談函數式編程和-React/">淺談函數式編程和 React</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函數是有定義介面的運算單元。<space><space><space><space></space></space></space></space></p>
+<p>介面有用的地方是抽象化，你只需要知道輸入什麼(Input)、會得到什麼輸出(Output)，你不用知道它細節是怎麼做到的。其實有個超能力在背後，也沒關係。當然這是在沒有碰到 bug 和有良好文件、不需要修改它的前提之下。<space><space><space><space></space></space></space></space></p>
+<p>再強調一次，你只需要理解輸入(input)會對應到什麼輸出(output)就夠了。<space><space></space></space></p>
+<h3 id="問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？"><a href="#問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？" class="headerlink" title="問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？"></a><u>問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？</u></h3><ul>
+<li>有意義的函數名稱</li>
+<li><p>多寫沒有副作用的純函數</p>
+<ul>
+<li>有可預測性：<br>   每次輸入得到相同的輸出、函數內部不存狀態    </li>
+<li>沒有副作用：<br>   運算過程中不會改到外界的變數，像是不改傳進來的參數、不改可以存取的全域變數。    </li>
+<li>顯式(Explict)：<br>   函數和外界溝通的管道只有，傳進來的參數和回傳值。</li>
+</ul>
+</li>
+<li><p>簡化參數、對資料結構的 Information Architecture 做良好設計</p>
+</li>
+<li><p>用函數來定義函數</p>
+<ul>
+<li>柯里化(Currying)：<br>   透過不同給參數來產生新的函數</li>
+<li>合成(Compose)：<br>   透過 pipeline 串接函數的input和output、隱藏參數，產生新的函數。</li>
+</ul>
+</li>
+</ul>
+<h3 id="函數式編程為什麼強大、有彈性？"><a href="#函數式編程為什麼強大、有彈性？" class="headerlink" title="函數式編程為什麼強大、有彈性？"></a><u>函數式編程為什麼強大、有彈性？</u></h3><ul>
+<li><p>把每個函數切得很小，容易更新、維護、平行處理、多人共同開發、被理解</p>
+</li>
+<li><p>透過合成(Compose)把小函數變成大函數，比用繼承有彈性的多</p>
+</li>
+<li><p>對集合實做 Functor 介面，讓一般函數都可以對集合操作。(array, matrix, tensor)</p>
+</li>
+<li><p>把純和不純的函數分開來管理，容易找到問題點。</p>
+</li>
+</ul>
+<h3 id="函數式編程為什麼難寫？"><a href="#函數式編程為什麼難寫？" class="headerlink" title="函數式編程為什麼難寫？"></a><u>函數式編程為什麼難寫？</u></h3><p>因為函數式編程想要把程式變簡單。但大家都知道「變複雜是簡單的、變簡單是複雜的」。所以這種方式寫程式需要設計、思考，你會是一個程式「設計師」。但如果你現在的專案寫完之後沒人會看、不會再改、不用維護、規模不大，也許函數式編程並不能幫到這個專案多少。</p>
+<h3 id="寫-React-就是實踐函數式編程"><a href="#寫-React-就是實踐函數式編程" class="headerlink" title="寫 React 就是實踐函數式編程"></a><u>寫 React 就是實踐函數式編程</u></h3><ul>
+<li><p>透過自定義元件，定義畫 View 的抽象化函數樹</p>
+</li>
+<li><p>透過 JSX 語法把小函數組合成大的函數 (等同於 compose)</p>
+</li>
+<li><p>鼓勵大家寫 dumb 元件、也就是純函數</p>
+</li>
+<li><p>用唯讀的 props，限制大家不能改傳進來的參數、減少副作用</p>
+</li>
+<li><p>透過導入 flux，把純和不純的函數分開來管理</p>
+<ul>
+<li>純的 (對資料只做讀的動作)：每個元件中的 render function</li>
+<li>不純的 (對資料做讀和寫的動作)：<br>   flux中對 action 的 callback、redux 中的 reducer、父元件傳給子元件的 callback</li>
+<li>glue code：元件中其他的 javascript<br><img src="http://2.bp.blogspot.com/-wg5mnU0UosE/VqsbPjd6AfI/AAAAAAAA4Ak/FN1MAFQndCY/s640/unnamed.jpg" alt=""></li>
+</ul>
+</li>
+</ul>
+<h3 id="從函數式編程的角度看-React-的問題？"><a href="#從函數式編程的角度看-React-的問題？" class="headerlink" title="從函數式編程的角度看 React 的問題？"></a><u>從函數式編程的角度看 React 的問題？</u></h3><ul>
+<li><p>沒有什麼高階的集合操作方法：</p>
+<ul>
+<li>把 lodash.js 集合操作拉進來用？</li>
+<li>用 lenses 的方式來穿透深長不露的 states?</li>
+</ul>
+</li>
+<li><p>沒有簡單的 currying 語法</p>
+<ul>
+<li>像是傳不同參數給 html5 input 元件，生出各式各樣對數字的、email、submit、text的自定義元件。最簡單寫法應該是 </li>
+<li>export function NumberInput(props) { 角括弧input type=“number” {…props} /&gt; }</li>
+<li>PS: function 一定要有名字不然 debug 會很慘。</li>
+</ul>
+</li>
+<li><p>雖然集中管理了不純的函數，但還是很難寫：現在透過修改 store 中的 state 來控制元件，這邊 action 觸發的都是不純的函數，如果元件架構一深，還是會很難改。有解嗎？這邊還沒找到什麼 coding guideline…</p>
+<ul>
+<li>多個 container smart 元件</li>
+<li>flux 的多個 store</li>
+<li>redux 的階層式 reducers</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>延伸閱讀：<br><a href="https://segment.com/blog/deku-our-functional-alternative-to-react/" target="_blank" rel="noopener">deku: functional alternative to react </a><br><a href="https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4#.jkarowg5n" target="_blank" rel="noopener">how to use classes and sleep at night (in a functional way)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/01/29/淺談函數式編程和-React/" data-id="cjblkzclq000zxq9kwytp2ryp" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/28/Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程/" class="article-date">
+  <time datetime="2016-01-28T14:05:00.000Z" itemprop="datePublished">2016-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/28/Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程/">Hey Underscore, You&#39;re doing it Wrong! (介紹函數編程)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <iframe allowfullscreen class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/m3svKOdZijA/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/m3svKOdZijA?feature=player_embedded" width="320"></iframe>
+
+<hr>
+<p>Curried Function：到拿到所有需要的參數前… 一直回傳新函數的函數。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> add3 = add(<span class="number">3</span>);</span><br><span class="line">add3(<span class="number">4</span>); <span class="comment">//return 7</span></span><br><span class="line"></span><br><span class="line">add(<span class="number">3</span>)(<span class="number">4</span>); <span class="comment">//weird thing </span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">autoCurry in Wu.js will save us </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;.autoCurry();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> add3 = add(<span class="number">3</span>);</span><br><span class="line">add3(<span class="number">4</span>) <span class="comment">//7</span></span><br><span class="line"></span><br><span class="line">add(<span class="number">3</span>,<span class="number">5</span>) <span class="comment">//8 =&gt; not weird any more!!!</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">但我們為什麼需要 curry？參考下面這個組成新 function getTheOdds 的例子。 有了currying，我們可以透過給予不同參數來建立新的函數。 </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">f, xs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> xs.filter(f);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">filter(isOdd, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]) <span class="comment">// [1,3,5]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getTheOdds = filter(isOdd);</span><br><span class="line">getTheOdds([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]) <span class="comment">//[1,3,5]</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">再來一個用loadash的酷例子 </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="comment">//沒用currying、不函數化的寫法</span></span><br><span class="line"><span class="keyword">var</span> firstTwoLetters = <span class="function"><span class="keyword">function</span>(<span class="params">words</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> _.map(words, <span class="function"><span class="keyword">function</span>(<span class="params">word</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> _.first(word, <span class="number">2</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函數化的寫法(如果underscore吃參數的方式是反過來的話)</span></span><br><span class="line"><span class="keyword">var</span> firstTwoLetters = _.map(_.first(<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//更函數化的寫法</span></span><br><span class="line">_.map(_.first(<span class="number">2</span>), [<span class="string">'jim'</span>, <span class="string">'kate'</span>]) <span class="comment">//['ji', 'ka'] </span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">=&gt; Underscore.js的參數排列法讓currying變得不可能  總結currying的優點有下面四個： </span></span><br><span class="line"><span class="string">* 一般化函數、要傳的變數名消失了 </span></span><br><span class="line"><span class="string">* 透過給不同參數就可以生成不同的函數 </span></span><br><span class="line"><span class="string">* 更簡潔的定義 </span></span><br><span class="line"><span class="string">* 讓函式的組合/合成 (composition) 變的可能  </span></span><br><span class="line"><span class="string">---------------------------------------------------------- </span></span><br><span class="line"><span class="string">組合/合成 (composition):用多個函數來組成新函數  簡單的例子，用 first() 和 reverse() 來合成 last 函數 </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> last = <span class="function"><span class="keyword">function</span>(<span class="params">xs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sx = reverse(xs);</span><br><span class="line">  <span class="keyword">return</span> first(sx);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> last = compose(first, reverse);</span><br><span class="line"></span><br><span class="line">last([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]) <span class="comment">//3</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">另一個例子，chain backwardly </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> wordCount = <span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> words = split(<span class="string">' '</span>, str);</span><br><span class="line">  <span class="keyword">return</span> length(words);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> wordCount = compose(length, split(<span class="string">' '</span>));</span><br><span class="line">wordCount(<span class="string">"There is a way to save the world"</span>) <span class="comment">//8</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">**Category Theory:** 多個函數組合(compose)，作用域互相對應的理論。Connecting the dot.  總結組合：</span></span><br><span class="line"><span class="string">* 能從其他函數組成新函數 </span></span><br><span class="line"><span class="string">* 組合過程中把參數藏起來 </span></span><br><span class="line"><span class="string">* 極為高階的寫程式 </span></span><br><span class="line"><span class="string">* 有數學理論在後面支持  </span></span><br><span class="line"><span class="string">------------------------------------------------------------------ </span></span><br><span class="line"><span class="string">Functors  map 打開了後面的 object 然後做一些事、再放回 object </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> plus1 = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123; <span class="keyword">return</span> x + <span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line">plus1([<span class="number">3</span>]) <span class="comment">//wrong!!</span></span><br><span class="line"></span><br><span class="line">map(plus1, [<span class="number">3</span>]) <span class="comment">//4</span></span><br></pre></td></tr></table></figure></p>
+<p>剛剛舉的例子，map 只能操作 array object、但下面試圖用 map 操作所有 object </p>
+<pre><code class="js">map(plus1, MyObject(<span class="number">3</span>)) <span class="comment">//MyObject(4)</span>
+
+MyObject = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>{
+  <span class="keyword">this</span>.val = val;
+}
+
+MyObject.prototype.map = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>) </span>{
+  <span class="keyword">return</span> MyObject(f(<span class="keyword">this</span>.val));
+}
+</code></pre>
+<p>如果對 object 定義了 map function，它就變成 functor null check的例子、Dynamic Safety： </p>
+<pre><code class="js">map(plus1, Maybe(<span class="number">3</span>)) <span class="comment">//=&gt; Maybe(4)</span>
+
+map(plus1, Maybe(<span class="literal">null</span>)) <span class="comment">//=&gt; Maybe(null)</span>
+
+Maybe = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>{
+  <span class="keyword">this</span>.val = val;
+}
+
+Maybe.prototype.map = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>{
+  <span class="keyword">return</span> <span class="keyword">this</span>.val ? Maybe(f(<span class="keyword">this</span>.val)) : Maybe(<span class="literal">null</span>);
+}
+</code></pre>
+<p>把 ES6 promise 變 functor 的例子 </p>
+<pre><code class="js">map(populateTable, $.ajax.get(<span class="string">'/posts'</span>);
+
+<span class="built_in">Promise</span>.prototype.map = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>) </span>{
+  <span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>();
+  <span class="keyword">this</span>.then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>{
+    promise.resolve(f(response));
+  });
+  <span class="keyword">return</span> promise;
+}
+</code></pre>
+<p>再來一個和 html 合作的例子：對有和沒有 user_login 的情況下，更新歡迎頁面。 </p>
+<pre><code class="js">$div = $(<span class="string">"#myDiv"</span>);
+
+<span class="comment">//dot 會把 user.name 拿出來</span>
+<span class="keyword">var</span> getGreeting = compose(concat(<span class="string">'Welcome '</span>), dot(<span class="string">'name'</span>));
+
+<span class="keyword">var</span> updateGreetingHtml = compose($div.html, getGreeting);
+
+map(updateGreetingHtml, Maybe(App.current_user));
+</code></pre>
+<p>underscore 不讓人 extend map  總結 functor 能: </p>
+<ul>
+<li>改變函數的行為卻不用變動 open/closed principle </li>
+<li>不光只有 map, 還有 reduce &amp; compose *<br>直覺且非私人的 api </li>
+<li>free formulas </li>
+<li>動態型別安全/檢查 </li>
+</ul>
+<hr>
+<p>總結：underscore 能變得更加 functional。希望有更 functional 的 library</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/01/28/Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程/" data-id="cjblkzcjv0001xq9kxvf5crh9" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/composition/">composition</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/currying/">currying</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functors/">functors</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 kindalu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/wangchou" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

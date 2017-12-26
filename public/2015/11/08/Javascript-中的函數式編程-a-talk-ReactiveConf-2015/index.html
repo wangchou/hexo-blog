@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Javascript 中的函數式編程 (a talk @ ReactiveConf 2015) | 閃閃發光的地下城筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="影片：Functional Programming in Javascript By Daniel Steigerwald&amp;nbsp;Daniel 是 google 前員工、也是 https://github.com/este/este 這個 React + Redux + immutable.js Starter Kit 的作者，在 Github 上有 1800 顆星。我認為函數式編程 ( Fu">
+<meta name="keywords" content="functional programming,pure function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 中的函數式編程 (a talk @ ReactiveConf 2015)">
+<meta property="og:url" content="http://yoursite.com/2015/11/08/Javascript-中的函數式編程-a-talk-ReactiveConf-2015/index.html">
+<meta property="og:site_name" content="閃閃發光的地下城筆記">
+<meta property="og:description" content="影片：Functional Programming in Javascript By Daniel Steigerwald&amp;nbsp;Daniel 是 google 前員工、也是 https://github.com/este/este 這個 React + Redux + immutable.js Starter Kit 的作者，在 Github 上有 1800 顆星。我認為函數式編程 ( Fu">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://2.bp.blogspot.com/-NqF8whIlX1E/Vj9BEosEl7I/AAAAAAAA35w/csXWLMH0e3w/s640/Screen%2BShot%2B2015-11-08%2Bat%2B8.32.45%2BPM.jpg">
+<meta property="og:image" content="http://4.bp.blogspot.com/-trYOXa5g8dY/Vj9HW1kBZYI/AAAAAAAA36A/XOIr5LVtpiI/s640/Screen%2BShot%2B2015-11-08%2Bat%2B8.59.38%2BPM.jpg">
+<meta property="og:updated_time" content="2017-12-23T06:08:08.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript 中的函數式編程 (a talk @ ReactiveConf 2015)">
+<meta name="twitter:description" content="影片：Functional Programming in Javascript By Daniel Steigerwald&amp;nbsp;Daniel 是 google 前員工、也是 https://github.com/este/este 這個 React + Redux + immutable.js Starter Kit 的作者，在 Github 上有 1800 顆星。我認為函數式編程 ( Fu">
+<meta name="twitter:image" content="http://2.bp.blogspot.com/-NqF8whIlX1E/Vj9BEosEl7I/AAAAAAAA35w/csXWLMH0e3w/s640/Screen%2BShot%2B2015-11-08%2Bat%2B8.32.45%2BPM.jpg">
+<meta name="twitter:creator" content="@kindalu">
+  
+    <link rel="alternate" href="/atom.xml" title="閃閃發光的地下城筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">閃閃發光的地下城筆記</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/wangchou">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Javascript-中的函數式編程-a-talk-ReactiveConf-2015" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/08/Javascript-中的函數式編程-a-talk-ReactiveConf-2015/" class="article-date">
+  <time datetime="2015-11-08T13:12:00.000Z" itemprop="datePublished">2015-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javascript 中的函數式編程 (a talk @ ReactiveConf 2015)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">影片：<a href="https://www.youtube.com/watch?v=BfzjuhX4wJ0&amp;feature=youtu.be&amp;t=2h16m7s" target="_blank" rel="noopener">Functional Programming in Javascript By Daniel Steigerwald</a>&nbsp;</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Daniel 是 google 前員工、也是 <a href="https://github.com/este/este" target="_blank" rel="noopener">https://github.com/este/este</a> 這個 React + Redux + immutable.js Starter Kit 的作者，在 Github 上有 1800 顆星。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">我認為函數式編程 ( Functional Programming ) 將在明年成為主流。像在 C++11 和 Java 8 中已經開始有 lambda function。我接下來聊我已經用在 Production 的東西。我認為函數式編程已經在前端的世界已經被 React 引入。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><strong><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">什麼是函數式編程？</span></strong><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">沒有什麼神秘的東西，到處都是純函式 ( Pure functions everywhere )、不可變的數值 ( Immutable values )、用組成而不用繼承 ( composition over inheritance )、紀錄代替類別 (records over classes)、處理好副作用 ( taming side-effects )。我覺得 functional programming 有點像是人工智慧，聽起來有點酷、有點奇怪，但當你了解了它以後，就只是無聊、很平常的寫程式而已。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong>為什麼要函數化 ( functional )？&nbsp;</strong></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">因為軟體正在吃掉這個世界，它必須要做到最好。函數式編程已經被證明，比較少臭蟲 ( less bugs)、較不複雜 ( less complexity )、程式碼更可讀 ( more readable code ) 和更好的效能 ( more performance )。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong>物件導向程式設計 ( OOP ) 有什麼問題？</strong></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">沒有問題，只是很難、常被誤用，而且有時是難以避免的。整個物件導向程式設計的模式 (paradigm) 是基於「送訊息給物件是唯一跟狀態 ( state ) 互動的方法」，因此狀態就會被分散。於是在分散式系統中狀態的一致的難度是跟世界和平一樣的 XD</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></p>
+<p><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="http://2.bp.blogspot.com/-NqF8whIlX1E/Vj9BEosEl7I/AAAAAAAA35w/csXWLMH0e3w/s1600/Screen%2BShot%2B2015-11-08%2Bat%2B8.32.45%2BPM.jpg" target="_blank" rel="noopener"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><img src="http://2.bp.blogspot.com/-NqF8whIlX1E/Vj9BEosEl7I/AAAAAAAA35w/csXWLMH0e3w/s640/Screen%2BShot%2B2015-11-08%2Bat%2B8.32.45%2BPM.jpg" alt=""></span></a></td></tr><tr><td class="tr-caption" style="text-align: center;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">物件導向程式設計 和 函數式編程的設計模式比較</span></td></tr></tbody></table><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Scott Wlaschin是很好的講者，不像我鼓勵大家去聽他的演講。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">在 OOP 中，每次方法在某個實體上被呼叫其實就是副作用。副作用很難被追蹤、被理解，沒有人喜歡驚喜。驚喜在生活中是好的，但驚喜在程式碼裡面沒有任何好的地方。我們被教導要用繼承，但他是陷阱，程式碼會不夠彈性、很難之後改變。設計模式最難的是如何幫這些模式取名字，動詞偽裝成名詞。策略、工廠、Commands…</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">React 中最耀眼的原則是函式組成法 ( function composition )。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><strong><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">純函數 ( pure function ) vs 髒類別 (dirty class)</span></strong><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">純函數沒有任何副作用。他很難去違反只負責一件事的原則 ( single responsibility principle) 因為純函數只有一個明顯的目的 — 把輸入轉成輸出。所以測試就變得超簡單。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">類別是髒的。互叫一個簡單的類別函式，就會改變它。誰做的？為什麼做？我們永遠不知道 ( 直到我們 debug 後)…</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">推薦這本 github 上的書<a href="https://github.com/MostlyAdequate/mostly-adequate-guide" target="_blank" rel="noopener">適當的函數式編成指南</a>&nbsp;( 在 github 上有 6000 顆星)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></p>
+<p><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="http://4.bp.blogspot.com/-trYOXa5g8dY/Vj9HW1kBZYI/AAAAAAAA36A/XOIr5LVtpiI/s1600/Screen%2BShot%2B2015-11-08%2Bat%2B8.59.38%2BPM.jpg" target="_blank" rel="noopener"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><img src="http://4.bp.blogspot.com/-trYOXa5g8dY/Vj9HW1kBZYI/AAAAAAAA36A/XOIr5LVtpiI/s640/Screen%2BShot%2B2015-11-08%2Bat%2B8.59.38%2BPM.jpg" alt=""></span></a></td></tr><tr><td class="tr-caption" style="text-align: center;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">如果你不理解這個程式，沒關係。我也不懂。在函數式編程裡它等於 ( (4 + 0) <em> 2) + (4 </em> 2)</span></td></tr></tbody></table><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong>Immutable.js</strong></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">不可變資料一旦被建立就不能被改變，這使得更簡單的應用程式開發，不用預防性的回傳複製品，更可以使用間單的邏輯來達到進階的 memoization 和改變偵測。一個針對不變資料的可變 API 並不改變原來資料，而是總是產生新的資料。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;- 和 原生的 Javascript array 有很相似的 API</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;- 保持永遠的不可變 (List, stack, map, orderedMap, Set, OrderedSet and Record)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;- 非常快</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">—</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">PS：作者講的不多，上面很多都是照投影片上大量文字打的。</span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/08/Javascript-中的函數式編程-a-talk-ReactiveConf-2015/" data-id="cjblkzck80004xq9kup27sh2j" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pure-function/">pure function</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/09/函數式編程介紹-1-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          函數式編程介紹 ( 1 / 2 )
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/08/Redux-事件驅動系統-伺服器/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Redux = 事件驅動系統 = 伺服器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 kindalu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/wangchou" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

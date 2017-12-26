@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>React UI 心得文之一 | 閃閃發光的地下城筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="這週在忙著刻一個大元件，中間有包兩三個中元件、然後中元件下面又會有小元件。要記得React 是負責 UI 的啊，千萬個不該在小元件裡面存 state。存了改了兩天還是會有問題，小元件如果存了狀態，常會有那大元件重 render 的時候，設 property 卻無法更新小元件，因為小元件的 state 不一樣了。兩天之後把大中小元件全部改成 dumb component 真的快樂的不得了，程式碼變少">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React UI 心得文之一">
+<meta property="og:url" content="http://yoursite.com/2015/12/02/React-UI-心得文之一/index.html">
+<meta property="og:site_name" content="閃閃發光的地下城筆記">
+<meta property="og:description" content="這週在忙著刻一個大元件，中間有包兩三個中元件、然後中元件下面又會有小元件。要記得React 是負責 UI 的啊，千萬個不該在小元件裡面存 state。存了改了兩天還是會有問題，小元件如果存了狀態，常會有那大元件重 render 的時候，設 property 卻無法更新小元件，因為小元件的 state 不一樣了。兩天之後把大中小元件全部改成 dumb component 真的快樂的不得了，程式碼變少">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-23T06:08:08.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React UI 心得文之一">
+<meta name="twitter:description" content="這週在忙著刻一個大元件，中間有包兩三個中元件、然後中元件下面又會有小元件。要記得React 是負責 UI 的啊，千萬個不該在小元件裡面存 state。存了改了兩天還是會有問題，小元件如果存了狀態，常會有那大元件重 render 的時候，設 property 卻無法更新小元件，因為小元件的 state 不一樣了。兩天之後把大中小元件全部改成 dumb component 真的快樂的不得了，程式碼變少">
+<meta name="twitter:creator" content="@kindalu">
+  
+    <link rel="alternate" href="/atom.xml" title="閃閃發光的地下城筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">閃閃發光的地下城筆記</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/wangchou">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-React-UI-心得文之一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/02/React-UI-心得文之一/" class="article-date">
+  <time datetime="2015-12-01T18:07:00.000Z" itemprop="datePublished">2015-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React UI 心得文之一
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">這週在忙著刻一個大元件，中間有包兩三個中元件、然後中元件下面又會有小元件。要記得React 是負責 UI 的啊，千萬個不該在小元件裡面存 state。存了改了兩天還是會有問題，小元件如果存了狀態，常會有那大元件重 render 的時候，設 property 卻無法更新小元件，因為小元件的 state 不一樣了。兩天之後把大中小元件全部改成 dumb component 真的快樂的不得了，程式碼變少了、邏輯也清楚了。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">刻 React 元件的方法：</span></span></p>
+<ol>
+<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">盡量刻 Dumb Component，把它當成 function 去想要提供什麼參數</span></li>
+<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">parent component 要對 child componet 命名和設 handler(childId, value)</span></li>
+<li><p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">事件發生時就呼叫 parent 傳來的 handler，說你是哪個 child和發生了什麼</span><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">就這樣遞迴做下去，最上層的 App component 就可以知道，哪第三個child component 的第四個 child component 發生了什麼事，然後做一些處理。</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">客制化 React 元件外觀的方法：</span></div><div></div></p>
+</li>
+<li><p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">幫元件的各種 property 類別放置對應的className</span></p>
+</li>
+<li><p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">用 webpack 的 css loader 幫元件建立 local 的 css scope，然後用一個 scss 檔去管理一個元件，這樣一切都會輕鬆的多。( 參考 React Toolbox )</span><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">其他刻外觀小心得：</span></div></p>
+</li>
+<li><p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">多用 em, rem</span></p>
+</li>
+<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">用 css 幫背景上色的方式，快速看物件是否對齊</span></li>
+<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">用 Mac 的放大鏡 ( ctrl + 雙指滑動 trackpad )</span></li>
+<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">用 css trick cursor 去引導 behavior</span></li>
+<li><p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">用 font-weight 和 color 的 alpha channel 去做細部微調</span><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">學各種 React 相關 Library的方法：一定要<strong><span style="font-size: x-large;"><u>從看完官方的 Tutorial/Guide 開始</u></span></strong>，網路上的介紹文章通常都挑簡單的地方說，十篇有九篇都講一樣的東西，還不如看官方的 Tutorial/Guide 把重要的東西有系統的一次學會。很重要所以特別粗體一下…</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">使用者經驗部分：</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">碰到客戶想要重新客製化系統的時候</span></div><div></div></p>
+</li>
+<li><p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">照他們舊有的行為，模擬跑自己刻的新系統幾次，很快就可以知道缺了什麼、哪裡會生出問題，這樣的方法比在那邊天馬行空的猜測會方便的很多。例子: 新報表系統拿舊系統的許多報表重新打一次。</span></p>
+</li>
+<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">用心智圖的方式窮舉可能的行為，不然光是用腦袋想一定會漏掉很多細節。</span><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">和他人合作的部分</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">一定要定時 Sync 進度，時常 commit。不要隱匿進度落後、缺失、維護 local state，想說這樣可以加班追回來。因為很多事從他人的角度來看會清楚的很多，也方便別人調整。不要裝弱、裝強，快放棄那沒用的自尊心吧。</span></div></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/12/02/React-UI-心得文之一/" data-id="cjblkzckg0007xq9kubu23iom" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/06/Firebase：前端工程師的神兵利器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Firebase：前端工程師的神兵利器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/28/聊預測自己未來的能力/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">聊預測自己未來的能力</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 kindalu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/wangchou" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

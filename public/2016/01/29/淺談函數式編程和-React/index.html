@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>淺談函數式編程和 React | 閃閃發光的地下城筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="函數是有定義介面的運算單元。 介面有用的地方是抽象化，你只需要知道輸入什麼(Input)、會得到什麼輸出(Output)，你不用知道它細節是怎麼做到的。其實有個超能力在背後，也沒關係。當然這是在沒有碰到 bug 和有良好文件、不需要修改它的前提之下。 再強調一次，你只需要理解輸入(input)會對應到什麼輸出(output)就夠了。 問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？ 有意義">
+<meta name="keywords" content="functional programming,react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="淺談函數式編程和 React">
+<meta property="og:url" content="http://yoursite.com/2016/01/29/淺談函數式編程和-React/index.html">
+<meta property="og:site_name" content="閃閃發光的地下城筆記">
+<meta property="og:description" content="函數是有定義介面的運算單元。 介面有用的地方是抽象化，你只需要知道輸入什麼(Input)、會得到什麼輸出(Output)，你不用知道它細節是怎麼做到的。其實有個超能力在背後，也沒關係。當然這是在沒有碰到 bug 和有良好文件、不需要修改它的前提之下。 再強調一次，你只需要理解輸入(input)會對應到什麼輸出(output)就夠了。 問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？ 有意義">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://2.bp.blogspot.com/-wg5mnU0UosE/VqsbPjd6AfI/AAAAAAAA4Ak/FN1MAFQndCY/s640/unnamed.jpg">
+<meta property="og:updated_time" content="2017-12-25T02:19:53.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="淺談函數式編程和 React">
+<meta name="twitter:description" content="函數是有定義介面的運算單元。 介面有用的地方是抽象化，你只需要知道輸入什麼(Input)、會得到什麼輸出(Output)，你不用知道它細節是怎麼做到的。其實有個超能力在背後，也沒關係。當然這是在沒有碰到 bug 和有良好文件、不需要修改它的前提之下。 再強調一次，你只需要理解輸入(input)會對應到什麼輸出(output)就夠了。 問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？ 有意義">
+<meta name="twitter:image" content="http://2.bp.blogspot.com/-wg5mnU0UosE/VqsbPjd6AfI/AAAAAAAA4Ak/FN1MAFQndCY/s640/unnamed.jpg">
+<meta name="twitter:creator" content="@kindalu">
+  
+    <link rel="alternate" href="/atom.xml" title="閃閃發光的地下城筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">閃閃發光的地下城筆記</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/wangchou">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-淺談函數式編程和-React" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/29/淺談函數式編程和-React/" class="article-date">
+  <time datetime="2016-01-29T08:08:00.000Z" itemprop="datePublished">2016-01-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      淺談函數式編程和 React
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函數是有定義介面的運算單元。<space><space><space><space></space></space></space></space></p>
+<p>介面有用的地方是抽象化，你只需要知道輸入什麼(Input)、會得到什麼輸出(Output)，你不用知道它細節是怎麼做到的。其實有個超能力在背後，也沒關係。當然這是在沒有碰到 bug 和有良好文件、不需要修改它的前提之下。<space><space><space><space></space></space></space></space></p>
+<p>再強調一次，你只需要理解輸入(input)會對應到什麼輸出(output)就夠了。<space><space></space></space></p>
+<h3 id="問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？"><a href="#問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？" class="headerlink" title="問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？"></a><u>問題來了，怎樣的輸入和輸出的對應「介面」會容易讓人理解？</u></h3><ul>
+<li>有意義的函數名稱</li>
+<li><p>多寫沒有副作用的純函數</p>
+<ul>
+<li>有可預測性：<br>   每次輸入得到相同的輸出、函數內部不存狀態    </li>
+<li>沒有副作用：<br>   運算過程中不會改到外界的變數，像是不改傳進來的參數、不改可以存取的全域變數。    </li>
+<li>顯式(Explict)：<br>   函數和外界溝通的管道只有，傳進來的參數和回傳值。</li>
+</ul>
+</li>
+<li><p>簡化參數、對資料結構的 Information Architecture 做良好設計</p>
+</li>
+<li><p>用函數來定義函數</p>
+<ul>
+<li>柯里化(Currying)：<br>   透過不同給參數來產生新的函數</li>
+<li>合成(Compose)：<br>   透過 pipeline 串接函數的input和output、隱藏參數，產生新的函數。</li>
+</ul>
+</li>
+</ul>
+<h3 id="函數式編程為什麼強大、有彈性？"><a href="#函數式編程為什麼強大、有彈性？" class="headerlink" title="函數式編程為什麼強大、有彈性？"></a><u>函數式編程為什麼強大、有彈性？</u></h3><ul>
+<li><p>把每個函數切得很小，容易更新、維護、平行處理、多人共同開發、被理解</p>
+</li>
+<li><p>透過合成(Compose)把小函數變成大函數，比用繼承有彈性的多</p>
+</li>
+<li><p>對集合實做 Functor 介面，讓一般函數都可以對集合操作。(array, matrix, tensor)</p>
+</li>
+<li><p>把純和不純的函數分開來管理，容易找到問題點。</p>
+</li>
+</ul>
+<h3 id="函數式編程為什麼難寫？"><a href="#函數式編程為什麼難寫？" class="headerlink" title="函數式編程為什麼難寫？"></a><u>函數式編程為什麼難寫？</u></h3><p>因為函數式編程想要把程式變簡單。但大家都知道「變複雜是簡單的、變簡單是複雜的」。所以這種方式寫程式需要設計、思考，你會是一個程式「設計師」。但如果你現在的專案寫完之後沒人會看、不會再改、不用維護、規模不大，也許函數式編程並不能幫到這個專案多少。</p>
+<h3 id="寫-React-就是實踐函數式編程"><a href="#寫-React-就是實踐函數式編程" class="headerlink" title="寫 React 就是實踐函數式編程"></a><u>寫 React 就是實踐函數式編程</u></h3><ul>
+<li><p>透過自定義元件，定義畫 View 的抽象化函數樹</p>
+</li>
+<li><p>透過 JSX 語法把小函數組合成大的函數 (等同於 compose)</p>
+</li>
+<li><p>鼓勵大家寫 dumb 元件、也就是純函數</p>
+</li>
+<li><p>用唯讀的 props，限制大家不能改傳進來的參數、減少副作用</p>
+</li>
+<li><p>透過導入 flux，把純和不純的函數分開來管理</p>
+<ul>
+<li>純的 (對資料只做讀的動作)：每個元件中的 render function</li>
+<li>不純的 (對資料做讀和寫的動作)：<br>   flux中對 action 的 callback、redux 中的 reducer、父元件傳給子元件的 callback</li>
+<li>glue code：元件中其他的 javascript<br><img src="http://2.bp.blogspot.com/-wg5mnU0UosE/VqsbPjd6AfI/AAAAAAAA4Ak/FN1MAFQndCY/s640/unnamed.jpg" alt=""></li>
+</ul>
+</li>
+</ul>
+<h3 id="從函數式編程的角度看-React-的問題？"><a href="#從函數式編程的角度看-React-的問題？" class="headerlink" title="從函數式編程的角度看 React 的問題？"></a><u>從函數式編程的角度看 React 的問題？</u></h3><ul>
+<li><p>沒有什麼高階的集合操作方法：</p>
+<ul>
+<li>把 lodash.js 集合操作拉進來用？</li>
+<li>用 lenses 的方式來穿透深長不露的 states?</li>
+</ul>
+</li>
+<li><p>沒有簡單的 currying 語法</p>
+<ul>
+<li>像是傳不同參數給 html5 input 元件，生出各式各樣對數字的、email、submit、text的自定義元件。最簡單寫法應該是 </li>
+<li>export function NumberInput(props) { 角括弧input type=“number” {…props} /&gt; }</li>
+<li>PS: function 一定要有名字不然 debug 會很慘。</li>
+</ul>
+</li>
+<li><p>雖然集中管理了不純的函數，但還是很難寫：現在透過修改 store 中的 state 來控制元件，這邊 action 觸發的都是不純的函數，如果元件架構一深，還是會很難改。有解嗎？這邊還沒找到什麼 coding guideline…</p>
+<ul>
+<li>多個 container smart 元件</li>
+<li>flux 的多個 store</li>
+<li>redux 的階層式 reducers</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>延伸閱讀：<br><a href="https://segment.com/blog/deku-our-functional-alternative-to-react/" target="_blank" rel="noopener">deku: functional alternative to react </a><br><a href="https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4#.jkarowg5n" target="_blank" rel="noopener">how to use classes and sleep at night (in a functional way)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/01/29/淺談函數式編程和-React/" data-id="cjblkzclq000zxq9kwytp2ryp" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/08/從買蘋果看工程師和設計師的差別？/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          從買蘋果看工程師和設計師的差別？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/28/Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Hey Underscore, You&#39;re doing it Wrong! (介紹函數編程)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 kindalu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/wangchou" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

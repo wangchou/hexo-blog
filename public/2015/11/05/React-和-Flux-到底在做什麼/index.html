@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>React 和 Flux 到底在做什麼? | 閃閃發光的地下城筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="看了下面兩個文章，終於知道 React 和 Flux 在做什麼了。1.&amp;nbsp;ReactJS For Stupid People2.&amp;nbsp;Flux For Stupid People 以下開始和主題不很相關的廢話，可以直接跳到最後一段「好啦，說了一大堆廢話。」 前兩天一直迷惑，到底這套新的 UI 開發流程和我過去接觸過的 framework 們有什麼不同？以前用過 Java AWT, J">
+<meta name="keywords" content="react,flux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 和 Flux 到底在做什麼?">
+<meta property="og:url" content="http://yoursite.com/2015/11/05/React-和-Flux-到底在做什麼/index.html">
+<meta property="og:site_name" content="閃閃發光的地下城筆記">
+<meta property="og:description" content="看了下面兩個文章，終於知道 React 和 Flux 在做什麼了。1.&amp;nbsp;ReactJS For Stupid People2.&amp;nbsp;Flux For Stupid People 以下開始和主題不很相關的廢話，可以直接跳到最後一段「好啦，說了一大堆廢話。」 前兩天一直迷惑，到底這套新的 UI 開發流程和我過去接觸過的 framework 們有什麼不同？以前用過 Java AWT, J">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-23T06:08:08.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React 和 Flux 到底在做什麼?">
+<meta name="twitter:description" content="看了下面兩個文章，終於知道 React 和 Flux 在做什麼了。1.&amp;nbsp;ReactJS For Stupid People2.&amp;nbsp;Flux For Stupid People 以下開始和主題不很相關的廢話，可以直接跳到最後一段「好啦，說了一大堆廢話。」 前兩天一直迷惑，到底這套新的 UI 開發流程和我過去接觸過的 framework 們有什麼不同？以前用過 Java AWT, J">
+<meta name="twitter:creator" content="@kindalu">
+  
+    <link rel="alternate" href="/atom.xml" title="閃閃發光的地下城筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">閃閃發光的地下城筆記</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/wangchou">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-React-和-Flux-到底在做什麼" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/05/React-和-Flux-到底在做什麼/" class="article-date">
+  <time datetime="2015-11-05T15:52:00.000Z" itemprop="datePublished">2015-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React 和 Flux 到底在做什麼?
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看了下面兩個文章，終於知道 React 和 Flux 在做什麼了。<br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">1.&nbsp;<a href="http://blog.andrewray.me/reactjs-for-stupid-people/" target="_blank" rel="noopener">ReactJS For Stupid People</a></span><br>2.&nbsp;<a href="http://blog.andrewray.me/flux-for-stupid-people/" target="_blank" rel="noopener">Flux For Stupid People</a></p>
+<p>以下開始和主題不很相關的廢話，可以直接跳到最後一段「好啦，說了一大堆廢話。」</p>
+<p>前兩天一直迷惑，到底這套新的 UI 開發流程和我過去接觸過的 framework 們有什麼不同？以前用過 Java AWT, JAVA SWING, ZK Markup Language, JQuery UI, iOS UI Kit, Android, QT Component, OpenGL, xxxRendering Engine … 列出來才發現，真的是有的沒的一大堆。</p>
+<p>在螢幕上生出畫面大概可以分成三群：<br>1. 網頁開發<br>2. 桌上 / 手機的原生應用程式<br>3. 遊戲 / 動畫</p>
+<p>3) 寫遊戲和動畫的流程最簡單，大二用組語刻了魔法氣泡遊戲 / 大三參加趨勢比賽徒手硬幹JAVA Swing ( 真的超慢的 T.T ) / 研究所用 3DS Max 和 Blender 做動畫 / 工作上用 OpenGL 做了動態路徑規劃的資料展示。這一類大概每次就是重畫，隨時檢查物件狀態一直重畫。看一下 FPS 有到 Real-Time 就好。</p>
+<p>2) 開發原生應用程式的流程就是用原生的物件，不管太元件長什麼樣子，反正就是設計互動，註冊事件，最多就小改一下背景、顏色之類的。反正最差就是比較醜，功能都沒問題啊。話說 MFC 到底是什麼鬼東西啊… 記得花了兩三天從來沒搞懂過。</p>
+<p>1) 網頁開發不像開發原生應用程式，有功能性較大完整的原生元件。只有一堆小到不行的 HTML 元件。然後問題就來了… 網頁上一塊塊重複的物件，像是 部落格、購物網站、討論區上面一個個的模組要怎麼搞。</p>
+<p>如果是靜態的網頁，就背後用 php 弄個模組 ( 喔 交作業而已別太嚴格啦 )，Header 一個Template、商品一個 Template、側邊欄一個 Template、導覽列一個 Template，然後就很開心地從資料庫抓一些資料填進去Template就好啦。有什麼事件發生就傳資料到伺服器端，整個重新畫頁面就好。老實說還挺簡單的，怎麼流程聽起來很像ReactJS。但是 2004 年，總是有一些天才們發明了一些讓人很累的東西叫做 Ajax 把 Gmail 推上了時代尖端。Ajax 告訴所有開發者：「喔 什麼!!! 你把使用者輸入送到伺服器再傳回來，然後才更新 UI，太慢了喔 弱~」。然後從這時候開始，網頁設計師就很苦情的開始在客戶端開始亂刻元件，MVC 邏輯的重擔就移交給 HTML、CSS、Javascript。但主流的開法方式是，不管 MVC 也行啦，反正網頁會動看起來有設計感就好。</p>
+<p>JQuery Library 在這亂世中應運而生，讓我苦讀 vanilla Javascript 的經典「ppk談Javascript」變得英雄無用武之地，JQuery 的 selector 就像用 matlab 來處理資料的有快感、dot chain rule 讓語法看起來糖分很高、不用打 getElementById 就像 C++11 中用 STL 不用打 Iterator 一樣清爽。可以快速開發出很難維護的網頁。解決了 Javascript 操作 DOM 會讓人想罵髒話的問題。為什麼很難維護，因為沒有元件化，Javascript有很有力量，讓人在網頁裡隨性的的東改西改，但不知道誰改的就很難 Debug，漸漸變得複雜就不能開發大型網頁。</p>
+<p>然後 AngularJS 把後端流行的 資料綁定搬到瀏覽器來，用 Javascript 的 Closure 來做封裝、一區區的資料分別藏起來，限制一部分 Javascript 只能操作 一部分的資料和 HTML，充分發揮了各個擊破的演算法 ( Divide and Conquer )，可是問題又來了… 媽的我花了兩天，學不會 AngularJS 啊一直 Typos 很煩，雙向綁定怎麼那麼複雜，讓我寫程式一直 NG NG。所以我沒太多研究，只聽說是雙向資料綁定會引起 DOM Tree 的 Cacading Update，導致效能容易有問題。另外 HTML 裡塞了太多髒髒的東西，容易消化不良。</p>
+<h3 id="好啦，說了一大堆廢話，React-和-Flux-到底做了什麼？"><a href="#好啦，說了一大堆廢話，React-和-Flux-到底做了什麼？" class="headerlink" title="好啦，說了一大堆廢話，React 和 Flux 到底做了什麼？"></a><strong><u>好啦，說了一大堆廢話，React 和 Flux 到底做了什麼？</u></strong></h3><p>React 讓人用 Javascript 和 HTML 刻更高級的元件 ( Virtual DOM )，像是 Angular 元件做的限制 讓一小段 Javascript只負責一小塊的UI / HTML更新，使用各個擊破的演算法，刻完元件之後就像開發原生應用程式時一樣，有了較大的元件，讓人跳脫低級 ( low level ) 的思考，少說一點髒話，透過 JSX 讓人從模組化的角度看 UI。簡單的譬喻就是讓人用組語開發高階語言的語法，之後可以用高階語言寫程式。</p>
+<p>React 只 Update 新的 DOM Tree 中和前一次 DOM Tree 差異之處，他們管這叫 一致 (reconciliation) 讓重繪的速度快很多，當重繪夠快，網頁的開發者就可以回到 pre-AJAX時代，回憶2004年之前的寫開發體驗：把資料送回伺服器，然後收到新資料，整個網頁重繪。</p>
+<p>只是這回，資料來源的不是 Database，是 <u>Flux 資料集中管理辦法</u>中的各個 Store ( Client-side Database )。Flux的單向資料流理念，強迫你在客戶端有一個像資料庫的資料集中處，Store裡有來自使用者輸入的資料、有來自伺服器端的資料更新。然後這個資料商店把每一家元件訂閱的資料送上門，元件看了看送來的資料商品然後就更新。Store 像是介於 CPU 和 硬碟中間的 Cache / Memory，是資料的 暫存處和Hub，或是你叫它客戶端的暫存資料庫也行 ( 用 Javascript 物件存的 )。</p>
+<p>原來：<br>Browser – Client Side ………………………………….. Server</p>
+<p>有了 React + Flux 之後 :<br>Browser – Client Side – Client Side VM + Server ( React + Flux ) …………………………………… Server</p>
+<p>有點像是在 Client Side 包了一層 VM + Server 一樣，會把 JSX 轉譯成JS / HTML、集中把資料放在客戶端資料庫裡 ( Flux 的 Store )。</p>
+<p>簡單總結一下：<br>React + Flux 是大規模動態資料網頁的解法。</p>
+<p>React 讓需要大型互動元件的客戶端，可以用自己刻的、封裝良好的元件，並在新元件的高度思考。用了個 Reconciliation 的 Trick使得重繪很快，和 <u>Flux 的資料集中管理辦法</u>，讓開發者只要專注做好一件事「當資料來到元件時，把元件要畫好」。</p>
+<hr>
+<p>Flux 目的是提出一個客戶端的資料管理辦法。其中的單向資料流 / 資料環其實隱含了 Two way Data Binding，只是不是綁死，比較像是 Two way Data Notification。Dispatcher 管的是 <span style="color: blue;">View Actions -&gt; Store ( Models )</span>。Store 除了存資料外還包含了 <span style="color: blue;">Store ( Models ) -&gt; View&nbsp;</span>的通知。還有人覺得 Dispatcher 很多餘，就寫了一個 reflux.js 把 Dispatcher 拿掉。</p>
+<p>延伸閱讀：<br><a href="http://bbs.react-china.org/t/flux/615" target="_blank" rel="noopener">聊一聊基於Flux的前端系統</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/05/React-和-Flux-到底在做什麼/" data-id="cjblkzcki0008xq9klfctylwc" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flux/">flux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/06/用-Redux-實踐「狀態機導向的介面開發」/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          用 Redux 實踐「狀態機導向的介面開發」
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/05/介紹-React-js-2013-by-Facebook/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">介紹 React.js (2013 by Facebook )</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 kindalu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/wangchou" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

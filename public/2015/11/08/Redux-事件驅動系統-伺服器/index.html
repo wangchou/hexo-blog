@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Redux = 事件驅動系統 = 伺服器 | 閃閃發光的地下城筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Redux 做的事情其實很簡單 ( 主程式才99行&amp;nbsp;)，就是可客制 Event 的 Event System。這概念在別的領域已經很成熟。但因為 Redux 的目標使用者是 Flux 的使用者，套用了很多原來 Flux 裡的專有名詞，所以對非 Flux 使用者變得很難懂。這邊透過類比大家都知道的名詞，目標讓 Redux 的概念連六歲小孩都能理解。 Flux：Actions trigger">
+<meta name="keywords" content="react,event system,one way data flow,redux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux = 事件驅動系統 = 伺服器">
+<meta property="og:url" content="http://yoursite.com/2015/11/08/Redux-事件驅動系統-伺服器/index.html">
+<meta property="og:site_name" content="閃閃發光的地下城筆記">
+<meta property="og:description" content="Redux 做的事情其實很簡單 ( 主程式才99行&amp;nbsp;)，就是可客制 Event 的 Event System。這概念在別的領域已經很成熟。但因為 Redux 的目標使用者是 Flux 的使用者，套用了很多原來 Flux 裡的專有名詞，所以對非 Flux 使用者變得很難懂。這邊透過類比大家都知道的名詞，目標讓 Redux 的概念連六歲小孩都能理解。 Flux：Actions trigger">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-23T06:08:08.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redux = 事件驅動系統 = 伺服器">
+<meta name="twitter:description" content="Redux 做的事情其實很簡單 ( 主程式才99行&amp;nbsp;)，就是可客制 Event 的 Event System。這概念在別的領域已經很成熟。但因為 Redux 的目標使用者是 Flux 的使用者，套用了很多原來 Flux 裡的專有名詞，所以對非 Flux 使用者變得很難懂。這邊透過類比大家都知道的名詞，目標讓 Redux 的概念連六歲小孩都能理解。 Flux：Actions trigger">
+<meta name="twitter:creator" content="@kindalu">
+  
+    <link rel="alternate" href="/atom.xml" title="閃閃發光的地下城筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">閃閃發光的地下城筆記</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/wangchou">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Redux-事件驅動系統-伺服器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/08/Redux-事件驅動系統-伺服器/" class="article-date">
+  <time datetime="2015-11-08T06:58:00.000Z" itemprop="datePublished">2015-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redux = 事件驅動系統 = 伺服器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux 做的事情其實很簡單 ( <a href="https://gist.github.com/gaearon/ffd88b0e4f00b22c3159" target="_blank" rel="noopener">主程式才99行</a>&nbsp;)，就是可客制 Event 的 Event System。這概念在別的領域已經很成熟。但因為 Redux 的目標使用者是 Flux 的使用者，套用了很多原來 Flux 裡的專有名詞，所以對非 Flux 使用者變得很難懂。這邊透過類比大家都知道的名詞，目標讓 Redux 的概念連六歲小孩都能理解。</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span></p>
+<h2 id="Flux："><a href="#Flux：" class="headerlink" title="Flux："></a><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Flux：</span></h2><p><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Actions trigger reducer to update states in the store.</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span></p>
+<h2 id="Redux-的行為等於事件驅動系統-Event-driven-System-有限狀態機-FSM-："><a href="#Redux-的行為等於事件驅動系統-Event-driven-System-有限狀態機-FSM-：" class="headerlink" title="Redux 的行為等於事件驅動系統 ( Event-driven System ) / 有限狀態機 ( FSM )："></a><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux 的行為等於事件驅動系統 ( Event-driven System ) / 有限狀態機 ( FSM )：</span></h2><p><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Events trigger event handler to update states in the machine.</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><table class="graytable">  <tbody><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Action</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Event | Signal | Message</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Reducer</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Event Handler | Finite State Machine 中的 transducer</span></td>    </tr></tbody></table><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span></p>
+<h2 id="Redux-的行為等於一個網頁伺服器："><a href="#Redux-的行為等於一個網頁伺服器：" class="headerlink" title="Redux 的行為等於一個網頁伺服器："></a><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux 的行為等於一個網頁伺服器：</span></h2><p><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">When a request came, using route table mapping to get a method to process it。 </span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><table class="graytable">  <tbody><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Action</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Http Request</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Store.dispatch(Action)</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">送 Request 到 Server</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Reducer</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Router 把 Request 送到對應的 Router Method，更新 Database</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Store</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Database</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">UI / React</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Http Response</span></td>    </tr></tbody></table><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux的行為等於巷口那家… 哎 想不出來比較生活的說法。</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">現在有沒有覺得 Redux 很 Awesome？好像沒有啊… 但我們回到瀏覽器的環境重新看一下，因為 HTML 的元件很小，開發者會組合 HTML元件成為可重複使用的「大元件」。但問題是瀏覽器中的 「事件處理系統」 是針對 HTML 小元件的，沒有給「大元件」的。於是Redux 提供了給開發者可以自行定義事件的「大元件」事件處理系統，因為你可以控制整個事件處理系統，重播和紀錄事件都變成毫不費力的事。現在又感覺到 &nbsp;Redux 很 Awesome了吧!!!</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">故事到了這邊，一定會想這樣解說，哪個六歲小孩能了解啊，相信這是大家共同的疑惑，不過 「投資一定有風險，基金投資有賺有賠，申購前應詳閱公開說明書」，我會反省的…</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">—</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">延伸閱讀：</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><a href="http://rackt.org/redux/docs/Glossary.html" target="_blank" rel="noopener">redux 的專有名詞解釋</a></span><br><a href="https://github.com/rackt/redux/issues/891" target="_blank" rel="noopener"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux Issue 891：Is redux conflating actions with events?</span></a><br><a href="http://stackoverflow.com/questions/111102/how-do-javascript-closures-work" target="_blank" rel="noopener"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">六歲小孩也能懂的 Javascript Closure 說明</span></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/08/Redux-事件驅動系統-伺服器/" data-id="cjblkzckk000bxq9kdo564m4d" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/event-system/">event system</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/one-way-data-flow/">one way data flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redux/">redux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/08/Javascript-中的函數式編程-a-talk-ReactiveConf-2015/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Javascript 中的函數式編程 (a talk @ ReactiveConf 2015)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/07/訓練英文的閱讀能力/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">訓練英文的閱讀能力</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 kindalu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/wangchou" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

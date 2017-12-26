@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Redux 簡介：我終於看穿它了 | 閃閃發光的地下城筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Redux 把資料放在 store 中，它是個資料庫，但 Redux 不用常見的 SQL 介面，要開發者自訂指令介面。這介面有簡單的標準，他只接受 Action = {type, payload} 物件的輸入。在傳統的資料庫中，下了 SQL 資料庫就會照指令，來更新資料庫，但在 Redux 中，開發者需要自行寫一個 Reducer 來處理輸入的 Action 指令。和傳統資料庫不同的是，這個 Re">
+<meta name="keywords" content="firebase,redux,MobX,Model">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux 簡介：我終於看穿它了">
+<meta property="og:url" content="http://yoursite.com/2016/11/06/Redux-簡介：我終於看穿它了/index.html">
+<meta property="og:site_name" content="閃閃發光的地下城筆記">
+<meta property="og:description" content="Redux 把資料放在 store 中，它是個資料庫，但 Redux 不用常見的 SQL 介面，要開發者自訂指令介面。這介面有簡單的標準，他只接受 Action = {type, payload} 物件的輸入。在傳統的資料庫中，下了 SQL 資料庫就會照指令，來更新資料庫，但在 Redux 中，開發者需要自行寫一個 Reducer 來處理輸入的 Action 指令。和傳統資料庫不同的是，這個 Re">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://4.bp.blogspot.com/-sSMTas7I6yk/WB7sjh1ylYI/AAAAAAAA45k/E5kCkDcf1F0ZYe-Xf4Yv4KGeIfnnowtUwCLcB/s1600/Screen%2BShot%2B2016-11-06%2Bat%2B4.37.19%2BPM.jpg">
+<meta property="og:image" content="https://3.bp.blogspot.com/-iuJOF3G-YCg/WB7sNkMUYfI/AAAAAAAA45g/-T3GLN0twVwBwHN2hm9_ncod0-qlG4krQCLcB/s1600/Screen%2BShot%2B2016-11-06%2Bat%2B4.38.55%2BPM.jpg">
+<meta property="og:updated_time" content="2017-12-25T02:19:53.075Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redux 簡介：我終於看穿它了">
+<meta name="twitter:description" content="Redux 把資料放在 store 中，它是個資料庫，但 Redux 不用常見的 SQL 介面，要開發者自訂指令介面。這介面有簡單的標準，他只接受 Action = {type, payload} 物件的輸入。在傳統的資料庫中，下了 SQL 資料庫就會照指令，來更新資料庫，但在 Redux 中，開發者需要自行寫一個 Reducer 來處理輸入的 Action 指令。和傳統資料庫不同的是，這個 Re">
+<meta name="twitter:image" content="https://4.bp.blogspot.com/-sSMTas7I6yk/WB7sjh1ylYI/AAAAAAAA45k/E5kCkDcf1F0ZYe-Xf4Yv4KGeIfnnowtUwCLcB/s1600/Screen%2BShot%2B2016-11-06%2Bat%2B4.37.19%2BPM.jpg">
+<meta name="twitter:creator" content="@kindalu">
+  
+    <link rel="alternate" href="/atom.xml" title="閃閃發光的地下城筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">閃閃發光的地下城筆記</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/wangchou">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Redux-簡介：我終於看穿它了" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/06/Redux-簡介：我終於看穿它了/" class="article-date">
+  <time datetime="2016-11-06T08:41:00.000Z" itemprop="datePublished">2016-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redux 簡介：我終於看穿它了
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Redux 把資料放在 store 中，它是個資料庫，但 Redux 不用常見的 SQL 介面，要開發者自訂指令介面。這介面有簡單的標準，他只接受 Action = {type, payload} 物件的輸入。在傳統的資料庫中，下了 SQL 資料庫就會照指令，來更新資料庫，但在 Redux 中，開發者需要自行寫一個 Reducer 來處理輸入的 Action 指令。和傳統資料庫不同的是，這個 Redux 資料庫變了之後，Redux 會 push 變動了的資料到訂閱者 (一個 Javascript 物件)，行為就像是 Baas 服務 (parse, firebase) 常見的 push message。Redux 和傳統關聯式資料庫最大的不同點是，Redux 用 JS 物件或變數來儲存資料；傳統資料庫因為有大量相關的資料，所以用資料表 (data array, data table) 來儲存。這讓 Redux 的狀態樹一直呈現很難視覺化的情況，目前樹狀結構最好的視覺化就是，Browser 的 dev tool 了。如果能把 Redux state 架構轉成 html，也許會有很好的效果也不一定。 另一個選項是 D3.js 的 Simple Tree。</p>
+<h1 id="簡單的資料庫列表比較"><a href="#簡單的資料庫列表比較" class="headerlink" title="簡單的資料庫列表比較"></a>簡單的資料庫列表比較</h1><p><img src="https://4.bp.blogspot.com/-sSMTas7I6yk/WB7sjh1ylYI/AAAAAAAA45k/E5kCkDcf1F0ZYe-Xf4Yv4KGeIfnnowtUwCLcB/s1600/Screen%2BShot%2B2016-11-06%2Bat%2B4.37.19%2BPM.jpg" alt=""></p>
+<p>Redux 和 Firebase 的資料儲存方式很相近，可以很好的一起運用整合。也許進一步把 client 的資料再切為，Server Data 和 View Data 的設定會更好。Server Data will always synced with Firebase.</p>
+<p>另外一提，Redux 實際上就只是個資料庫 (Model)，只有 input &amp; outpt，哪有什麼 middleware… in the middle of what？Redux-middleware 實際上是一部分的 controller，跟 Redux 無關啊。React 也包含 Controller。畫成圖來表示<br><img src="https://3.bp.blogspot.com/-iuJOF3G-YCg/WB7sNkMUYfI/AAAAAAAA45g/-T3GLN0twVwBwHN2hm9_ncod0-qlG4krQCLcB/s1600/Screen%2BShot%2B2016-11-06%2Bat%2B4.38.55%2BPM.jpg" alt=""></p>
+<p>Flux 把傳統的 MVC 切成了上行和下行，形成了一個循環資料流，它最大的優點是有 paper 支持的 Single Source of Truth。想像一下 bug 在房間亂跑好抓還是… bug 繞著固定的圈圈跑，bug 繞圈圈跑的話，在原地等 bug 跑過來就抓到了。</p>
+<p>總結一下，說穿了 Redux 就是一個啥功能都沒有的資料庫設計規範。也因此，他的文件很長、相關模組很多。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/06/Redux-簡介：我終於看穿它了/" data-id="cjblkzckn000cxq9ki689mvp8" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MobX/">MobX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Model/">Model</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firebase/">firebase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redux/">redux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/23/見樹又見林-書摘-心得/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">見樹又見林 - 書摘 &amp; 心得</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 kindalu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/wangchou" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

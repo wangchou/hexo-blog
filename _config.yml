@@ -80,3 +80,14 @@ theme: landscape
 deploy:
   type: git
   repo: git@github.com:wangchou/wangchou.github.io.git
+
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
+  modifyAnchors: ''
+  autolink: true

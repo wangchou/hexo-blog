@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>閃閃發光的地下城筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="閃閃發光的地下城筆記">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="閃閃發光的地下城筆記">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="閃閃發光的地下城筆記">
+<meta name="twitter:creator" content="@kindalu">
+  
+    <link rel="alternate" href="/atom.xml" title="閃閃發光的地下城筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">閃閃發光的地下城筆記</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/wangchou">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Javascript-中的函數式編程-a-talk-ReactiveConf-2015" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/08/Javascript-中的函數式編程-a-talk-ReactiveConf-2015/" class="article-date">
+  <time datetime="2015-11-08T13:12:00.000Z" itemprop="datePublished">2015-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/08/Javascript-中的函數式編程-a-talk-ReactiveConf-2015/">Javascript 中的函數式編程 (a talk @ ReactiveConf 2015)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">影片：<a href="https://www.youtube.com/watch?v=BfzjuhX4wJ0&amp;feature=youtu.be&amp;t=2h16m7s" target="_blank" rel="noopener">Functional Programming in Javascript By Daniel Steigerwald</a>&nbsp;</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Daniel 是 google 前員工、也是 <a href="https://github.com/este/este" target="_blank" rel="noopener">https://github.com/este/este</a> 這個 React + Redux + immutable.js Starter Kit 的作者，在 Github 上有 1800 顆星。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">我認為函數式編程 ( Functional Programming ) 將在明年成為主流。像在 C++11 和 Java 8 中已經開始有 lambda function。我接下來聊我已經用在 Production 的東西。我認為函數式編程已經在前端的世界已經被 React 引入。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><strong><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">什麼是函數式編程？</span></strong><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">沒有什麼神秘的東西，到處都是純函式 ( Pure functions everywhere )、不可變的數值 ( Immutable values )、用組成而不用繼承 ( composition over inheritance )、紀錄代替類別 (records over classes)、處理好副作用 ( taming side-effects )。我覺得 functional programming 有點像是人工智慧，聽起來有點酷、有點奇怪，但當你了解了它以後，就只是無聊、很平常的寫程式而已。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong>為什麼要函數化 ( functional )？&nbsp;</strong></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">因為軟體正在吃掉這個世界，它必須要做到最好。函數式編程已經被證明，比較少臭蟲 ( less bugs)、較不複雜 ( less complexity )、程式碼更可讀 ( more readable code ) 和更好的效能 ( more performance )。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong>物件導向程式設計 ( OOP ) 有什麼問題？</strong></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">沒有問題，只是很難、常被誤用，而且有時是難以避免的。整個物件導向程式設計的模式 (paradigm) 是基於「送訊息給物件是唯一跟狀態 ( state ) 互動的方法」，因此狀態就會被分散。於是在分散式系統中狀態的一致的難度是跟世界和平一樣的 XD</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></p>
+<p><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="http://2.bp.blogspot.com/-NqF8whIlX1E/Vj9BEosEl7I/AAAAAAAA35w/csXWLMH0e3w/s1600/Screen%2BShot%2B2015-11-08%2Bat%2B8.32.45%2BPM.jpg" target="_blank" rel="noopener"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><img src="http://2.bp.blogspot.com/-NqF8whIlX1E/Vj9BEosEl7I/AAAAAAAA35w/csXWLMH0e3w/s640/Screen%2BShot%2B2015-11-08%2Bat%2B8.32.45%2BPM.jpg" alt=""></span></a></td></tr><tr><td class="tr-caption" style="text-align: center;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">物件導向程式設計 和 函數式編程的設計模式比較</span></td></tr></tbody></table><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Scott Wlaschin是很好的講者，不像我鼓勵大家去聽他的演講。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">在 OOP 中，每次方法在某個實體上被呼叫其實就是副作用。副作用很難被追蹤、被理解，沒有人喜歡驚喜。驚喜在生活中是好的，但驚喜在程式碼裡面沒有任何好的地方。我們被教導要用繼承，但他是陷阱，程式碼會不夠彈性、很難之後改變。設計模式最難的是如何幫這些模式取名字，動詞偽裝成名詞。策略、工廠、Commands…</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">React 中最耀眼的原則是函式組成法 ( function composition )。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><strong><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">純函數 ( pure function ) vs 髒類別 (dirty class)</span></strong><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">純函數沒有任何副作用。他很難去違反只負責一件事的原則 ( single responsibility principle) 因為純函數只有一個明顯的目的 — 把輸入轉成輸出。所以測試就變得超簡單。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">類別是髒的。互叫一個簡單的類別函式，就會改變它。誰做的？為什麼做？我們永遠不知道 ( 直到我們 debug 後)…</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">推薦這本 github 上的書<a href="https://github.com/MostlyAdequate/mostly-adequate-guide" target="_blank" rel="noopener">適當的函數式編成指南</a>&nbsp;( 在 github 上有 6000 顆星)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></p>
+<p><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="http://4.bp.blogspot.com/-trYOXa5g8dY/Vj9HW1kBZYI/AAAAAAAA36A/XOIr5LVtpiI/s1600/Screen%2BShot%2B2015-11-08%2Bat%2B8.59.38%2BPM.jpg" target="_blank" rel="noopener"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><img src="http://4.bp.blogspot.com/-trYOXa5g8dY/Vj9HW1kBZYI/AAAAAAAA36A/XOIr5LVtpiI/s640/Screen%2BShot%2B2015-11-08%2Bat%2B8.59.38%2BPM.jpg" alt=""></span></a></td></tr><tr><td class="tr-caption" style="text-align: center;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">如果你不理解這個程式，沒關係。我也不懂。在函數式編程裡它等於 ( (4 + 0) <em> 2) + (4 </em> 2)</span></td></tr></tbody></table><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong>Immutable.js</strong></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">不可變資料一旦被建立就不能被改變，這使得更簡單的應用程式開發，不用預防性的回傳複製品，更可以使用間單的邏輯來達到進階的 memoization 和改變偵測。一個針對不變資料的可變 API 並不改變原來資料，而是總是產生新的資料。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;- 和 原生的 Javascript array 有很相似的 API</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;- 保持永遠的不可變 (List, stack, map, orderedMap, Set, OrderedSet and Record)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;- 非常快</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">—</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">PS：作者講的不多，上面很多都是照投影片上大量文字打的。</span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/08/Javascript-中的函數式編程-a-talk-ReactiveConf-2015/" data-id="cjblkzck80004xq9kup27sh2j" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pure-function/">pure function</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Redux-事件驅動系統-伺服器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/08/Redux-事件驅動系統-伺服器/" class="article-date">
+  <time datetime="2015-11-08T06:58:00.000Z" itemprop="datePublished">2015-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/08/Redux-事件驅動系統-伺服器/">Redux = 事件驅動系統 = 伺服器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux 做的事情其實很簡單 ( <a href="https://gist.github.com/gaearon/ffd88b0e4f00b22c3159" target="_blank" rel="noopener">主程式才99行</a>&nbsp;)，就是可客制 Event 的 Event System。這概念在別的領域已經很成熟。但因為 Redux 的目標使用者是 Flux 的使用者，套用了很多原來 Flux 裡的專有名詞，所以對非 Flux 使用者變得很難懂。這邊透過類比大家都知道的名詞，目標讓 Redux 的概念連六歲小孩都能理解。</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span></p>
+<h2 id="Flux："><a href="#Flux：" class="headerlink" title="Flux："></a><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Flux：</span></h2><p><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Actions trigger reducer to update states in the store.</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span></p>
+<h2 id="Redux-的行為等於事件驅動系統-Event-driven-System-有限狀態機-FSM-："><a href="#Redux-的行為等於事件驅動系統-Event-driven-System-有限狀態機-FSM-：" class="headerlink" title="Redux 的行為等於事件驅動系統 ( Event-driven System ) / 有限狀態機 ( FSM )："></a><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux 的行為等於事件驅動系統 ( Event-driven System ) / 有限狀態機 ( FSM )：</span></h2><p><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Events trigger event handler to update states in the machine.</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><table class="graytable">  <tbody><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Action</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Event | Signal | Message</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Reducer</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Event Handler | Finite State Machine 中的 transducer</span></td>    </tr></tbody></table><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span></p>
+<h2 id="Redux-的行為等於一個網頁伺服器："><a href="#Redux-的行為等於一個網頁伺服器：" class="headerlink" title="Redux 的行為等於一個網頁伺服器："></a><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux 的行為等於一個網頁伺服器：</span></h2><p><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">When a request came, using route table mapping to get a method to process it。 </span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><table class="graytable">  <tbody><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Action</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Http Request</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Store.dispatch(Action)</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">送 Request 到 Server</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Reducer</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Router 把 Request 送到對應的 Router Method，更新 Database</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Store</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Database</span></td>    </tr><tr>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">UI / React</span></td>    <td><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Http Response</span></td>    </tr></tbody></table><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux的行為等於巷口那家… 哎 想不出來比較生活的說法。</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">現在有沒有覺得 Redux 很 Awesome？好像沒有啊… 但我們回到瀏覽器的環境重新看一下，因為 HTML 的元件很小，開發者會組合 HTML元件成為可重複使用的「大元件」。但問題是瀏覽器中的 「事件處理系統」 是針對 HTML 小元件的，沒有給「大元件」的。於是Redux 提供了給開發者可以自行定義事件的「大元件」事件處理系統，因為你可以控制整個事件處理系統，重播和紀錄事件都變成毫不費力的事。現在又感覺到 &nbsp;Redux 很 Awesome了吧!!!</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">故事到了這邊，一定會想這樣解說，哪個六歲小孩能了解啊，相信這是大家共同的疑惑，不過 「投資一定有風險，基金投資有賺有賠，申購前應詳閱公開說明書」，我會反省的…</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">—</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><br></span><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">延伸閱讀：</span><br><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;"><a href="http://rackt.org/redux/docs/Glossary.html" target="_blank" rel="noopener">redux 的專有名詞解釋</a></span><br><a href="https://github.com/rackt/redux/issues/891" target="_blank" rel="noopener"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">Redux Issue 891：Is redux conflating actions with events?</span></a><br><a href="http://stackoverflow.com/questions/111102/how-do-javascript-closures-work" target="_blank" rel="noopener"><span style="font-family: Helvetica Neue, Arial, Helvetica, sans-serif;">六歲小孩也能懂的 Javascript Closure 說明</span></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/08/Redux-事件驅動系統-伺服器/" data-id="cjblkzckk000bxq9kdo564m4d" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/event-system/">event system</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/one-way-data-flow/">one way data flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redux/">redux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-訓練英文的閱讀能力" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/07/訓練英文的閱讀能力/" class="article-date">
+  <time datetime="2015-11-07T04:35:00.000Z" itemprop="datePublished">2015-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/07/訓練英文的閱讀能力/">訓練英文的閱讀能力</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear: both; text-align: center;"><iframe allowfullscreen class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/PZqXBhGR_W8/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/PZqXBhGR_W8?feature=player_embedded" width="320"></iframe></div><br>最近每天就是一直上網苦苦追趕 Javascript 的 state of art。吸取資訊需要三個重要的能力：英文聽力能力、簡體中文閱讀能力、英文閱讀能力</p>
+<p>英聽：<br>看youtube都開 1.25x 或 1.5x 的速度，聽得很順、完全可以理解。(感謝無字幕的 冰與火之歌 和 廢話很多的 ASP Surfing Championship 對我的訓練 )</p>
+<p>簡體中文閱讀：<br>看了很多對岸的文件和字幕 XD，一下就適應了。快要和繁體一樣快。( 因為看太多小說，我對中文的閱讀速度真的很有自信 )</p>
+<p>英文閱讀能力：<br>唯一的問題就是我的英文閱讀速度，上不去啊。想十年前 ibt 托福閱讀還拿了 29/30，還是不夠。做了這個&nbsp;<a href="http://www.staples.com/sbd/cre/marketing/technology-research-centers/ereaders/speed-reader/index.html" target="_blank" rel="noopener">英文閱讀能力線上測驗</a>&nbsp;發現我現在的閱讀速度只有每分鐘 150 個字 ( 退化…? )，大概是美國小學生的能力。成人平均是 300 個字、大學生平均 500 個字、成績好的大學生大概是 800 個字 ( 這應該是一般部落客的水準吧 )、練過速讀大概是 1500 字。測完就知道我瓶頸在哪了。以前看論文或是教科書，完全沒問題啊，因為那時的瓶頸是理解能力。但現在 Javascript 的資訊很多是部落格，廢話跟我一樣多的部落格，英文閱讀能力就變得超重要。</p>
+<p>偷吃步的解法：一個是叫 Mac 唸給你聽… 叫 Mac 念得很快，測過快到超過我的英文閱讀速度還是聽得懂。另一個是只看程式碼，但這畢竟只是治標，今天開始尋找治本的方法。</p>
+<p>速讀的訓練的方法：<br>1. <strong>練習眼睛移動</strong>：<br>用規律的速度，拿支筆從每行的開頭，指到每行的結尾。影片剛開始建議的速度是 1.0 秒/行，然後縮減到 0.5 秒 / 行的速度。換算下來大概是每分鐘 800 個字到 1500個字。但對我這個小弱弱，剛開始每三秒一行就好，然後目標練到一秒一行就好。練習的方式是開著節拍器，跟打鼓一樣，設定它每十五分鐘從 20 bpm 加速到 60 bpm，每拍一行開個 16 分音符剛好，每個聲響移動1/4行，慢慢進步。</p>
+<p>2. &nbsp;練習邊緣視覺：<br>筆不用從開頭指到句尾。從開頭第 N 個字開始，看到結尾前第 N 個字就好，因為邊緣視覺會看見。慢慢練習 讓 N 從 0 變成 3。</p>
+<p>今天開始每天練十五分鐘，看到底管不管用、目標每分鐘 800 字。 (快五倍… 這有可能嗎？)<br>目前能力：每分鐘 150 字 (每五秒一行)<br>週目標：每分鐘 400 字 (每兩秒一行, 30 bpm)<br>月目標：每分鐘 800 字</p>
+<p>好像會有個 browser extension 來訓練這種事吧，我找找…</p>
+<hr>
+<p>wow… 估了一下，我國中看一本金庸大概五小時、大概每分鐘 900 個字。是我現在英文閱讀能力的六倍 T.T</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/07/訓練英文的閱讀能力/" data-id="cjblkzcm6001bxq9ktzrs4c6c" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-用-Redux-實踐「狀態機導向的介面開發」" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/06/用-Redux-實踐「狀態機導向的介面開發」/" class="article-date">
+  <time datetime="2015-11-06T07:44:00.000Z" itemprop="datePublished">2015-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/06/用-Redux-實踐「狀態機導向的介面開發」/">用 Redux 實踐「狀態機導向的介面開發」</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">BIG WORD ALERT!!!</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">———</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">研究了Redux.js之後，對State Machine有了更深的領悟。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">上個月解了一百多題 LeetCode，深深覺得程式解問題很重要的一點就是，想出一個「資料的表達的方式」讓問題運算過程中的所有「狀態」能夠清楚的表達，之後只要叫電腦從 Initial State 算到 Final State，題目就解完了。這個「資料表達的方式」也許是 stack、也許是 Array 再加上兩個 Pointer、也許是 2D Array表達地圖狀態、或複雜一點的像是 八皇后(N-queens) 問題用四個 array 來表達row, column, 兩個斜線方向有沒有皇后。只要想完「怎麼用資料來清楚表達所有狀態？」這個題目就解一半了，如果是 backtracking / 窮舉的問題的話，那你就已經解完了。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">不過，這個跟 Redux 有什麼關係呢？Redux做為Flux概念的實現，設計中 Store 是唯一的資料儲存中心，它把所有「元件狀態的資料」集中放在一起。</span><span style="font-family: '&quot;helvetica neue&quot;', '&quot;arial&quot;', '&quot;helvetica&quot;', sans-serif;">讓開發者很容易用</span><span style="font-family: 'helvetica neue', arial, helvetica, sans-serif;">抽離 UI 的角度思考，一開始就把應用程式中「0. 怎麼用資料來清楚表達所有邏輯狀態？」這個問題給想清楚。這個問題解完了之後，剩下的只有兩件事：</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;1. 收到使用者 Action 或伺服器的更新，要從哪個 state 換到 哪個 state：應用程式的運作邏輯，這部分 Redux 用 Reducer 做掉了。在 Reducer 中你要清楚定義狀態機中的 Transition 也就是 ( previousState, Action ) =&gt; newState 這件事</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;2. 在每個state的時候，應用程式 / 元件要畫成什麼樣子：React 想解的問題</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">0 和 1 兩個步驟常常會平行設計、互相影響，這部分會定義你的產品功能面。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">2 的步驟就是視覺化、資料傳達的部分。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">—</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">總結，從State Machine的角度來開發只要做下面三件事：</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span class="Apple-tab-span" style="white-space: pre;"> </span>1. 想好怎麼表達 state。 ( Redux Store )</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span class="Apple-tab-span" style="white-space: pre;"> </span>2. 想好有哪些事件，事件會讓 state 間怎麼切換。 ( Redux Reducer )</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span class="Apple-tab-span" style="white-space: pre;"> </span>3. 如何把狀態傳達給使用者。 ( React )</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">從此開發就有了 SOP。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">PS: 「資料的表達方式」包含了「資料結構」和裡面結構中資料代表的意義。</span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/06/用-Redux-實踐「狀態機導向的介面開發」/" data-id="cjblkzclu0014xq9kchu3kvt4" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redux/">redux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/state-machine/">state machine</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React-和-Flux-到底在做什麼" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/05/React-和-Flux-到底在做什麼/" class="article-date">
+  <time datetime="2015-11-05T15:52:00.000Z" itemprop="datePublished">2015-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/05/React-和-Flux-到底在做什麼/">React 和 Flux 到底在做什麼?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看了下面兩個文章，終於知道 React 和 Flux 在做什麼了。<br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">1.&nbsp;<a href="http://blog.andrewray.me/reactjs-for-stupid-people/" target="_blank" rel="noopener">ReactJS For Stupid People</a></span><br>2.&nbsp;<a href="http://blog.andrewray.me/flux-for-stupid-people/" target="_blank" rel="noopener">Flux For Stupid People</a></p>
+<p>以下開始和主題不很相關的廢話，可以直接跳到最後一段「好啦，說了一大堆廢話。」</p>
+<p>前兩天一直迷惑，到底這套新的 UI 開發流程和我過去接觸過的 framework 們有什麼不同？以前用過 Java AWT, JAVA SWING, ZK Markup Language, JQuery UI, iOS UI Kit, Android, QT Component, OpenGL, xxxRendering Engine … 列出來才發現，真的是有的沒的一大堆。</p>
+<p>在螢幕上生出畫面大概可以分成三群：<br>1. 網頁開發<br>2. 桌上 / 手機的原生應用程式<br>3. 遊戲 / 動畫</p>
+<p>3) 寫遊戲和動畫的流程最簡單，大二用組語刻了魔法氣泡遊戲 / 大三參加趨勢比賽徒手硬幹JAVA Swing ( 真的超慢的 T.T ) / 研究所用 3DS Max 和 Blender 做動畫 / 工作上用 OpenGL 做了動態路徑規劃的資料展示。這一類大概每次就是重畫，隨時檢查物件狀態一直重畫。看一下 FPS 有到 Real-Time 就好。</p>
+<p>2) 開發原生應用程式的流程就是用原生的物件，不管太元件長什麼樣子，反正就是設計互動，註冊事件，最多就小改一下背景、顏色之類的。反正最差就是比較醜，功能都沒問題啊。話說 MFC 到底是什麼鬼東西啊… 記得花了兩三天從來沒搞懂過。</p>
+<p>1) 網頁開發不像開發原生應用程式，有功能性較大完整的原生元件。只有一堆小到不行的 HTML 元件。然後問題就來了… 網頁上一塊塊重複的物件，像是 部落格、購物網站、討論區上面一個個的模組要怎麼搞。</p>
+<p>如果是靜態的網頁，就背後用 php 弄個模組 ( 喔 交作業而已別太嚴格啦 )，Header 一個Template、商品一個 Template、側邊欄一個 Template、導覽列一個 Template，然後就很開心地從資料庫抓一些資料填進去Template就好啦。有什麼事件發生就傳資料到伺服器端，整個重新畫頁面就好。老實說還挺簡單的，怎麼流程聽起來很像ReactJS。但是 2004 年，總是有一些天才們發明了一些讓人很累的東西叫做 Ajax 把 Gmail 推上了時代尖端。Ajax 告訴所有開發者：「喔 什麼!!! 你把使用者輸入送到伺服器再傳回來，然後才更新 UI，太慢了喔 弱~」。然後從這時候開始，網頁設計師就很苦情的開始在客戶端開始亂刻元件，MVC 邏輯的重擔就移交給 HTML、CSS、Javascript。但主流的開法方式是，不管 MVC 也行啦，反正網頁會動看起來有設計感就好。</p>
+<p>JQuery Library 在這亂世中應運而生，讓我苦讀 vanilla Javascript 的經典「ppk談Javascript」變得英雄無用武之地，JQuery 的 selector 就像用 matlab 來處理資料的有快感、dot chain rule 讓語法看起來糖分很高、不用打 getElementById 就像 C++11 中用 STL 不用打 Iterator 一樣清爽。可以快速開發出很難維護的網頁。解決了 Javascript 操作 DOM 會讓人想罵髒話的問題。為什麼很難維護，因為沒有元件化，Javascript有很有力量，讓人在網頁裡隨性的的東改西改，但不知道誰改的就很難 Debug，漸漸變得複雜就不能開發大型網頁。</p>
+<p>然後 AngularJS 把後端流行的 資料綁定搬到瀏覽器來，用 Javascript 的 Closure 來做封裝、一區區的資料分別藏起來，限制一部分 Javascript 只能操作 一部分的資料和 HTML，充分發揮了各個擊破的演算法 ( Divide and Conquer )，可是問題又來了… 媽的我花了兩天，學不會 AngularJS 啊一直 Typos 很煩，雙向綁定怎麼那麼複雜，讓我寫程式一直 NG NG。所以我沒太多研究，只聽說是雙向資料綁定會引起 DOM Tree 的 Cacading Update，導致效能容易有問題。另外 HTML 裡塞了太多髒髒的東西，容易消化不良。</p>
+<h3 id="好啦，說了一大堆廢話，React-和-Flux-到底做了什麼？"><a href="#好啦，說了一大堆廢話，React-和-Flux-到底做了什麼？" class="headerlink" title="好啦，說了一大堆廢話，React 和 Flux 到底做了什麼？"></a><strong><u>好啦，說了一大堆廢話，React 和 Flux 到底做了什麼？</u></strong></h3><p>React 讓人用 Javascript 和 HTML 刻更高級的元件 ( Virtual DOM )，像是 Angular 元件做的限制 讓一小段 Javascript只負責一小塊的UI / HTML更新，使用各個擊破的演算法，刻完元件之後就像開發原生應用程式時一樣，有了較大的元件，讓人跳脫低級 ( low level ) 的思考，少說一點髒話，透過 JSX 讓人從模組化的角度看 UI。簡單的譬喻就是讓人用組語開發高階語言的語法，之後可以用高階語言寫程式。</p>
+<p>React 只 Update 新的 DOM Tree 中和前一次 DOM Tree 差異之處，他們管這叫 一致 (reconciliation) 讓重繪的速度快很多，當重繪夠快，網頁的開發者就可以回到 pre-AJAX時代，回憶2004年之前的寫開發體驗：把資料送回伺服器，然後收到新資料，整個網頁重繪。</p>
+<p>只是這回，資料來源的不是 Database，是 <u>Flux 資料集中管理辦法</u>中的各個 Store ( Client-side Database )。Flux的單向資料流理念，強迫你在客戶端有一個像資料庫的資料集中處，Store裡有來自使用者輸入的資料、有來自伺服器端的資料更新。然後這個資料商店把每一家元件訂閱的資料送上門，元件看了看送來的資料商品然後就更新。Store 像是介於 CPU 和 硬碟中間的 Cache / Memory，是資料的 暫存處和Hub，或是你叫它客戶端的暫存資料庫也行 ( 用 Javascript 物件存的 )。</p>
+<p>原來：<br>Browser – Client Side ………………………………….. Server</p>
+<p>有了 React + Flux 之後 :<br>Browser – Client Side – Client Side VM + Server ( React + Flux ) …………………………………… Server</p>
+<p>有點像是在 Client Side 包了一層 VM + Server 一樣，會把 JSX 轉譯成JS / HTML、集中把資料放在客戶端資料庫裡 ( Flux 的 Store )。</p>
+<p>簡單總結一下：<br>React + Flux 是大規模動態資料網頁的解法。</p>
+<p>React 讓需要大型互動元件的客戶端，可以用自己刻的、封裝良好的元件，並在新元件的高度思考。用了個 Reconciliation 的 Trick使得重繪很快，和 <u>Flux 的資料集中管理辦法</u>，讓開發者只要專注做好一件事「當資料來到元件時，把元件要畫好」。</p>
+<hr>
+<p>Flux 目的是提出一個客戶端的資料管理辦法。其中的單向資料流 / 資料環其實隱含了 Two way Data Binding，只是不是綁死，比較像是 Two way Data Notification。Dispatcher 管的是 <span style="color: blue;">View Actions -&gt; Store ( Models )</span>。Store 除了存資料外還包含了 <span style="color: blue;">Store ( Models ) -&gt; View&nbsp;</span>的通知。還有人覺得 Dispatcher 很多餘，就寫了一個 reflux.js 把 Dispatcher 拿掉。</p>
+<p>延伸閱讀：<br><a href="http://bbs.react-china.org/t/flux/615" target="_blank" rel="noopener">聊一聊基於Flux的前端系統</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/05/React-和-Flux-到底在做什麼/" data-id="cjblkzcki0008xq9klfctylwc" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flux/">flux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-介紹-React-js-2013-by-Facebook" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/05/介紹-React-js-2013-by-Facebook/" class="article-date">
+  <time datetime="2015-11-05T11:04:00.000Z" itemprop="datePublished">2015-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/05/介紹-React-js-2013-by-Facebook/">介紹 React.js (2013 by Facebook )</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear: both; text-align: center;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><iframe allowfullscreen class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/XxVg_s8xAms/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/XxVg_s8xAms?feature=player_embedded" width="320"></iframe></span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Introduction to React.js by Tom Occhino and Jordan Walke</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">整個React.js的由來是很多Facebook內部對一個問題的討論。這個問題是 <strong><u>開發Javacript的應用時，它的結構應該是如何？&nbsp;</u></strong>( “ How should we structure a javascript application? “ )。特別是瀏覽器端的 Javascript 應用。前人透過各式各樣的 framework 提出一大堆的解答。這些 framework 通常試著去實踐 MVC, MVVM, MVW 各種概念。這些架構或 framework 共同點就是 M，也就是 Model… 基本就只是一種可觀察的物件 ( observable object )，然後這些可觀察的物件有一些Event API，讓你訂閱物件改變的通知 ( subscribe changes )。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">實際上發生的事 是開發者建立了這些雙向資料綁定 ( bi-directional data-binding )，讓你可以訂閱物件改變的通知。當某個東西改變了，你就可以變動 ( mutate ) / 更新你的 View。但這種觀察模式 ( observation pattern ) 實際上鼓勵 UI 的變動 ( mutation )。每次先把元件畫出來，然後當改變發生時，就試著更新之前畫出來的 UI 元件。這邊的關鍵字是變動 ( mutation )。<strong>變動 ( mutation ) 是複雜的。</strong>大概兩年半前，Facebook試著重寫聊天室。我們試著把事情變簡單，試著把開發者要處理的變異 ( mutation ) 減到最少。讓我來解釋一下那是什麼意思，下面是一個簡單應用的架構：</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></p>
+<p><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-PorkT6ZQGj0/VjsVKyXT1DI/AAAAAAAA35M/1-KLZL7tYfs/s1600/Screen%2BShot%2B2015-11-05%2Bat%2B4.36.02%2BPM.jpg" target="_blank" rel="noopener"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><img src="http://2.bp.blogspot.com/-PorkT6ZQGj0/VjsVKyXT1DI/AAAAAAAA35M/1-KLZL7tYfs/s400/Screen%2BShot%2B2015-11-05%2Bat%2B4.36.02%2BPM.jpg" alt=""></span></a></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">要注意到的一件事是 在這個系統中的所有更新 ( updates ) 都會走一個單一的通道 ( go through a single channel )。它們都朝著單一方向流動，讓我們叫它 單向資料綁定 ( one directional data-binding )。所有輸入到這個系統的更新，不管是來自使用者輸入、即時的server updates或是起始的Loading。這些所有的更新都只透過單向的流動，不管怎樣最後都會流到 View 方格那裏。這一塊是所有前端工程師，我最關心的地方… 對嗎? 我關心使用者經驗、使用者真正看到和接觸的地方。<strong>概念上來說，我們發現建造這一塊 / View 最簡單的方式就是避免變異 ( mutation )。</strong>基本上是完全避免變異。我們發現，如果每次更新發生我們可以把整個&nbsp;<strong>View 砍掉，整個重繪</strong>，那會變得超簡單。因為這樣，<strong>你只要寫怎麼把 View 畫出來就好，不用管 View 怎麼更新的程式碼。</strong></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">但這樣亂搞，可行嗎？</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">從瀏覽器的角度來看這一定會很慢，記憶體還會不夠之類的。但概念上來說 ( conceptually )，我們還是想要用這個Model。因為每次更新就重繪真的很方便，但前提是要速度可行和還是能給使用者好的經驗。我們提出來的解法就是React.js。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">React：一個為了建立使用者介面的Javascript程式庫。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">我們想要所有來自 <strong>更新就重繪這理念</strong> 好的部分，但避免其中壞的副作用 ( bad performance &amp; bad ux )。從此之後你不用管你的應用中從 state a -&gt; state b -&gt; state c，只剩下 零 -&gt; 畫出來。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">React 的核心是宣告元件 ( Declarative components )：</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">在任何時間點都只要描述你的元件長什麼樣子，這不只是一個樣板 ( template )，這不是呼叫一個函式然後回傳一段字串那種事。因為那樣的話，你要整個 DOM 砍掉，然後把新的 HTML 掛上去。元件實際上是可重複使用的 API，封裝了一大堆東西，像是 markup、這東西看起來怎樣、它的功能是什麼、它的行為、CSS、Javascript 和這些東西的結構是什麼，是這些全部的東西。對於使用者元件隱藏了實作的細節，讓我給你一個實例：</span></p>
+<p><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="http://3.bp.blogspot.com/-IILmalknzQ4/VjsfYKsVFrI/AAAAAAAA35c/7SNGkiIPlWQ/s1600/Screen%2BShot%2B2015-11-05%2Bat%2B5.20.09%2BPM.jpg" target="_blank" rel="noopener"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><img src="http://3.bp.blogspot.com/-IILmalknzQ4/VjsfYKsVFrI/AAAAAAAA35c/7SNGkiIPlWQ/s320/Screen%2BShot%2B2015-11-05%2Bat%2B5.20.09%2BPM.jpg" alt=""></span></a></td></tr><tr><td class="tr-caption" style="text-align: center;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">輸入元件：提供互動的 auto-complete search box，只要用跟原始 HTML &lt;input&gt; 一樣多的程式碼。然後我應該可以對她註冊事件、設定它的行為 ( behavior ) 有哪些。</span></td></tr></tbody></table><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">No explicit data binding：不像 AngularJS，React 不需要實際上 Wire 你的 View 到你的 Model，你只要說哪一個屬性 ( property ) 你的 Model 想要在你的 View 中使用，然後當 Model 改變時、你的 View 就會被更新。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">它是怎麼運作的? ( How does it work? ) 我們這邊說兩件事。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">1) 它一開始是如何畫出來的。 ( Initial Render )</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">2) 更新是如何發生的。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Initial Render：在 React 我們只找一個 render function，這個 render function 完美的地方是它一直能告訴你這元件在任何時間的樣子。你提供的這個 render function 不會回傳一個字串，它回傳的是你的 View 的表現 ( representation ) ，我們做的事是… 既然元件可以由其他元件組成 &nbsp;( composited by other components )，我們遞迴的呼叫render來建立UI架構。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Two Pass Rendering：</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">1. 先建立 markup</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">2. 在最上層用 Event Delegation 附加上事件處理器</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">因為步驟一，先把元件畫出來，我們可以做 Server-side Rendering。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">更新是如何發生的？</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">我們不稱這個動作為<strike>Update</strike>，我們叫它 一致 ( reconciliation )。它的目的是保持你的 UI 元件 新鮮、當資料變化時自動更新。每個人應該現在都感到懷疑，如果不懷疑你大概剛剛都在睡覺。但你應該記得剛剛說的 Initial Rendering function，任何時間點它要回傳一個元件的表現 ( representation )。當改變發生時，我們重新呼叫一次 Render，然後比較原來 Render 的結果和改變過後 Render的結果，計算出兩個時間點元件的差別 ( diff )。接著批次計算出最少的變動量，然後一次 把變動更新到 DOM Tree 上面。所以很快。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">—</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">12:20 開始 Show Code Sample 和 JSX 語法</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;程式碼還是看影片比較清楚… XD</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">26分開始大概一小時的Q &amp; A 還蠻精彩的~~~</span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/05/介紹-React-js-2013-by-Facebook/" data-id="cjblkzcku000jxq9kiolg816r" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/facebook/">facebook</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Be-predictable-not-correct-by-Pete-Hunt-from-Instagram" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/04/Be-predictable-not-correct-by-Pete-Hunt-from-Instagram/" class="article-date">
+  <time datetime="2015-11-04T12:27:00.000Z" itemprop="datePublished">2015-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/04/Be-predictable-not-correct-by-Pete-Hunt-from-Instagram/">Be predictable, not correct. by Pete Hunt (from Instagram)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear: both; text-align: center;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><iframe allowfullscreen class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/e7A6EUe3XGM/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/e7A6EUe3XGM?feature=player_embedded" width="320"></iframe></span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Pete Hunt from Instagram Web Team.</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><strong><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">What makes UI hard?</span></strong><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">最難的是管理所有使用者的狀態 ( state )，更可怕的是隨時間改變的狀態。然後 Unit Test 不能完全測試 UI 的所有情況 ( 太多例外 )、靜態分析 ( JSLint / JSHint ) 也不行。因為這樣的複雜度，我不曾試著讓 UI 完全正確。我只是試著讓 UI 變得可預測。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Two silver bullet:</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">1. Composition: 讓簡單的 function 組合成更大的 function。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">2. Idempotence: 讓每次同樣的 Input 得到同樣的 Output。不變性 ( Immutability ) 的資料結構讓我免費得到 Idempotence。努力讓 mutable state 的數量越少越少，mutable state只有一個owner。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">React.js 讓工程師照著上面的兩個規則。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">React 是 宣告式的 ( declarative ) JQuery。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong><br>**</strong>React<strong></strong></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;&gt; Data 輸入 =&gt; virtual DOM 輸出。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;&gt; 當資料改變的時候，就整個重繪，所以少掉很多 State。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Demo Example (從15- 分)</span>**<br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Demo on jsfiddle.net jsbin.com</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">一直在看Code</span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/04/Be-predictable-not-correct-by-Pete-Hunt-from-Instagram/" data-id="cjblkzcjo0000xq9kzrac4xli" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/state-machine/">state machine</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-研究-Node-js-和-Express-js-有感" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/04/研究-Node-js-和-Express-js-有感/" class="article-date">
+  <time datetime="2015-11-04T07:50:00.000Z" itemprop="datePublished">2015-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/04/研究-Node-js-和-Express-js-有感/">研究 Node.js 和 Express.js 有感</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">簡單來說網頁設計，就是設計ㄧ個讓在給了Key 後把相關資料轉換成網頁的 function。</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Node 提供ㄧ個可以用 JS 與其溝通的 non-blocking http server。Express 在上面提供了簡易建立 RESTFUL API、在頁面間 (在 server 上) 傳遞資料的方法。</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">從外部來看，就是一個 JavaScript 程式，然後你對它送一些 Request，他就會吐 http response 回來。</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Http response 包含了資料 ( ex: 文章、作者、照片、標題、按鈕文字 ) 和 UI/排板 ( CSS / HTML / client-side JavaScript )。通常資料是不重複的。但根據不同的資料，UI 很多重複的地方就變成用 UI Template/UI 元件來表示。</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">傳統產生網頁的方式是把資料和 UI 原件混成一個個各別的網頁然後傳給 Browser 畫出來；最近流行的方式是把資料和UI原件分別傳給 Browser，在 client-side browser 再用 JavaScript 把資料和 UI 原件組合成網頁。</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">近年流行的 json 是一顆用 ( key:value or array ) pair建起來的關聯式資料樹。因此後端資料庫不再用關聯式資料庫，用簡單 NoSql 資料庫 ( 即 dictionary ) 就夠了。</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">簡單來說現代的網頁開發就是開發一個程式：從後端抓一顆 json 資料樹，然後轉成前端美美的 DOM Tree。就是模組化的 Data Visualization，這樣想一切都輕鬆多了。</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">這樣的想法很自然的催生了一堆 UI 的程式庫，像是 Angular.js 和 react.js，然後還有 mobile上的 react native。</span></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/04/研究-Node-js-和-Express-js-有感/" data-id="cjblkzclx0016xq9k9b405i3w" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Node-js-的發明人-Ryan-Dahl-在-Yahoo-介紹-Node-js-2010" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/03/Node-js-的發明人-Ryan-Dahl-在-Yahoo-介紹-Node-js-2010/" class="article-date">
+  <time datetime="2015-11-03T15:04:00.000Z" itemprop="datePublished">2015-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/03/Node-js-的發明人-Ryan-Dahl-在-Yahoo-介紹-Node-js-2010/">Node.js 的發明人 Ryan Dahl 在 Yahoo 介紹 Node.js (2010)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear: both; text-align: center;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><iframe allowfullscreen class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/M-sc73Y-zQA/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/M-sc73Y-zQA?feature=player_embedded" width="320"></iframe></span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Node.js主要專注在Performance。Node的特點是對I/O有特別的處理方式，特別快。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">在有100個client下，每次回應1MB的Benchmark</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">node &nbsp;822 reqs/secs</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">nginx 7xx reqs/secs</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">others &nbsp;1x reqs/secs</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">node用javascript寫，但居然跑的比純C寫的nginx還要快!!! nginx快的原因是它不用一個Process來接處理一個 client，而是用Event Loop。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">All about non-blocking I/O</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">non-blocking I/O: &nbsp; L1 / L2 / L3/Memory &lt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 250 cycles</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">blocking I/O: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;disk / network &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt; 41,000,000 cycles (ex: select .. from database)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">應該用不同的方式來處理這兩種I/O，他們從根本上根本不一樣。L1 cache像是拉開抽屜拿東西，存取memory像是到樓下買個東西回來，但從硬碟上拿東西像是跳上飛機、飛到地球的另一邊再飛回來一樣。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">要用non-blocking I/O，就要全部的API Call都用non-blocking I/O，即時用了第三方的程式庫去存取資料庫，可能就變成blocking I/O了。要實現的方法有幾種，event loop、using callback function。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">database_query(“select …”, &nbsp;callback function); //應該這樣做</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">但是大部份的語言都不預設這種寫程式的方式，如果要達成這種功能，通常要花很大的心力，最後大部份程式員最多就做到多個執行緒，然用用一個執行緒去處理一個I/O Operation。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">但Javascript是個特別的例外，因為這語言從第一天就一直在處理瀏覽器的Event Loop，<strong>callback function、anonymous function、Closure&nbsp;</strong>是在平常也不過的方法了。Javascript的文化就是Event Programming。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Node.js 就是讓你單純只用Event、non-blocking的infrastructure來寫高度concurrent的程式。設計的目標是任何的function都不能直接存取I/O，一定要用callback的function來處理。其他特性還有專注在Low level、什麼都用串流、不強迫buffering、提供DNS/HTTP/TLS的內建支援。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">HTTP包含: Chunked encoding, Pipelined message, hanging message.</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Node的API要用client side JS Programmer熟悉的慣例，幾乎100% MIT/BSD Licensed。(唯一例外是openssl)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">架構</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></p>
+<h2 id="Javascript-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-Node-standard-library"><a href="#Javascript-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-Node-standard-library" class="headerlink" title="Javascript &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node standard library"></a>Javascript &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node standard library</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Node binding<br>C &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ————————————-<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;V8 &nbsp; Thread pool &amp; event pool</p>
+<p>努力把使用者關在non-blocking的環境，用C語言當作屏障… XD</p>
+<p><strong>Node execution stack : only one stack</strong></p>
+<h2 id="load-index-html-nbsp-nbsp"><a href="#load-index-html-nbsp-nbsp" class="headerlink" title="| load(index.html) &nbsp; &nbsp;|"></a>| load(index.html) &nbsp; &nbsp;|</h2><h2 id="http-parse-1-nbsp-nbsp-nbsp-nbsp-nbsp"><a href="#http-parse-1-nbsp-nbsp-nbsp-nbsp-nbsp" class="headerlink" title="| http_parse(1) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|"></a>| http_parse(1) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|</h2><h2 id="socket-readable-1"><a href="#socket-readable-1" class="headerlink" title="| socket_readable(1) |"></a>| socket_readable(1) |</h2><h2 id="ev-loop-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp"><a href="#ev-loop-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp" class="headerlink" title="| ev_loop &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|"></a>| ev_loop &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| |<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;V</p>
+<h2 id="file-loaded-nbsp-nbsp-nbsp-nbsp-nbsp"><a href="#file-loaded-nbsp-nbsp-nbsp-nbsp-nbsp" class="headerlink" title="| file_loaded() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |"></a>| file_loaded() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |</h2><h2 id="ev-loop-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-1"><a href="#ev-loop-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-1" class="headerlink" title="| ev_loop &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|"></a>| ev_loop &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|</h2><p>然後是一大堆的小段程式範例。<br>包含web server和 file system的non-blocking I/O.<br>然後是2010年接下來的 Road Map。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/03/Node-js-的發明人-Ryan-Dahl-在-Yahoo-介紹-Node-js-2010/" data-id="cjblkzckd0005xq9kbdrk6jkb" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yahoo/">yahoo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 kindalu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/wangchou" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

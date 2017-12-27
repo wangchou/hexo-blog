@@ -2,6 +2,7 @@
 title: React UI 心得文之一
 tags:
   - react
+  - javascript
 date: 2015-12-02 02:07:00
 ---
 

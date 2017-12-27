@@ -3,7 +3,6 @@ title: 'Be predictable, not correct. by Pete Hunt (from Instagram)'
 tags:
   - functional programming
   - react
-  - state machine
 date: 2015-11-04 20:27:00
 ---
 

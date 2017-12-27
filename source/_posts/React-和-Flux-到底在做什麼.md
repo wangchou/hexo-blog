@@ -3,6 +3,7 @@ title: React 和 Flux 到底在做什麼?
 tags:
   - flux
   - react
+  - javascript
 date: 2015-11-05 23:52:00
 ---
 

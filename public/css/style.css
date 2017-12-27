@@ -130,7 +130,7 @@ body {
 .outer {
   max-width: 1220px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
 }
 .outer:before,
 .outer:after {
@@ -535,7 +535,7 @@ body {
   margin: 0 12px 1em;
 }
 .article-header {
-  padding: 20px 20px 0;
+  padding: 15px 15px 0;
 }
 .article-title {
   text-decoration: none;
@@ -553,7 +553,7 @@ a.article-title:hover {
 }
 .article-entry {
   color: #555;
-  padding: 0 20px;
+  padding: 0 15px;
 }
 .article-entry:before,
 .article-entry:after {
@@ -695,7 +695,7 @@ a.article-title:hover {
   line-height: 1.6em;
   border-top: 1px solid #ddd;
   padding-top: 1.6em;
-  margin: 0 20px 20px;
+  margin: 0 15px 15px;
 }
 .article-footer:before,
 .article-footer:after {
@@ -945,7 +945,7 @@ a.article-title:hover {
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid #ddd;
   border-radius: 3px;
   margin: 50px 0;
@@ -1094,8 +1094,8 @@ a.article-title:hover {
 .article-entry pre,
 .article-entry .highlight {
   background: #2d2d2d;
-  margin: 0 -20px;
-  padding: 15px 20px;
+  margin: 0 -15px;
+  padding: 15px 15px;
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
@@ -1163,12 +1163,12 @@ a.article-title:hover {
   background: #515151;
 }
 .article-entry .gist {
-  margin: 0 -20px;
+  margin: 0 -15px;
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
   background: #2d2d2d;
-  padding: 15px 20px 15px 0;
+  padding: 15px 15px 15px 0;
 }
 .article-entry .gist .gist-file {
   border: none;
@@ -1199,7 +1199,7 @@ a.article-title:hover {
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 .article-entry .gist .gist-file .gist-meta a {
   color: #258fb8;

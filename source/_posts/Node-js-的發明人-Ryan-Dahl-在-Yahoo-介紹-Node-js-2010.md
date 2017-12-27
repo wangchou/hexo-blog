@@ -2,7 +2,7 @@
 title: Node.js 的發明人 Ryan Dahl 在 Yahoo 介紹 Node.js (2010)
 tags:
   - node
-  - yahoo
+  - javascript
 date: 2015-11-03 23:04:00
 ---
 

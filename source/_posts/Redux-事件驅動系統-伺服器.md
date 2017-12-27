@@ -1,8 +1,6 @@
 ---
 title: Redux = 事件驅動系統 = 伺服器
 tags:
-  - event system
-  - one way data flow
   - react
   - redux
 date: 2015-11-08 14:58:00

@@ -2,7 +2,7 @@
 title: Javascript 中的函數式編程 (a talk @ ReactiveConf 2015)
 tags:
   - functional programming
-  - pure function
+  - javascript
 date: 2015-11-08 21:12:00
 ---
 

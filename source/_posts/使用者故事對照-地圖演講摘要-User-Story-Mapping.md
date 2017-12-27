@@ -1,11 +1,8 @@
 ---
 title: 使用者故事對照/地圖演講摘要 (User Story Mapping)
 tags:
-  - agile
   - design
   - IA
-  - System Thinking
-  - UCD
   - user story mapping
 date: 2016-05-28 22:07:00
 ---
@@ -42,7 +39,7 @@ date: 2016-05-28 22:07:00
 
 之前工作的時候，知道了下一次產品發行的需求列表後，去問他們「使用者是誰？解決了使用者什麼問題？」。得到的答案是：「這些是需求 (requirements)」，當時我就知道需求還有另外一個意思 — 那就是閉上嘴 (shut up)。他們真的以為需求列表，就真的如同字典上的意思代表了必須要做的事。實際上它們並不是... 因為不可能實作所有的需求，光只有需求沒法最小化產出、最大化結果。故事是需求 (requirements) 的解毒劑。
 
-引用 Kent：「軟體開發已經被需求 (requirement) 這個字導入的錯誤的方向，這個字在字典裡被定義為需要做的事 (something mandatory or obligatory)。這個字帶有絕對和永久的一役、抑制了擁抱變化。需求 (requirements)這個字完全是個錯誤」 
+引用 Kent：「軟體開發已經被需求 (requirement) 這個字導入的錯誤的方向，這個字在字典裡被定義為需要做的事 (something mandatory or obligatory)。這個字帶有絕對和永久的一役、抑制了擁抱變化。需求 (requirements)這個字完全是個錯誤」
 
 我們要說誰做什麼、怎麼做、為什麼做 (talk about who doing what and why)。討論和協作要專注在誰會用這個產品和他們拿到這個產品之後會怎麼使用它。基本上，你必須要**想通整件事**。舉了一個漂亮的嬰兒形狀蛋糕的例子，蛋糕看起來很漂亮，但要吃的時候就必須把嬰兒切開，這應該是沒有把事情想通的做法。
 

@@ -1,6 +1,7 @@
 ---
 title: ”redux.js --- 可預測的狀態容器“ 的 API 使用說明
-tags: []
+tags:
+  - redux
 date: 2016-04-10 15:58:00
 ---
 
@@ -62,8 +63,8 @@ let addReducer = (state, ADD_ACTION) => state++
 let subtractReducer = (state, SUBTRACT_ACTION) => state--
 
 counterContainer = Redux.container(
-  'counter', 
-  0, 
+  'counter',
+  0,
   [addReducer, substractReducer]
 )
 
@@ -84,7 +85,7 @@ class CounterComponent {
     Redux.dispatch(SUBSTRACT_ACTION)
   }
   ...
-} 
+}
 
 ```
 

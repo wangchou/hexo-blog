@@ -2,7 +2,6 @@
 title: 用 Redux 實踐「狀態機導向的介面開發」
 tags:
   - redux
-  - state machine
 date: 2015-11-06 15:44:00
 ---
 

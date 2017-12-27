@@ -2,7 +2,6 @@
 title: 研究 Node.js 和 Express.js 有感
 tags:
   - backend
-  - express
   - node
 date: 2015-11-04 15:50:00
 ---

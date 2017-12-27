@@ -3,9 +3,6 @@ title: >-
   大腦超載時代的思考學 The Organized Mind: Thinking Straight in the Age of Information
   Overload
 tags:
-  - attention
-  - cognitive psychology
-  - information
   - psychology
 date: 2016-06-01 18:32:00
 ---
@@ -45,6 +42,6 @@ date: 2016-06-01 18:32:00
 
 注意力缺失症？他們的白日夢模式很強，也就是說他們創意很強，但沒法做不完事情，也許他們可以和其他過度專注的人合作，會很成功。
 
-Motor learning怎樣會有效率？光只是重複性的運動並不是很有效，你必須有意識地、有目的的做那件事。音樂家叫這個故意練習(deliberately practice)。鋼琴家想像練習時不光只有想像手指怎麼動，還要思考音符的意義.... blah blah practice mindfully. 
+Motor learning怎樣會有效率？光只是重複性的運動並不是很有效，你必須有意識地、有目的的做那件事。音樂家叫這個故意練習(deliberately practice)。鋼琴家想像練習時不光只有想像手指怎麼動，還要思考音符的意義.... blah blah practice mindfully.
 
 夜晚六到十小時的睡眠，會經過一個記憶鞏固(memory consolidation)的過程，神經元會重新重現、處理白天有過的神經活動，然後想辦法讓它進入長期記憶、連結、 儲存他們。如果你白天很努力的工作四到五個小時，取得很多的資訊。這時候小睡一下，大腦會進入睡眠階段，開啟了神經元重啟的按鈕，讓某些迴路變的放鬆，你會預先處理一些資訊讓晚上再做後續處理。

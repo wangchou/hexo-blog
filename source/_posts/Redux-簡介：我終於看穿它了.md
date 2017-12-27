@@ -3,7 +3,6 @@ title: Redux 簡介：我終於看穿它了
 tags:
   - firebase
   - MobX
-  - Model
   - redux
 date: 2016-11-06 16:41:00
 ---

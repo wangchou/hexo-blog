@@ -1,7 +1,6 @@
 ---
 title: Firebase：前端工程師的神兵利器
 tags:
-  - baas
   - backend
   - firebase
   - frontend

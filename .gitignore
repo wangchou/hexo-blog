@@ -10,3 +10,4 @@ yarn-error.log
 debug.log
 public/
 db.json
+.deploy_git

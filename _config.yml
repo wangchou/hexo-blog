@@ -91,3 +91,5 @@ marked:
   smartypants: true
   modifyAnchors: ''
   autolink: true
+
+disqus_shortname: vividadada

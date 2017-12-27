@@ -65,6 +65,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/28/Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程/" class="article-date">
+  <time datetime="2016-01-28T14:05:00.000Z" itemprop="datePublished">2016-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/28/Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程/">Hey Underscore, You&#39;re doing it Wrong! (介紹函數編程)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <iframe allowfullscreen class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/m3svKOdZijA/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/m3svKOdZijA?feature=player_embedded" width="320"></iframe>
+
+<hr>
+<p>Curried Function：到拿到所有需要的參數前… 一直回傳新函數的函數。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> add3 = add(<span class="number">3</span>);</span><br><span class="line">add3(<span class="number">4</span>); <span class="comment">//return 7</span></span><br><span class="line"></span><br><span class="line">add(<span class="number">3</span>)(<span class="number">4</span>); <span class="comment">//weird thing </span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">autoCurry in Wu.js will save us </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;.autoCurry();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> add3 = add(<span class="number">3</span>);</span><br><span class="line">add3(<span class="number">4</span>) <span class="comment">//7</span></span><br><span class="line"></span><br><span class="line">add(<span class="number">3</span>,<span class="number">5</span>) <span class="comment">//8 =&gt; not weird any more!!!</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">但我們為什麼需要 curry？參考下面這個組成新 function getTheOdds 的例子。 有了currying，我們可以透過給予不同參數來建立新的函數。 </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">f, xs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> xs.filter(f);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">filter(isOdd, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]) <span class="comment">// [1,3,5]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getTheOdds = filter(isOdd);</span><br><span class="line">getTheOdds([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]) <span class="comment">//[1,3,5]</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">再來一個用loadash的酷例子 </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="comment">//沒用currying、不函數化的寫法</span></span><br><span class="line"><span class="keyword">var</span> firstTwoLetters = <span class="function"><span class="keyword">function</span>(<span class="params">words</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> _.map(words, <span class="function"><span class="keyword">function</span>(<span class="params">word</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> _.first(word, <span class="number">2</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函數化的寫法(如果underscore吃參數的方式是反過來的話)</span></span><br><span class="line"><span class="keyword">var</span> firstTwoLetters = _.map(_.first(<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//更函數化的寫法</span></span><br><span class="line">_.map(_.first(<span class="number">2</span>), [<span class="string">'jim'</span>, <span class="string">'kate'</span>]) <span class="comment">//['ji', 'ka'] </span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">=&gt; Underscore.js的參數排列法讓currying變得不可能  總結currying的優點有下面四個： </span></span><br><span class="line"><span class="string">* 一般化函數、要傳的變數名消失了 </span></span><br><span class="line"><span class="string">* 透過給不同參數就可以生成不同的函數 </span></span><br><span class="line"><span class="string">* 更簡潔的定義 </span></span><br><span class="line"><span class="string">* 讓函式的組合/合成 (composition) 變的可能  </span></span><br><span class="line"><span class="string">---------------------------------------------------------- </span></span><br><span class="line"><span class="string">組合/合成 (composition):用多個函數來組成新函數  簡單的例子，用 first() 和 reverse() 來合成 last 函數 </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> last = <span class="function"><span class="keyword">function</span>(<span class="params">xs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sx = reverse(xs);</span><br><span class="line">  <span class="keyword">return</span> first(sx);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> last = compose(first, reverse);</span><br><span class="line"></span><br><span class="line">last([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]) <span class="comment">//3</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">另一個例子，chain backwardly </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> wordCount = <span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> words = split(<span class="string">' '</span>, str);</span><br><span class="line">  <span class="keyword">return</span> length(words);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> wordCount = compose(length, split(<span class="string">' '</span>));</span><br><span class="line">wordCount(<span class="string">"There is a way to save the world"</span>) <span class="comment">//8</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">**Category Theory:** 多個函數組合(compose)，作用域互相對應的理論。Connecting the dot.  總結組合：</span></span><br><span class="line"><span class="string">* 能從其他函數組成新函數 </span></span><br><span class="line"><span class="string">* 組合過程中把參數藏起來 </span></span><br><span class="line"><span class="string">* 極為高階的寫程式 </span></span><br><span class="line"><span class="string">* 有數學理論在後面支持  </span></span><br><span class="line"><span class="string">------------------------------------------------------------------ </span></span><br><span class="line"><span class="string">Functors  map 打開了後面的 object 然後做一些事、再放回 object </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> plus1 = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123; <span class="keyword">return</span> x + <span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line">plus1([<span class="number">3</span>]) <span class="comment">//wrong!!</span></span><br><span class="line"></span><br><span class="line">map(plus1, [<span class="number">3</span>]) <span class="comment">//4</span></span><br></pre></td></tr></table></figure></p>
+<p>剛剛舉的例子，map 只能操作 array object、但下面試圖用 map 操作所有 object </p>
+<pre><code class="js">map(plus1, MyObject(<span class="number">3</span>)) <span class="comment">//MyObject(4)</span>
+
+MyObject = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>{
+  <span class="keyword">this</span>.val = val;
+}
+
+MyObject.prototype.map = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>) </span>{
+  <span class="keyword">return</span> MyObject(f(<span class="keyword">this</span>.val));
+}
+</code></pre>
+<p>如果對 object 定義了 map function，它就變成 functor null check的例子、Dynamic Safety： </p>
+<pre><code class="js">map(plus1, Maybe(<span class="number">3</span>)) <span class="comment">//=&gt; Maybe(4)</span>
+
+map(plus1, Maybe(<span class="literal">null</span>)) <span class="comment">//=&gt; Maybe(null)</span>
+
+Maybe = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>{
+  <span class="keyword">this</span>.val = val;
+}
+
+Maybe.prototype.map = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>{
+  <span class="keyword">return</span> <span class="keyword">this</span>.val ? Maybe(f(<span class="keyword">this</span>.val)) : Maybe(<span class="literal">null</span>);
+}
+</code></pre>
+<p>把 ES6 promise 變 functor 的例子 </p>
+<pre><code class="js">map(populateTable, $.ajax.get(<span class="string">'/posts'</span>);
+
+<span class="built_in">Promise</span>.prototype.map = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>) </span>{
+  <span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>();
+  <span class="keyword">this</span>.then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>{
+    promise.resolve(f(response));
+  });
+  <span class="keyword">return</span> promise;
+}
+</code></pre>
+<p>再來一個和 html 合作的例子：對有和沒有 user_login 的情況下，更新歡迎頁面。 </p>
+<pre><code class="js">$div = $(<span class="string">"#myDiv"</span>);
+
+<span class="comment">//dot 會把 user.name 拿出來</span>
+<span class="keyword">var</span> getGreeting = compose(concat(<span class="string">'Welcome '</span>), dot(<span class="string">'name'</span>));
+
+<span class="keyword">var</span> updateGreetingHtml = compose($div.html, getGreeting);
+
+map(updateGreetingHtml, Maybe(App.current_user));
+</code></pre>
+<p>underscore 不讓人 extend map  總結 functor 能: </p>
+<ul>
+<li>改變函數的行為卻不用變動 open/closed principle </li>
+<li>不光只有 map, 還有 reduce &amp; compose *<br>直覺且非私人的 api </li>
+<li>free formulas </li>
+<li>動態型別安全/檢查 </li>
+</ul>
+<hr>
+<p>總結：underscore 能變得更加 functional。希望有更 functional 的 library</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/01/28/Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程/" data-id="cjblkzcjv0001xq9kxvf5crh9" class="article-share-link">Teilen</a>
+      
+        <a href="http://yoursite.com/2016/01/28/Hey-Underscore-You-re-doing-it-Wrong-介紹函數編程/#disqus_thread" class="article-comment-link">Kommentare</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/composition/">composition</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/currying/">currying</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functors/">functors</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-什麼是設計？" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/01/什麼是設計？/" class="article-date">
@@ -92,6 +190,8 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2016/01/01/什麼是設計？/" data-id="cjblkzckr000gxq9kg6gcqov4" class="article-share-link">Teilen</a>
+      
+        <a href="http://yoursite.com/2016/01/01/什麼是設計？/#disqus_thread" class="article-comment-link">Kommentare</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li></ul>
@@ -167,6 +267,8 @@
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/12/20/台大不一樣思考社：設計思考工作坊-Day-2/" data-id="cjblkzclg000sxq9k92rd8q18" class="article-share-link">Teilen</a>
       
+        <a href="http://yoursite.com/2015/12/20/台大不一樣思考社：設計思考工作坊-Day-2/#disqus_thread" class="article-comment-link">Kommentare</a>
+      
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ux/">ux</a></li></ul>
 
@@ -228,6 +330,8 @@
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/12/20/台大不一樣思考社：設計思考工作坊-Day-1/" data-id="cjblkzcle000rxq9kdsi39pat" class="article-share-link">Teilen</a>
       
+        <a href="http://yoursite.com/2015/12/20/台大不一樣思考社：設計思考工作坊-Day-1/#disqus_thread" class="article-comment-link">Kommentare</a>
+      
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ux/">ux</a></li></ul>
 
@@ -272,6 +376,8 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/12/06/Firebase：前端工程師的神兵利器/" data-id="cjblkzck50003xq9kqdt8rlu5" class="article-share-link">Teilen</a>
+      
+        <a href="http://yoursite.com/2015/12/06/Firebase：前端工程師的神兵利器/#disqus_thread" class="article-comment-link">Kommentare</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/baas/">baas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firebase/">firebase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li></ul>
@@ -332,6 +438,8 @@
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/12/02/React-UI-心得文之一/" data-id="cjblkzckg0007xq9kubu23iom" class="article-share-link">Teilen</a>
       
+        <a href="http://yoursite.com/2015/12/02/React-UI-心得文之一/#disqus_thread" class="article-comment-link">Kommentare</a>
+      
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 
@@ -380,6 +488,8 @@
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/11/28/聊預測自己未來的能力/" data-id="cjblkzcm2001axq9kbs0d5lsg" class="article-share-link">Teilen</a>
       
+        <a href="http://yoursite.com/2015/11/28/聊預測自己未來的能力/#disqus_thread" class="article-comment-link">Kommentare</a>
+      
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vivid-dream/">vivid dream</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/老子/">老子</a></li></ul>
 
@@ -424,6 +534,8 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/11/21/程式設計法與人生-Programming-Paradigm-and-Life/" data-id="cjblkzclz0018xq9ksc87urpb" class="article-share-link">Teilen</a>
+      
+        <a href="http://yoursite.com/2015/11/21/程式設計法與人生-Programming-Paradigm-and-Life/#disqus_thread" class="article-comment-link">Kommentare</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oop/">oop</a></li></ul>
@@ -475,6 +587,8 @@
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/11/15/參加-FB-Hackathon-2015-感想/" data-id="cjblkzclb000pxq9km9oxh6c2" class="article-share-link">Teilen</a>
       
+        <a href="http://yoursite.com/2015/11/15/參加-FB-Hackathon-2015-感想/#disqus_thread" class="article-comment-link">Kommentare</a>
+      
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/empathy/">empathy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hackathon/">hackathon</a></li></ul>
 
@@ -524,65 +638,10 @@
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/11/11/做-Prototype-的工具-framer-js/" data-id="cjblkzcl3000mxq9kybvrim3u" class="article-share-link">Teilen</a>
       
+        <a href="http://yoursite.com/2015/11/11/做-Prototype-的工具-framer-js/#disqus_thread" class="article-comment-link">Kommentare</a>
+      
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framer/">framer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototyping/">prototyping</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ui/">ui</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-函數式編程介紹-1-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/11/09/函數式編程介紹-1-2/" class="article-date">
-  <time datetime="2015-11-09T10:05:00.000Z" itemprop="datePublished">2015-11-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/09/函數式編程介紹-1-2/">函數式編程介紹 ( 1 / 2 )</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="函數式編程的專有名詞篇"><a href="#函數式編程的專有名詞篇" class="headerlink" title="函數式編程的專有名詞篇"></a><strong><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">函數式編程的專有名詞篇</span></strong></h3><div><strong><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></strong></div>
-
-<h3 id="純函數-Pure-Function-：給同樣輸入參數，就會回傳同樣結果的函數，而且沒有任何可觀察到的副作用。Pure-Function-的例子：sin-x-。非-Pure-Function-的例子：getChar-、random-、還有許多類別中的-member-function。從數學上來理解，純函數就是一個數學函數，一個輸入會對到一個輸出。"><a href="#純函數-Pure-Function-：給同樣輸入參數，就會回傳同樣結果的函數，而且沒有任何可觀察到的副作用。Pure-Function-的例子：sin-x-。非-Pure-Function-的例子：getChar-、random-、還有許多類別中的-member-function。從數學上來理解，純函數就是一個數學函數，一個輸入會對到一個輸出。" class="headerlink" title="純函數 ( Pure Function )：給同樣輸入參數，就會回傳同樣結果的函數，而且沒有任何可觀察到的副作用。Pure Function 的例子：sin(x)。非 Pure Function 的例子：getChar()、random()、還有許多類別中的 member function。從數學上來理解，純函數就是一個數學函數，一個輸入會對到一個輸出。"></a><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><div style="font-family: -webkit-standard; font-weight: normal;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><a href="https://en.wikipedia.org/wiki/Pure_function" target="_blank" rel="noopener">純函數 ( Pure Function )</a><span style="font-weight: normal;">：</span></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-weight: normal;">給同樣輸入參數，就會回傳同樣結果的函數，而且沒有任何可觀察到的副作用。Pure Function 的例子：sin(x)。非 Pure Function 的例子：getChar()、random()、還有許多類別中的 member function。從數學上來理解，純函數就是一個數學函數，一個輸入會對到一個輸出。</span></div><div style="font-family: -webkit-standard; font-weight: normal;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"></span></div></span></h3><p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">純函數的特點：</span></p>
-<ol>
-<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Portable / Self-Documenting ：完全是自給自足的 ( self contained )，沒有外在的依賴 (Dependency)。</span></li>
-<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">可暫存 ( Cacheable )：把計算值暫存的技巧被稱作&nbsp;memorization，可以用來避免重複計算，加速程式。</span></li>
-<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">好測試 ( Testable )：不需要管上下文和呼叫順序就可以測試。</span></li>
-<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">適合平行處理、純函數是線程安全的&nbsp;( thread safe )。</span></li>
-<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><a href="http://stackoverflow.com/questions/210835/what-is-referential-transparency" target="_blank" rel="noopener">引用透明 ( Referential Transparent )</a>：一個引用透明的運算式指的是 如果這個運算式可以被他的值 (回傳值) 替換而不影響整個程式的行為。簡單講就是有可交換性啦。</span></li>
-<li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">可以熱抽換 ( Hot-Loading )：因為不依賴外部的狀態。</span><div style="font-family: -webkit-standard; font-weight: normal;"><br></div><div style="font-family: -webkit-standard; font-weight: normal;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science" target="_blank" rel="noopener">副作用 ( Side Effect )</a>)：<span style="font-weight: normal;">如果一個函數或運算式 ( expression ) 被說有副作用，這指的是它改變了一些狀態 ( states ) 或是 跟呼叫他的函數或外在世界，有可觀察到的互動。舉例來說，一個函數可能會改變全域變數或函數的靜態變數、改變傳進來的參數、引發例外 ( exception )、列印資料到螢幕或是呼叫了其他有副作用的函數。如果有了副作用，函數的行為會受到歷史、執行順序的影響。這樣子一來，想要理解或除錯有副作用的函式會較難，因為就必須要了解他的上下文 ( Context ) 和執行歷史。</span></span></div><div style="font-family: -webkit-standard; font-weight: normal;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">顯式 ( Explicit )：形容函數与外界交換資料只有一個唯一管道——参數和回傳值。和顯式的相反是隱式 ( Implicit )。</span></div><div style="font-family: -webkit-standard; font-weight: normal;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><a href="https://en.wikipedia.org/wiki/First-class_function" target="_blank" rel="noopener">一級函數( First-Class Function</a>&nbsp;)：<span style="font-weight: normal;">指的是語言支援把 Function 當成第一類公民，可以支援一般變數的操作，像是把 Function 當成變數傳給另外一個 Function。</span></span></div><div style="font-family: -webkit-standard; font-weight: normal;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><a href="https://msdn.microsoft.com/zh-tw/library/bb397687.aspx" target="_blank" rel="noopener">Lambda Function</a><span style="font-weight: normal;">：Lambda 運算式是匿名函式，可用來建立委派或運算式樹狀架構類型。</span></span></div><div style="font-family: -webkit-standard; font-weight: normal;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><a href="https://en.wikipedia.org/wiki/Formal_system" target="_blank" rel="noopener">形式系統 ( Formal System )</a><span style="font-weight: normal;">：形式系統可以的廣泛地被定義為任何基於數學模型的、良好的抽象思考的系統 ( system of abstract thought )。</span></span></div><div style="font-family: -webkit-standard; font-weight: normal;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><a href="https://en.wikipedia.org/wiki/Currying" target="_blank" rel="noopener">Currying</a><span style="font-weight: normal;">：這個技巧能把接受多參數的函數轉換為多個連續呼叫的單一參數函數。</span></span></div><div style="font-family: -webkit-standard; font-weight: normal;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><a href="http://stackoverflow.com/questions/111102/how-do-javascript-closures-work" target="_blank" rel="noopener">閉鎖 ( Closure )</a><span style="font-weight: normal;">&nbsp;/&nbsp;</span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" target="_blank" rel="noopener">MDN</a><span style="font-weight: normal;">：Closure 是可以使用獨立 / 自由變數的函數。換句話說，Closure 記得它</span>實體化<span style="font-weight: normal;">時的環境變數。</span></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-weight: normal;"><br></span></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-weight: normal;">PS：專有名詞那邊引用了很多別人的解釋，可以點前面的連結進去看完整版。</span></span></div></li>
-</ol>
-<h3 id="—————————————————————————————–"><a href="#—————————————————————————————–" class="headerlink" title="—————————————————————————————–"></a><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">—————————————————————————————–</span></h3><div><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/" target="_blank" rel="noopener">Professor Frisby’s Mostly Adequate Guide to Functional Programming</a><span style="color: #333333; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;( 下文是這本書的筆記 )</span></div>
-
-<h3 id=""><a href="#" class="headerlink" title="**"></a><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">**</span></h3><p>**</p>
-<h3 id="函數式編程簡介篇"><a href="#函數式編程簡介篇" class="headerlink" title="函數式編程簡介篇"></a><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong>函數式編程簡介篇</strong></span></h3><p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">函數式編程的的哲學就是假設副作用 ( side effect ) 是不正確行為的主要原因。所以努力想要控制和管理副作用，經常的解法就是把純函數、單子和不純的函數 ( impure function ) 分開來管理。另外鼓勵大家多寫純函數。我們對待資料要像玩戲法般，一直傳來傳去、禁止使用狀態 ( state ) 和副作用。剛剛這段文字有提到很多專有名詞，但這樣子怎麼寫程式？這邊我開始介紹一個新工具叫 柯里化 ( currying )。</span></p>
-<p><strong><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Currying：</span></strong><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Currying 把任何的函數轉換成 一連串只做單一事情的函數，各個擊破。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Curring的概念是簡單的。它讓你呼叫<span style="color: red;">函數 A</span> 時可以傳比預期還少的參數。然後這個<span style="color: red;">函數 A</span> 會回傳</span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: blue;">函數 B</span></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">。<span style="color: blue;">函數 B</span>&nbsp;需要的參數是先前沒傳進<span style="color: red;">函數 A</span> 的參數。所以整個流程是：</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">函數A (x, y) 可以等價於下面這段</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">————————————-</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">函數B = 函數A (x)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">函數B (y)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">先前傳進去</span><span style="color: red; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">函數 A</span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;的參數會利用閉鎖 ( Closure ) 的方式變成</span><span style="color: blue; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">函數 B</span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;的環境變數。</span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">看完上面這段解說，一定會想這什麼鬼東西？來看看&nbsp;<a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch4.html" target="_blank" rel="noopener">這邊的例子</a>&nbsp;會容易理解的多。</span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">利用這個技巧，就可以選擇一次傳所有參數或是把參數分幾次傳給數個函數。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><a href="https://lodash.com/docs#curry" target="_blank" rel="noopener">lodash提供了把函數 curry化的工具</a>，用法：</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">var divide = &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #38761d;">function (x,y) { return x / y } </span>可以被改寫成</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">—————————————————–</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">var divide = curry(&nbsp;</span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: #38761d;">function (x,y) { return x / y }</span> );</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">之後就可以被這樣呼叫</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">divide <span style="color: red;">( x )</span> <span style="color: blue;">( y )</span>;</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">或是</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">var xDividedBy = divide ( x );</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">tenDividedBy ( y );</span></p>
-<p><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">PS：這工具的名字是為了紀念一個美國數學家 —&nbsp;<a href="https://en.wikipedia.org/wiki/Haskell_Curry" target="_blank" rel="noopener">Haskell Curry</a>，跟咖哩沒有關係。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">接下來我們看另外一個工具 代碼組成( compose )。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong>組合 / 組成 / 合成 ( compose )</strong>：</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Composition 把許多函數用管子 ( pipe ) 連接起來，變成一個新個函數。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span></p>
-<p><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="http://2.bp.blogspot.com/-eFzwVuCTVaU/VkBsgOAPFuI/AAAAAAAA36k/2G6L_UmPZjI/s1600/Screen%2BShot%2B2015-11-09%2Bat%2B5.50.05%2BPM.jpg" target="_blank" rel="noopener"><img src="http://2.bp.blogspot.com/-eFzwVuCTVaU/VkBsgOAPFuI/AAAAAAAA36k/2G6L_UmPZjI/s320/Screen%2BShot%2B2015-11-09%2Bat%2B5.50.05%2BPM.jpg" alt=""></a></td></tr><tr><td class="tr-caption" style="text-align: center;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">f, g 都是函數，x 在它們之間被傳遞。<br>注意g函數的參數是 x、f函數的參數是 g函數的回傳值。<br>較常用在 f &amp; g 都吃同一類參數的時候 (ex: 字串)。</span></td></tr></tbody></table><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">例子：變大寫和去空白函數 = compose (變大寫函數, 去空白函數)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">因為有了一級函數、Currying、組合，Pointfree 風格變得流行了起來，指的是函數呼叫時不用提到它要處理的資料。例如：</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: #674ea7;">var</span> snakeCase = <span style="color: #674ea7;">function</span> ( <span style="background-color: #ffd966;"><strong>word</strong></span> ) {</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;<span style="color: #674ea7;">&nbsp; &nbsp;return</span><span style="color: magenta;"> </span><span style="background-color: #ffd966;"><strong>word</strong></span>.toUpperCase( ).replace(&nbsp;<span style="color: #e06666;">/\s+/ig</span>, <span style="color: #6aa84f;">‘<em>‘&nbsp;</em></span>);</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">}&nbsp;</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">可被改寫成</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">———————————————–</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: #674ea7;">var</span> snakeCase = compose (&nbsp;</span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">replace(&nbsp;</span><span style="color: #e06666; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">/\s+/ig</span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">,&nbsp;</span><span style="color: #6aa84f; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">‘‘&nbsp;</span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">), toLowerCase );</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">用組合形成新函數就不用提到資料 — 也就是之前寫法中的 <strong>word</strong></span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strong>
-</strong></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Pointfree的編程風格可以讓我們移除不需要的名字 (names)，讓我們保持簡潔 ( concise ) 和一般化 / 泛型 ( generic )。但要小心 Pointfree 是個雙面刃，有時會把原來的目的變得模糊。</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">( 以上是書本前五章的內容，其他待續… 後面有點硬，不知道什麼時候會看。)</span><br><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="background-color: #f6f6f6; color: #333333;"><br></span></span><span style="color: #333333; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="background-color: #f6f6f6;">—</span></span><br><span style="color: #333333; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="background-color: #f6f6f6;">這篇文介紹得很好&nbsp;<a href="http://coolshell.cn/articles/10822.html" target="_blank" rel="noopener">函數式編程</a></span></span></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/09/函數式編程介紹-1-2/" data-id="cjblkzcl9000oxq9k1qfr42jm" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/composition/">composition</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/currying/">currying</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pure-function/">pure function</a></li></ul>
 
     </footer>
   </div>
@@ -606,7 +665,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+      <a href="/tags/ACGN/" style="font-size: 10px;">ACGN</a> <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/分鏡/" style="font-size: 10px;">分鏡</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
     </div>
   </div>
 
@@ -634,6 +693,18 @@
   
 </nav>
     
+<script>
+  var disqus_shortname = 'vividadada';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 

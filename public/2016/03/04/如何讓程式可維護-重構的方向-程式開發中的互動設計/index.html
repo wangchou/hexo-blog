@@ -8,14 +8,14 @@
   <title>如何讓程式可維護 / 重構的方向 / 程式開發中的互動設計 | vividadada 的地下城大冒險</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="要解決的問題： 當要程式中增加功能、解決 bug 時，能：  有概念知道「要修改的地方們」在哪 能快速切換到「要修改的地方們」 能在「要修改的地方們」之間快速切換*「修改的地方們」很容易修改 「修改的地方們」不多   當程式要重構時，能：  測試重構後，外部行為是否一樣 輕易搬移搬動程式、不產生 bug    解法：把程式切成小區塊，每個區塊只負責單一功能，幫這些區塊建立資訊架構，架構中設計狀態的">
-<meta name="keywords" content="coding,interaction design,refactoring,separation of concerns">
+<meta name="keywords" content="IA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何讓程式可維護 &#x2F; 重構的方向 &#x2F; 程式開發中的互動設計">
 <meta property="og:url" content="http://wangchou.github.io/2016/03/04/如何讓程式可維護-重構的方向-程式開發中的互動設計/index.html">
 <meta property="og:site_name" content="vividadada 的地下城大冒險">
 <meta property="og:description" content="要解決的問題： 當要程式中增加功能、解決 bug 時，能：  有概念知道「要修改的地方們」在哪 能快速切換到「要修改的地方們」 能在「要修改的地方們」之間快速切換*「修改的地方們」很容易修改 「修改的地方們」不多   當程式要重構時，能：  測試重構後，外部行為是否一樣 輕易搬移搬動程式、不產生 bug    解法：把程式切成小區塊，每個區塊只負責單一功能，幫這些區塊建立資訊架構，架構中設計狀態的">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2017-12-25T02:19:53.077Z">
+<meta property="og:updated_time" content="2017-12-27T02:55:38.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何讓程式可維護 &#x2F; 重構的方向 &#x2F; 程式開發中的互動設計">
 <meta name="twitter:description" content="要解決的問題： 當要程式中增加功能、解決 bug 時，能：  有概念知道「要修改的地方們」在哪 能快速切換到「要修改的地方們」 能在「要修改的地方們」之間快速切換*「修改的地方們」很容易修改 「修改的地方們」不多   當程式要重構時，能：  測試重構後，外部行為是否一樣 輕易搬移搬動程式、不產生 bug    解法：把程式切成小區塊，每個區塊只負責單一功能，幫這些區塊建立資訊架構，架構中設計狀態的">
@@ -110,7 +110,7 @@
 <h1 id="好習慣："><a href="#好習慣：" class="headerlink" title="好習慣："></a>好習慣：</h1><h2 id="把程式切成小區塊-ex-4-30-行的小-chunks"><a href="#把程式切成小區塊-ex-4-30-行的小-chunks" class="headerlink" title="把程式切成小區塊 ( ex: 4 - 30 行的小 chunks)"></a><u>把程式切成小區塊 ( ex: 4 - 30 行的小 chunks)</u></h2><h3 id="好處："><a href="#好處：" class="headerlink" title="好處："></a>好處：</h3><ul>
 <li>好理解、好修改、也容易增加新功能、能塞進人腦的工作記憶裡</li>
 </ul>
-<p>### </p>
+<p>###</p>
 <ul>
 <li>每個程式區塊 = 一個檔案 or 一個 function or 一個 folding</li>
 <li>每個區塊行數 (after folding)，大於一個螢幕可以顯示時就要 Refactoring</li>
@@ -154,7 +154,7 @@
         <a href="http://wangchou.github.io/2016/03/04/如何讓程式可維護-重構的方向-程式開發中的互動設計/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interaction-design/">interaction design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/refactoring/">refactoring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/separation-of-concerns/">separation of concerns</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IA/">IA</a></li></ul>
 
     </footer>
   </div>
@@ -196,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ACGN/" style="font-size: 10px;">ACGN</a> <a href="/tags/IA/" style="font-size: 13.33px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/Model/" style="font-size: 10px;">Model</a> <a href="/tags/System-Thinking/" style="font-size: 10px;">System Thinking</a> <a href="/tags/UCD/" style="font-size: 10px;">UCD</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/baas/" style="font-size: 10px;">baas</a> <a href="/tags/backend/" style="font-size: 13.33px;">backend</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cognitive-psychology/" style="font-size: 10px;">cognitive psychology</a> <a href="/tags/composition/" style="font-size: 13.33px;">composition</a> <a href="/tags/currying/" style="font-size: 13.33px;">currying</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/designer/" style="font-size: 10px;">designer</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/engineering/" style="font-size: 10px;">engineering</a> <a href="/tags/event-system/" style="font-size: 10px;">event system</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 13.33px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/functors/" style="font-size: 10px;">functors</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/information/" style="font-size: 10px;">information</a> <a href="/tags/information-architecture/" style="font-size: 10px;">information architecture</a> <a href="/tags/interaction-design/" style="font-size: 10px;">interaction design</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/one-way-data-flow/" style="font-size: 10px;">one way data flow</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 13.33px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 16.67px;">redux</a> <a href="/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/tags/separation-of-concerns/" style="font-size: 10px;">separation of concerns</a> <a href="/tags/sociology/" style="font-size: 10px;">sociology</a> <a href="/tags/state-machine/" style="font-size: 13.33px;">state machine</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 16.67px;">ux</a> <a href="/tags/vivid-dream/" style="font-size: 10px;">vivid dream</a> <a href="/tags/yahoo/" style="font-size: 10px;">yahoo</a> <a href="/tags/分鏡/" style="font-size: 10px;">分鏡</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
+      <a href="/tags/ACGN/" style="font-size: 10px;">ACGN</a> <a href="/tags/IA/" style="font-size: 15px;">IA</a> <a href="/tags/MobX/" style="font-size: 10px;">MobX</a> <a href="/tags/backend/" style="font-size: 12.5px;">backend</a> <a href="/tags/design/" style="font-size: 20px;">design</a> <a href="/tags/design-thinking/" style="font-size: 10px;">design thinking</a> <a href="/tags/empathy/" style="font-size: 10px;">empathy</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 12.5px;">firebase</a> <a href="/tags/flux/" style="font-size: 10px;">flux</a> <a href="/tags/framer/" style="font-size: 10px;">framer</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional programming</a> <a href="/tags/hackathon/" style="font-size: 10px;">hackathon</a> <a href="/tags/javascript/" style="font-size: 17.5px;">javascript</a> <a href="/tags/node/" style="font-size: 12.5px;">node</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/prototyping/" style="font-size: 10px;">prototyping</a> <a href="/tags/psychology/" style="font-size: 10px;">psychology</a> <a href="/tags/pure-function/" style="font-size: 10px;">pure function</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/redux/" style="font-size: 17.5px;">redux</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/user-story-mapping/" style="font-size: 10px;">user story mapping</a> <a href="/tags/ux/" style="font-size: 15px;">ux</a> <a href="/tags/社會學/" style="font-size: 10px;">社會學</a> <a href="/tags/老子/" style="font-size: 10px;">老子</a>
     </div>
   </div>
 

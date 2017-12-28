@@ -103,3 +103,7 @@ feed:
   path: atom.xml
   limit: 0
   content: true
+
+# add sitemap for SEO / google searchable
+sitemap:
+  path: sitemap.xml

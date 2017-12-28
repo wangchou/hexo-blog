@@ -1,7 +1,7 @@
 # Header
 menu:
-  Home: /
-  Archives: /archives
+  首頁: /
+  所有文章: /archives
   Github: https://github.com/wangchou
 rss: /atom.xml
 
